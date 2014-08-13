@@ -1,0 +1,11 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+In Driver file
+
+Parameters: 
+omega = 1
+fRef = 1600
+Target rectangle = [  -10  1000   -50 12000]
+tau = (495+5975j)
+
+Reading data from /home/ali/Desktop/project/python_source/data/5koref1/

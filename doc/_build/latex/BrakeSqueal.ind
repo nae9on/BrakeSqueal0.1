@@ -1,0 +1,69 @@
+\begin{theindex}
+\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
+
+  \bigletter {Symbols}
+  \item \_\_init\_\_ (module), \hyperpage{3}
+
+  \indexspace
+  \bigletter A
+  \item assemble (module), \hyperpage{6}
+
+  \indexspace
+  \bigletter B
+  \item brake\_squeal\_qevp() (in module qevp), \hyperpage{12}
+
+  \indexspace
+  \bigletter C
+  \item cover (module), \hyperpage{13}
+  \item create\_MCK() (in module assemble), \hyperpage{6}
+
+  \indexspace
+  \bigletter D
+  \item diag\_scale\_matrices() (in module diagscale), \hyperpage{8}
+  \item diagscale (module), \hyperpage{7}
+
+  \indexspace
+  \bigletter L
+  \item load (module), \hyperpage{5}
+  \item load\_matrices() (in module load), \hyperpage{5}
+  \item logger (module), \hyperpage{5}
+
+  \indexspace
+  \bigletter N
+  \item next\_shift() (in module cover), \hyperpage{13}
+  \item norm\_rc() (in module diagscale), \hyperpage{8}
+  \item normalize\_cols() (in module diagscale), \hyperpage{9}
+
+  \indexspace
+  \bigletter O
+  \item Obtain\_eigs() (in module qevp), \hyperpage{11}
+  \item obtain\_projection\_matrix() (in module projection), \hyperpage{11}
+
+  \indexspace
+  \bigletter P
+  \item projection (module), \hyperpage{11}
+
+  \indexspace
+  \bigletter Q
+  \item qevp (module), \hyperpage{11}
+
+  \indexspace
+  \bigletter R
+  \item residual (module), \hyperpage{15}
+  \item return\_info\_logger() (in module logger), \hyperpage{5}
+  \item return\_time\_logger() (in module logger), \hyperpage{5}
+
+  \indexspace
+  \bigletter S
+  \item scale (module), \hyperpage{7}
+  \item scale\_matrices() (in module scale), \hyperpage{7}
+  \item shift (module), \hyperpage{6}
+  \item shift\_matrices() (in module shift), \hyperpage{6}
+  \item solver (module), \hyperpage{12}
+
+  \indexspace
+  \bigletter U
+  \item unlinearize (module), \hyperpage{9}
+  \item unlinearize\_matrices() (in module unlinearize), \hyperpage{9}
+
+\end{theindex}

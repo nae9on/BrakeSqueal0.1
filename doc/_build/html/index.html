@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to BrakeSqueal’s documentation! &mdash; BrakeSqueal 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="BrakeSqueal 0.1 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">BrakeSqueal 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-brakesqueal-s-documentation">
+<h1>Welcome to BrakeSqueal&#8217;s documentation!<a class="headerlink" href="#welcome-to-brakesqueal-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="brake">
+<h1>brake<a class="headerlink" href="#brake" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-__init__">
+<span id="init"></span><h2>__init__<a class="headerlink" href="#module-__init__" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="initialize">
+<h1>initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-logger">
+<span id="logger"></span><h2>logger<a class="headerlink" href="#module-logger" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- return_info_logger:
+  
+  Creates and returns a python logger object for information logging
+  
+- return_time_logger:
+  
+  Creates and returns a python logger object for time logging 
+</pre></div>
+</div>
+<dl class="function">
+<dt id="logger.return_info_logger">
+<tt class="descclassname">logger.</tt><tt class="descname">return_info_logger</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#logger.return_info_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logger_i</span></tt> &#8211; python logger object for information logging</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="logger.return_time_logger">
+<tt class="descclassname">logger.</tt><tt class="descname">return_time_logger</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#logger.return_time_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">logger_t</span></tt> &#8211; python logger object for time logging</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-load">
+<span id="load"></span><h2>load<a class="headerlink" href="#module-load" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- load_matrices:
+
+  This function loads the sparse data matrices in .mat format and adds them to a python list
+</pre></div>
+</div>
+<dl class="function">
+<dt id="load.load_matrices">
+<tt class="descclassname">load.</tt><tt class="descname">load_matrices</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#load.load_matrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class BrakeClass</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">sparse_list</span></tt> &#8211; a python list of matrices in Compressed Sparse Column format 
+of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">sparse_list</span></tt> is obtained by loading the vaious .mat files present in the
+<tt class="docutils literal"><span class="pre">data_file_list</span></tt> attribute of the <tt class="docutils literal"><span class="pre">BrakeClass</span></tt> and then appending them into
+a python list <tt class="docutils literal"><span class="pre">sparse_list</span></tt></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-assemble">
+<span id="assemble"></span><h2>assemble<a class="headerlink" href="#module-assemble" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- create_MCK:
+
+  Assembles the various component matrices together(for the given angular frequency
+  ``omega``) to form the mass(M), damping(C) and stiffness matrix(K).
+</pre></div>
+</div>
+<dl class="function">
+<dt id="assemble.create_MCK">
+<tt class="descclassname">assemble.</tt><tt class="descname">create_MCK</tt><big>(</big><em>obj</em>, <em>sparse_list</em>, <em>omega</em><big>)</big><a class="headerlink" href="#assemble.create_MCK" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sparse_list</span></tt> &#8211; a python list of matrices in Compressed Sparse Column format 
+of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
+<li><tt class="docutils literal"><span class="pre">omega</span></tt> &#8211; angular frequency</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> &#8211; Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> &#8211; Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> &#8211; Stiffness Matrix</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">M</span></tt> , <tt class="docutils literal"><span class="pre">C</span></tt> , <tt class="docutils literal"><span class="pre">K</span></tt> are assembled as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> = m</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> = c1+c2*(omega/omegaRef)+c3*(omegaRef/omega)</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> = k1+k2+k3*math.pow((omega/omegaRef),2)</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-shift">
+<span id="shift"></span><h2>shift<a class="headerlink" href="#module-shift" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- shift_matrices:
+
+  Transform the qevp using shift and invert spectral transformations.
+</pre></div>
+</div>
+<dl class="function">
+<dt id="shift.shift_matrices">
+<tt class="descclassname">shift.</tt><tt class="descname">shift_matrices</tt><big>(</big><em>obj</em>, <em>m</em>, <em>c</em>, <em>k</em>, <em>tau</em><big>)</big><a class="headerlink" href="#shift.shift_matrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">m</span></tt> &#8211; Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">c</span></tt> &#8211; Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">k</span></tt> &#8211; Stiffness Matrix</li>
+<li><tt class="docutils literal"><span class="pre">tau</span></tt> &#8211; shift</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> &#8211; Shifted Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> &#8211; Shifted Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> &#8211; Shifted Stiffness Matrix</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">M</span></tt> , <tt class="docutils literal"><span class="pre">C</span></tt> , <tt class="docutils literal"><span class="pre">K</span></tt> are obtained as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> = m</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> = 2 * tau * m + c</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> = tau_squared * m + tau * c + k</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-scale">
+<span id="scale"></span><h2>scale<a class="headerlink" href="#module-scale" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- scale_matrices:
+
+  Scales the M, C, K matrices using 2-scalers before linearization.
+</pre></div>
+</div>
+<dl class="function">
+<dt id="scale.scale_matrices">
+<tt class="descclassname">scale.</tt><tt class="descname">scale_matrices</tt><big>(</big><em>obj</em>, <em>m</em>, <em>c</em>, <em>k</em><big>)</big><a class="headerlink" href="#scale.scale_matrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">m</span></tt> &#8211; Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">c</span></tt> &#8211; Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">k</span></tt> &#8211; Stiffness Matrix</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> &#8211; Scaled Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> &#8211; Scaled Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> &#8211; Scaled Stiffness Matrix</li>
+<li><tt class="docutils literal"><span class="pre">gamma</span></tt> &#8211; scaling parameter</li>
+<li><tt class="docutils literal"><span class="pre">delta</span></tt> &#8211; scaling parameter</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">M</span></tt> , <tt class="docutils literal"><span class="pre">C</span></tt> , <tt class="docutils literal"><span class="pre">K</span></tt>, <tt class="docutils literal"><span class="pre">gamma</span></tt>, <tt class="docutils literal"><span class="pre">delta</span></tt>  are obtained as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> = gamma*gamma*delta*m;</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> = gamma*delta*c;</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> = delta*k;</li>
+<li><tt class="docutils literal"><span class="pre">gamma</span></tt> = math.sqrt(k_norm/m_norm);</li>
+<li><tt class="docutils literal"><span class="pre">delta</span></tt> = 2/(k_norm+c_norm*gamma);</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-diagscale">
+<span id="diagscale"></span><h2>diagscale<a class="headerlink" href="#module-diagscale" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- normalize_cols:
+
+  Returns a diagonal matrix D such that every column of A*D has eucledian norm = 1. 
+  
+- norm_rc:
+
+  Returns diagonal matrix DL and DR such that every row and every column of DL*Y*DR
+  has euclidean norm ~ 1.
+
+- diag_scale_matrices:
+
+  Diagonally scales the shifted scalar-scaled matrices using DL, DR to improve the
+  condition number.
+</pre></div>
+</div>
+<dl class="function">
+<dt id="diagscale.diag_scale_matrices">
+<tt class="descclassname">diagscale.</tt><tt class="descname">diag_scale_matrices</tt><big>(</big><em>obj</em>, <em>M</em>, <em>C</em>, <em>K</em><big>)</big><a class="headerlink" href="#diagscale.diag_scale_matrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">M</span></tt> &#8211; Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> &#8211; Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> &#8211; Stiffness Matrix</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> &#8211; Diagonally Scaled Mass Matrix</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> &#8211; Diagonally Scaled Damping Matrix</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> &#8211; Diagonally Scaled Stiffness Matrix</li>
+<li><tt class="docutils literal"><span class="pre">DR</span></tt> &#8211; Matrix that normalize the columns</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">M</span></tt> , <tt class="docutils literal"><span class="pre">C</span></tt> , <tt class="docutils literal"><span class="pre">K</span></tt>, <tt class="docutils literal"><span class="pre">DR</span></tt>  are obtained as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">M</span></tt> = <tt class="docutils literal"><span class="pre">DL</span> <span class="pre">*</span> <span class="pre">M</span> <span class="pre">*</span> <span class="pre">DR</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> = <tt class="docutils literal"><span class="pre">DL</span> <span class="pre">*</span> <span class="pre">C</span> <span class="pre">*</span> <span class="pre">DR</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> = <tt class="docutils literal"><span class="pre">DL</span> <span class="pre">*</span> <span class="pre">K</span> <span class="pre">*</span> <span class="pre">DR</span></tt></li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="diagscale.norm_rc">
+<tt class="descclassname">diagscale.</tt><tt class="descname">norm_rc</tt><big>(</big><em>Y</em><big>)</big><a class="headerlink" href="#diagscale.norm_rc" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Y</span></tt> &#8211; matrix that needs to be normalized across both columns and rows</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">DL</span></tt> &#8211; <tt class="docutils literal"><span class="pre">DL</span></tt> = ..... <tt class="docutils literal"><span class="pre">Drow3</span></tt> * <tt class="docutils literal"><span class="pre">Drow2</span></tt> * <tt class="docutils literal"><span class="pre">Drow1</span></tt> * I</li>
+<li><tt class="docutils literal"><span class="pre">DR</span></tt> &#8211; <tt class="docutils literal"><span class="pre">DR</span></tt> = <tt class="docutils literal"><span class="pre">I</span></tt> * <tt class="docutils literal"><span class="pre">Dcol1</span></tt> * <tt class="docutils literal"><span class="pre">Dcol2</span></tt> * <tt class="docutils literal"><span class="pre">Dcol3</span></tt>......</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">DL</span></tt> and <tt class="docutils literal"><span class="pre">DR</span></tt> are obtained as a converging sequence :</p>
+<ul class="simple">
+<li>set <tt class="docutils literal"><span class="pre">Dcol</span> <span class="pre">=</span> <span class="pre">normalize</span> <span class="pre">columns(Y)</span></tt></li>
+<li>set <tt class="docutils literal"><span class="pre">DR</span> <span class="pre">=</span> <span class="pre">DR</span> <span class="pre">*</span> <span class="pre">Dcol</span></tt></li>
+<li>set <tt class="docutils literal"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">Y</span> <span class="pre">*</span> <span class="pre">Dcol</span></tt></li>
+<li>set <tt class="docutils literal"><span class="pre">Drow</span> <span class="pre">=</span> <span class="pre">normalize</span> <span class="pre">rows(Y)</span> <span class="pre">=</span> <span class="pre">normalize</span> <span class="pre">columns(Y.T)</span></tt></li>
+<li>set <tt class="docutils literal"><span class="pre">DL</span> <span class="pre">=</span> <span class="pre">Drow</span> <span class="pre">*</span> <span class="pre">DL</span></tt></li>
+<li>set <tt class="docutils literal"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">Drow</span> <span class="pre">*</span> <span class="pre">Y</span></tt></li>
+<li>when <tt class="docutils literal"><span class="pre">Dcol</span></tt> and <tt class="docutils literal"><span class="pre">Drow</span></tt> are sufficiently close to <tt class="docutils literal"><span class="pre">I</span></tt> or max no of iterations reached
+STOP and return, else continue with step 1.</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="diagscale.normalize_cols">
+<tt class="descclassname">diagscale.</tt><tt class="descname">normalize_cols</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#diagscale.normalize_cols" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">A</span></tt> &#8211; matrix that needs to be normalized(columnwise)</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">D</span></tt> &#8211; diagonal matrix such that every column of <tt class="docutils literal"><span class="pre">A*D</span></tt> has eucledian norm = 1.</li>
+</ul>
+<p><tt class="docutils literal"><span class="pre">D</span></tt> is obtained as follows:</p>
+<ul class="simple">
+<li>square the elements of A and sum each column</li>
+<li>set the diagonal elemnts of D as the inverse square root of the column sums</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-unlinearize">
+<span id="unlinearize"></span><h2>unlinearize<a class="headerlink" href="#module-unlinearize" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- unlinearize_matrices:
+  
+  To obtain the eigenvectors prior linearization of the QEVP from the 
+  resulting eigenvectors (after classical companion linearization of the QEVP
+  to obtain the generalized eigenvalue propblem).
+</pre></div>
+</div>
+<dl class="function">
+<dt id="unlinearize.unlinearize_matrices">
+<tt class="descclassname">unlinearize.</tt><tt class="descname">unlinearize_matrices</tt><big>(</big><em>evec</em><big>)</big><a class="headerlink" href="#unlinearize.unlinearize_matrices" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">evec</span></tt> &#8211; eigenvectors of the generalized eigenvalue propblem</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">evec_prior</span></tt> &#8211; eigenvectors prior linearization of the QEVP</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">evec_prior</span></tt> are obtained as follows:</p>
+<ul class="simple">
+<li>check for every vector <tt class="docutils literal"><span class="pre">i</span></tt> of the GEVP(<tt class="docutils literal"><span class="pre">evec</span></tt>) (consider MATLAB convention)</li>
+<li>if <tt class="docutils literal"><span class="pre">norm(evec[1:n,i])</span> <span class="pre">&gt;</span> <span class="pre">norm(evec[n+1:2*n,i])</span> <span class="pre">set</span> <span class="pre">evec_prior[:,i]</span> <span class="pre">=</span> <span class="pre">evec[1:n,i]</span></tt></li>
+<li>else <tt class="docutils literal"><span class="pre">set</span> <span class="pre">evec_prior[:,i]</span> <span class="pre">=</span> <span class="pre">evec[n+1:2*n,i]</span></tt></li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="solve">
+<h1>solve<a class="headerlink" href="#solve" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-projection">
+<span id="projection"></span><h2>projection<a class="headerlink" href="#module-projection" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- obtain_projection_matrix:
+
+ This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
+ for each base angular frequency.
+</pre></div>
+</div>
+<dl class="function">
+<dt id="projection.obtain_projection_matrix">
+<tt class="descclassname">projection.</tt><tt class="descname">obtain_projection_matrix</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#projection.obtain_projection_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Q</span></tt> &#8211; projection matrix</li>
+</ul>
+<p>The projection matrix is obtained as follows:</p>
+<ul class="simple">
+<li>Obtain the measurment matrix <tt class="docutils literal"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">[X_real</span> <span class="pre">X_imag]</span></tt>, with <tt class="docutils literal"><span class="pre">X_real</span></tt> as a list of 
+real parts of eigenvectors and <tt class="docutils literal"><span class="pre">X_imag</span></tt> as a list of imaginary parts of 
+eigenvectors, corresponding to each base angular frequency in <tt class="docutils literal"><span class="pre">omega_basis</span></tt>.</li>
+<li>Compute the thin svd of the measurment matrix. <tt class="docutils literal"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">U</span> <span class="pre">*</span> <span class="pre">s</span> <span class="pre">*</span> <span class="pre">V</span></tt></li>
+<li>Set <tt class="docutils literal"><span class="pre">Q</span> <span class="pre">=</span> <span class="pre">truncated(U)</span></tt>, where the truncation is done to take only the significant 
+singular values(based on a certain tolerance) into account</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qevp">
+<span id="qevp"></span><h2>qevp<a class="headerlink" href="#module-qevp" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- brake_squeal_qevp:
+
+  For a particuar base angular frequency this function assembles the eigenvalues
+  and eigenvectors for different shift points in the target region.
+  
+-  Obtain_eigs:
+  
+  For a particuar base angular frequency and for a particular shift point this 
+  function evaluates the eigenvalues and eigenvectors
+</pre></div>
+</div>
+<dl class="function">
+<dt id="qevp.Obtain_eigs">
+<tt class="descclassname">qevp.</tt><tt class="descname">Obtain_eigs</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>qevp_j</em>, <em>omega</em>, <em>next_shift</em><big>)</big><a class="headerlink" href="#qevp.Obtain_eigs" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">freq_i</span></tt> &#8211; the index of the base angular freq</li>
+<li><tt class="docutils literal"><span class="pre">qevp_j</span></tt> &#8211; the index of the shift point</li>
+<li><tt class="docutils literal"><span class="pre">omega</span></tt> &#8211; ith base angular freq</li>
+<li><tt class="docutils literal"><span class="pre">next_shift</span></tt> &#8211; jth shift point in the target region</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">la</span></tt> &#8211; eigenvalues</li>
+<li><tt class="docutils literal"><span class="pre">evec</span></tt> &#8211; eigenvectors</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">la</span></tt> and <tt class="docutils literal"><span class="pre">evec</span></tt> are obtained as follows:</p>
+<ul class="simple">
+<li>load the various component matrices</li>
+<li>assemble the various component matrices together(for the given angular frequency
+<tt class="docutils literal"><span class="pre">omega</span></tt>) to form the mass(M), damping(C) and stiffness matrix(K).</li>
+<li>because we are interested in inner eigenvalues around certain shift points
+<tt class="docutils literal"><span class="pre">next_shift</span></tt>, so we transform the qevp using shift and invert spectral
+transformations.</li>
+<li></li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="qevp.brake_squeal_qevp">
+<tt class="descclassname">qevp.</tt><tt class="descname">brake_squeal_qevp</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>omega</em><big>)</big><a class="headerlink" href="#qevp.brake_squeal_qevp" title="Permalink to this definition">¶</a></dt>
+<dd><p>INPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">freq_i</span></tt> &#8211; the index of the base angular freq in</li>
+<li><tt class="docutils literal"><span class="pre">omega</span></tt> &#8211; ith base angular freq</li>
+</ul>
+<p>OUTPUT:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">assembled_la</span></tt> &#8211; assembled eigenvalues</li>
+<li><tt class="docutils literal"><span class="pre">assembled_evec</span></tt> &#8211; assembled eigenvectors</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">assembled_la</span></tt> and <tt class="docutils literal"><span class="pre">assembled_evec</span></tt> are obtained as follows:</p>
+<ul class="simple">
+<li>calculate the next shift point in the target region</li>
+<li>obtain eigenvalues and eigenvectors for that particular shift point</li>
+<li>add the eigenvalues and eigenvectors to <tt class="docutils literal"><span class="pre">assembled_la</span></tt> and <tt class="docutils literal"><span class="pre">assembled_evec</span></tt> respectively</li>
+<li>check if the required area fraction of the target region has been covered. If <tt class="docutils literal"><span class="pre">yes</span></tt> return
+<tt class="docutils literal"><span class="pre">assembled_la</span></tt> and <tt class="docutils literal"><span class="pre">assembled_evec</span></tt> else calculate the next shift point in the target
+region and repeat</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="module-solver">
+<span id="solver"></span><h2>solver<a class="headerlink" href="#module-solver" title="Permalink to this headline">¶</a></h2>
+<p>Function for the generalized eigenvalue problem</p>
+<p>Input
+A x = lamda B x
+evs_per_shift: no of eigenvalues required
+kind: largest or smallest in magnitude. parameters &#8216;LM&#8217;, &#8216;SM&#8217; respectively
+flag: flag should be passed true when B is positive definite</p>
+<dl class="docutils">
+<dt>Output</dt>
+<dd><ol class="first last arabic">
+<li><p class="first">la (Array of evs_per_shift eigenvalues.)</p>
+</li>
+<li><dl class="first docutils">
+<dt>v (An array of evs_per_shift eigenvectors. v[:, i] is the eigenvector </dt>
+<dd><p class="first last">corresponding to the eigenvalue la[i])</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+<p>Additional Info
+Example of eigs
+eigs(A, k=6, M=None, sigma=None, which=&#8217;LM&#8217;, v0=None, ncv=None, maxiter=None, tol=0,
+return_eigenvectors=True, Minv=None, OPinv=None, OPpart=None)</p>
+<p>The eigs function of PYTHON can calculate the eigenvalues of the generalized eigenvalue
+problem A*x=lamda*M*x with the following conditions.
+M must represent a real, symmetric matrix if A is real, and must represent a complex, 
+hermitian matrix if A is complex.
+If sigma is None, M has to be positive definite 
+If sigma is specified, M has to be positive semi-definite</p>
+<p>When sigma is specified &#8216;say 0&#8217; then eigs function will calculate the eigenvalues nearest to sigma. 
+The &#8216;LM&#8217; clause along with sigma = 0 can be used to calculate the reciprocal eigenvalues of 
+Largest Magnitude.</p>
+</div>
+<div class="section" id="module-cover">
+<span id="cover"></span><h2>cover<a class="headerlink" href="#module-cover" title="Permalink to this headline">¶</a></h2>
+<p>Implementation of the MonteCarlo Algorithm for choosing shift points to cover the target region</p>
+<p>cover.next_shift
+Input
+1. target (target region for the shift points)
+2. previous_shifts (python list for the previous shift points already calculated)
+3. previous_radius (corresponding radius of the previous shift points)</p>
+<p>Output
+1. next_shift (next shift point in the target region)</p>
+<dl class="function">
+<dt id="cover.next_shift">
+<tt class="descclassname">cover.</tt><tt class="descname">next_shift</tt><big>(</big><em>obj</em>, <em>previous_shifts=</em>, <span class="optional">[</span><span class="optional">]</span><em>previous_radius=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cover.next_shift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the next shift in the target region</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="analyze">
+<h1>analyze<a class="headerlink" href="#analyze" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-residual">
+<span id="residual"></span><h2>residual<a class="headerlink" href="#module-residual" title="Permalink to this headline">¶</a></h2>
+<p>Function definitions for obtaining the residual</p>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to BrakeSqueal&#8217;s documentation!</a></li>
+<li><a class="reference internal" href="#brake">brake</a><ul>
+<li><a class="reference internal" href="#module-__init__">__init__</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initialize">initialize</a><ul>
+<li><a class="reference internal" href="#module-logger">logger</a></li>
+<li><a class="reference internal" href="#module-load">load</a></li>
+<li><a class="reference internal" href="#module-assemble">assemble</a></li>
+<li><a class="reference internal" href="#module-shift">shift</a></li>
+<li><a class="reference internal" href="#module-scale">scale</a></li>
+<li><a class="reference internal" href="#module-diagscale">diagscale</a></li>
+<li><a class="reference internal" href="#module-unlinearize">unlinearize</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#solve">solve</a><ul>
+<li><a class="reference internal" href="#module-projection">projection</a></li>
+<li><a class="reference internal" href="#module-qevp">qevp</a></li>
+<li><a class="reference internal" href="#module-solver">solver</a></li>
+<li><a class="reference internal" href="#module-cover">cover</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#analyze">analyze</a><ul>
+<li><a class="reference internal" href="#module-residual">residual</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">BrakeSqueal 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Ali H. Kadar.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>

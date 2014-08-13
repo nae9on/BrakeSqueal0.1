@@ -1,0 +1,10 @@
+Name: BrakeSqueal
+Version: 0.1
+Summary: Python Implementation of Parametric Model Reduction in Disc Brake Modelling
+Home-page: https://bitbucket.org/akadar/brakesqueal
+Author: Ali H. Kadar
+Author-email: kadar@math.tu-berlin.de
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Mathematics

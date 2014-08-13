@@ -1,0 +1,6 @@
+The current level of logging is 0
+To enable detailed logging provide one of the following parameters:
+info,debug
+The Info Data is logged in the file : /home/ali/Desktop/project/python_source/brake_package/output/info_31Jul.log
+The Time Data is logged in the file : /home/ali/Desktop/project/python_source/brake_package/output/time_31Jul.log
+ex execute following in shell: python main.py info

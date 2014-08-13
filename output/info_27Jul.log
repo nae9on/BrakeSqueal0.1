@@ -1,0 +1,47 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+In Driver file
+
+
+
+In load matrices (load_matrices.py)
+-------------------------------------------------------------------
+loading the following .mat files ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+load returns a list of matrices in Compressed Sparse Column format 		of type numpy.float64
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+
+Properties of various component matrices
+m symmetric Nonzeros = 93207 1-Norm = 8.96133313175e-05
+c1 symmetric NNZ = 5683 1-Norm = 10.3582462023
+c2 Dg antisymmetric NNZ = 66643 1-Norm = 0.000219139615422
+c3 Dr symmetric NNZ = 5683 1-Norm = 10.3582462023
+c4  NNZ = 23885 1-Norm = 63318.9475846
+k1 symmetric NNZ = 280845 1-Norm = 107410423.147
+k2 Kr none NNZ = 21646 1-Norm = 357014.129817
+k3 Kgeo symmetric NNZ = 280871 1-Norm = 0.00383683709698
+
+
+Properties of assembled matrices
+M  No of nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  No of nonzeros = 94090 1-Norm = 6.36511631135
+K  No of nonzeros = 291758 1-Norm = 107410423.136
+
+
+
+In scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Scaling factors gamma = 1094805.32881 delta = 1.74867066042e-08
+The scaled problem has rho = 1.0
+
+
+
+In diagonal scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Condition Number of K before scaling [ 2810938.33533604]
+Condition Number of K after scaling [ 1675103.16449781]
+The condition number of K decreases after diagonal scaling

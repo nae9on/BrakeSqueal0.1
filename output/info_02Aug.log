@@ -1,0 +1,73 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+In Driver file
+
+BrakeClass Attributes and there values
+logger_i   <logging.Logger object at 0x9f554ec>
+cutoff   0.0001
+enable   0
+log_level   20
+target   [  -10  1000   -50 12000]
+data_file_list   ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+omegaRef   1
+time_log_file   /home/ali/Desktop/brake_package/output/time_02Aug.log
+fRef   1600
+omega_range   [  1.           2.72727273   4.45454545   6.18181818   7.90909091
+   9.63636364  11.36363636  13.09090909  14.81818182  16.54545455
+  18.27272727  20.        ]
+evs_per_shift   30
+output_path   /home/ali/Desktop/brake_package/output/
+info_log_file   /home/ali/Desktop/brake_package/output/info_02Aug.log
+input_path   /home/ali/Desktop/project/python_source/data/5koref1/
+logger_t   <logging.Logger object at 0xa03faec>
+omega_basis   [   6.28318531  125.66370614]
+
+
+Beginning Setup Phase
+------------------------------------------------------------------------
+
+Creating the Measurment matrix X and Projection matrix Q
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 1 = 1.0
+Eigenvalues in the positive plane: 
+('6.897e+01', '1.742e+04')
+('2.072e+01', '-1.953e+03')
+('9.789e+00', '4.899e+03')
+('9.622e+00', '-3.124e+03')
+('2.781e+00', '5.807e+03')
+Maximum Residual error(solver) for the QEVP is (3.6033797596e-05+0j)
+Maximum Residual error = (1.96532981318e-05+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 2 = 20.0
+Eigenvalues in the positive plane: 
+('7.489e+01', '1.697e+04')
+('3.976e+01', '-1.941e+03')
+('1.288e+01', '9.851e+03')
+('1.007e+01', '5.121e+03')
+('3.608e+00', '5.804e+03')
+('3.481e+00', '4.193e+03')
+('7.157e-01', '-5.135e+03')
+Maximum Residual error(solver) for the QEVP is (3.42748155671e-05+0j)
+Maximum Residual error = (1.79558529052e-05+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+
+------------------ Now creating the Measurment matrix --------
+The number of QEVP solved = 2
+
+The number of eigenvectors computed for frequency 1 = 30
+
+The number of eigenvectors computed for frequency 2 = 30
+
+The shapes of U,s,V of the measurment matrix are as follows (4669, 120) (120,) (120, 120)
+The no of singular values = 120
+The no of singular values after truncation = 72
+The dimensions of the projection matrix = (4669, 72)
