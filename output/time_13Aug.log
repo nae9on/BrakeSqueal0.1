@@ -8,20 +8,20 @@ SOLVER: Call to python eigs command: 1.86 sec
 
 
 ------------------------------------
-Reading: 0.10 sec
+Reading: 0.02 sec
 Assembling: 0.02 sec
 Shifting: 0.01 sec
 Scaling: 0.29 sec
-Diagonal Scaling: 0.34 sec
+Diagonal Scaling: 0.33 sec
 Total Eigenvalue Computation Time: 2.79 sec
 Unfolding: 0.01 sec
-Error Analysis1(standard QEVP): 3.34 sec
-Error Analysis2(after unfolding): 3.33 sec
+Error Analysis1(standard QEVP): 3.32 sec
+Error Analysis2(after unfolding): 3.29 sec
 ------------------------------------
-	Total time taken by Obtain_eigs = 10.24 sec
+	Total time taken by Obtain_eigs = 10.09 sec
 
 
-		Total time taken by Brake Squeal Qevp = 10.48 sec
+		Total time taken by Brake Squeal Qevp = 10.34 sec
 
 
 SOLVER: LU Factorization of sparse K using spilu in time : 0.91 sec
@@ -36,13 +36,13 @@ Scaling: 0.29 sec
 Diagonal Scaling: 0.33 sec
 Total Eigenvalue Computation Time: 2.78 sec
 Unfolding: 0.01 sec
-Error Analysis1(standard QEVP): 3.35 sec
-Error Analysis2(after unfolding): 3.34 sec
+Error Analysis1(standard QEVP): 3.31 sec
+Error Analysis2(after unfolding): 3.29 sec
 ------------------------------------
-	Total time taken by Obtain_eigs = 10.13 sec
+	Total time taken by Obtain_eigs = 10.04 sec
 
 
-		Total time taken by Brake Squeal Qevp = 10.34 sec
+		Total time taken by Brake Squeal Qevp = 10.24 sec
 
 
 		Time taken to compute svd = 0.21

@@ -3,7 +3,7 @@ Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
 In Driver file
 
 BrakeClass Attributes and there values
-logger_i   <logging.Logger object at 0x1b3e090>
+logger_i   <logging.Logger object at 0x1c7e0d0>
 cutoff   0.0001
 enable   0
 log_level   20
@@ -11,16 +11,16 @@ target   [  -10  1000   -50 12000]
 desired_area_fraction   0.99
 data_file_list   ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
 omegaRef   1
-time_log_file   /homes/extern/kadar/Desktop/brake_package/output/time_13Aug.log
+time_log_file   /homes/extern/kadar/Desktop/BrakeSqueal0.1/output/time_13Aug.log
 fRef   1600
 omega_range   [  1.           2.72727273   4.45454545   6.18181818   7.90909091
    9.63636364  11.36363636  13.09090909  14.81818182  16.54545455
   18.27272727  20.        ]
 evs_per_shift   30
-output_path   /homes/extern/kadar/Desktop/brake_package/output/
-info_log_file   /homes/extern/kadar/Desktop/brake_package/output/info_13Aug.log
+output_path   /homes/extern/kadar/Desktop/BrakeSqueal0.1/output/
+info_log_file   /homes/extern/kadar/Desktop/BrakeSqueal0.1/output/info_13Aug.log
 input_path   /homes/extern/kadar/Desktop/project/python_source/data/5koref1/
-logger_t   <logging.Logger object at 0x1b3e150>
+logger_t   <logging.Logger object at 0x1c7e190>
 omega_basis   [   6.28318531  125.66370614]
 
 
@@ -45,8 +45,8 @@ Eigenvalues in the positive plane:
 ('6.393e+01', '1.704e+04')
 ('1.083e-03', '-5.131e+03')
 ('1.083e-03', '5.131e+03')
-Maximum Residual error(solver) for the QEVP is (5.35667485442e-15+0j)
-Maximum Residual error = (6.83985351718e-15+0j)
+Maximum Residual error(solver) for the QEVP is (5.35615058637e-15+0j)
+Maximum Residual error = (5.41467391992e-15+0j)
 
 for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
 

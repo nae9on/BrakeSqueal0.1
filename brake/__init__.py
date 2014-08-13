@@ -1,11 +1,39 @@
+r"""
+This module defines the following functions::
+
+  - BrakeClass:
+  
+    Python Parent Class for the BrakeSqueal Project
+    
+  - print_eigs:
+    
+    Prints all the eigenvalues on the terminal (with two floating points).
+    
+  - print_target_eigs:
+  
+    Prints the eigenvalues in the target region on the terminal (when flag is false)
+    , in the info file (when flag is true).
+  
+    
+"""
+
+#----------------------------------Standard Library Imports---------------------------------------
+# Please ensure that the following libraries are installed on the system prior 
+# running the program.
 import logging
+
+#----------------------------Application Specific Imports----------------------------------------- 
 from initialize import logger
+
+
 __all__ = [
     'BrakeClass'
     ]
 
 class BrakeClass:
-   'base class for the brake squeal project'
+   r"""
+        
+   """
    objCount = 0
 
    def __init__(self, input_path, output_path, info_log_file, time_log_file,
@@ -43,7 +71,19 @@ class BrakeClass:
       for item in attrs.items():
           self.logger_i.info(item[0]+'   '+str(item[1]))       
 
-def my_print(arg):
+def print_eigs(arg):
+    r"""
+        
+    INPUT:
+       
+    - ``arg`` -- eigenvalues
+             
+    OUTPUT:
+        
+    - prints eigenvalues on the terminal
+    
+    """
+    
     n = arg.shape[0]
     arg=sorted(arg,reverse=True)
     print("\n")
@@ -55,7 +95,22 @@ def my_print(arg):
           print("%04.03e" % arg[i].real, '+',  "%04.03e" % arg[i].imag, 'I')
     print("\n")
 
-def my_print_few_infile(obj,arg,flag):
+def print_target_eigs(obj,arg,flag):
+    r"""
+        
+    INPUT:
+    
+    - ``obj`` -- object of the class ``BrakeClass``
+    - ``arg`` -- eigenvalues
+    - ``flag`` -- 0/1 for output on the terminal/in info file
+             
+    OUTPUT:
+        
+    - prints eigenvalues on the terminal when flag = 0 else prints output in the 
+      info file.
+    
+    """
+    
     logger_i = obj.logger_i
     n = arg.shape[0]
     arg=sorted(arg,reverse=True)

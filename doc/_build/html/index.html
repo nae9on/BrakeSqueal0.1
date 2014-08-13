@@ -55,14 +55,34 @@
 </div>
 <div class="section" id="brake">
 <h1>brake<a class="headerlink" href="#brake" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-__init__">
-<span id="init"></span><h2>__init__<a class="headerlink" href="#module-__init__" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.__init__">
+<span id="init"></span><h2>__init__<a class="headerlink" href="#module-brake.__init__" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the following functions:</p>
+<div class="highlight-python"><div class="highlight"><pre>- BrakeClass:
+
+  Python Parent Class for the BrakeSqueal Project
+  
+- print_eigs:
+  
+  Prints all the eigenvalues on the terminal (with two floating points).
+  
+- print_target_eigs:
+
+  Prints the eigenvalues in the target region on the terminal (when flag is false)
+  , in the info file (when flag is true).
+</pre></div>
+</div>
+<dl class="class">
+<dt id="brake.__init__.BrakeClass">
+<em class="property">class </em><tt class="descclassname">brake.__init__.</tt><tt class="descname">BrakeClass</tt><big>(</big><em>input_path</em>, <em>output_path</em>, <em>info_log_file</em>, <em>time_log_file</em>, <em>log_level</em><big>)</big><a class="headerlink" href="#brake.__init__.BrakeClass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 <div class="section" id="initialize">
 <h1>initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-logger">
-<span id="logger"></span><h2>logger<a class="headerlink" href="#module-logger" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.logger">
+<span id="logger"></span><h2>logger<a class="headerlink" href="#module-brake.initialize.logger" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- return_info_logger:
   
@@ -74,8 +94,8 @@
 </pre></div>
 </div>
 <dl class="function">
-<dt id="logger.return_info_logger">
-<tt class="descclassname">logger.</tt><tt class="descname">return_info_logger</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#logger.return_info_logger" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.logger.return_info_logger">
+<tt class="descclassname">brake.initialize.logger.</tt><tt class="descname">return_info_logger</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#brake.initialize.logger.return_info_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -87,8 +107,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="logger.return_time_logger">
-<tt class="descclassname">logger.</tt><tt class="descname">return_time_logger</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#logger.return_time_logger" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.logger.return_time_logger">
+<tt class="descclassname">brake.initialize.logger.</tt><tt class="descname">return_time_logger</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#brake.initialize.logger.return_time_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -100,8 +120,8 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-load">
-<span id="load"></span><h2>load<a class="headerlink" href="#module-load" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.load">
+<span id="load"></span><h2>load<a class="headerlink" href="#module-brake.initialize.load" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- load_matrices:
 
@@ -109,8 +129,8 @@
 </pre></div>
 </div>
 <dl class="function">
-<dt id="load.load_matrices">
-<tt class="descclassname">load.</tt><tt class="descname">load_matrices</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#load.load_matrices" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.load.load_matrices">
+<tt class="descclassname">brake.initialize.load.</tt><tt class="descname">load_matrices</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#brake.initialize.load.load_matrices" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class BrakeClass</li>
@@ -126,8 +146,8 @@ a python list <tt class="docutils literal"><span class="pre">sparse_list</span><
 </dd></dl>
 
 </div>
-<div class="section" id="module-assemble">
-<span id="assemble"></span><h2>assemble<a class="headerlink" href="#module-assemble" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.assemble">
+<span id="assemble"></span><h2>assemble<a class="headerlink" href="#module-brake.initialize.assemble" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- create_MCK:
 
@@ -136,8 +156,8 @@ a python list <tt class="docutils literal"><span class="pre">sparse_list</span><
 </pre></div>
 </div>
 <dl class="function">
-<dt id="assemble.create_MCK">
-<tt class="descclassname">assemble.</tt><tt class="descname">create_MCK</tt><big>(</big><em>obj</em>, <em>sparse_list</em>, <em>omega</em><big>)</big><a class="headerlink" href="#assemble.create_MCK" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.assemble.create_MCK">
+<tt class="descclassname">brake.initialize.assemble.</tt><tt class="descname">create_MCK</tt><big>(</big><em>obj</em>, <em>sparse_list</em>, <em>omega</em><big>)</big><a class="headerlink" href="#brake.initialize.assemble.create_MCK" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -160,8 +180,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-shift">
-<span id="shift"></span><h2>shift<a class="headerlink" href="#module-shift" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.shift">
+<span id="shift"></span><h2>shift<a class="headerlink" href="#module-brake.initialize.shift" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- shift_matrices:
 
@@ -169,8 +189,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="shift.shift_matrices">
-<tt class="descclassname">shift.</tt><tt class="descname">shift_matrices</tt><big>(</big><em>obj</em>, <em>m</em>, <em>c</em>, <em>k</em>, <em>tau</em><big>)</big><a class="headerlink" href="#shift.shift_matrices" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.shift.shift_matrices">
+<tt class="descclassname">brake.initialize.shift.</tt><tt class="descname">shift_matrices</tt><big>(</big><em>obj</em>, <em>m</em>, <em>c</em>, <em>k</em>, <em>tau</em><big>)</big><a class="headerlink" href="#brake.initialize.shift.shift_matrices" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -194,8 +214,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-scale">
-<span id="scale"></span><h2>scale<a class="headerlink" href="#module-scale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.scale">
+<span id="scale"></span><h2>scale<a class="headerlink" href="#module-brake.initialize.scale" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- scale_matrices:
 
@@ -203,8 +223,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="scale.scale_matrices">
-<tt class="descclassname">scale.</tt><tt class="descname">scale_matrices</tt><big>(</big><em>obj</em>, <em>m</em>, <em>c</em>, <em>k</em><big>)</big><a class="headerlink" href="#scale.scale_matrices" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.scale.scale_matrices">
+<tt class="descclassname">brake.initialize.scale.</tt><tt class="descname">scale_matrices</tt><big>(</big><em>obj</em>, <em>m</em>, <em>c</em>, <em>k</em><big>)</big><a class="headerlink" href="#brake.initialize.scale.scale_matrices" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -231,8 +251,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-diagscale">
-<span id="diagscale"></span><h2>diagscale<a class="headerlink" href="#module-diagscale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.diagscale">
+<span id="diagscale"></span><h2>diagscale<a class="headerlink" href="#module-brake.initialize.diagscale" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- normalize_cols:
 
@@ -250,8 +270,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="diagscale.diag_scale_matrices">
-<tt class="descclassname">diagscale.</tt><tt class="descname">diag_scale_matrices</tt><big>(</big><em>obj</em>, <em>M</em>, <em>C</em>, <em>K</em><big>)</big><a class="headerlink" href="#diagscale.diag_scale_matrices" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.diagscale.diag_scale_matrices">
+<tt class="descclassname">brake.initialize.diagscale.</tt><tt class="descname">diag_scale_matrices</tt><big>(</big><em>obj</em>, <em>M</em>, <em>C</em>, <em>K</em><big>)</big><a class="headerlink" href="#brake.initialize.diagscale.diag_scale_matrices" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -275,8 +295,8 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</li>
 </dd></dl>
 
 <dl class="function">
-<dt id="diagscale.norm_rc">
-<tt class="descclassname">diagscale.</tt><tt class="descname">norm_rc</tt><big>(</big><em>Y</em><big>)</big><a class="headerlink" href="#diagscale.norm_rc" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.diagscale.norm_rc">
+<tt class="descclassname">brake.initialize.diagscale.</tt><tt class="descname">norm_rc</tt><big>(</big><em>Y</em><big>)</big><a class="headerlink" href="#brake.initialize.diagscale.norm_rc" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">Y</span></tt> &#8211; matrix that needs to be normalized across both columns and rows</li>
@@ -300,8 +320,8 @@ STOP and return, else continue with step 1.</li>
 </dd></dl>
 
 <dl class="function">
-<dt id="diagscale.normalize_cols">
-<tt class="descclassname">diagscale.</tt><tt class="descname">normalize_cols</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#diagscale.normalize_cols" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.diagscale.normalize_cols">
+<tt class="descclassname">brake.initialize.diagscale.</tt><tt class="descname">normalize_cols</tt><big>(</big><em>A</em><big>)</big><a class="headerlink" href="#brake.initialize.diagscale.normalize_cols" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">A</span></tt> &#8211; matrix that needs to be normalized(columnwise)</li>
@@ -318,8 +338,8 @@ STOP and return, else continue with step 1.</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-unlinearize">
-<span id="unlinearize"></span><h2>unlinearize<a class="headerlink" href="#module-unlinearize" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.initialize.unlinearize">
+<span id="unlinearize"></span><h2>unlinearize<a class="headerlink" href="#module-brake.initialize.unlinearize" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- unlinearize_matrices:
   
@@ -329,8 +349,8 @@ STOP and return, else continue with step 1.</li>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="unlinearize.unlinearize_matrices">
-<tt class="descclassname">unlinearize.</tt><tt class="descname">unlinearize_matrices</tt><big>(</big><em>evec</em><big>)</big><a class="headerlink" href="#unlinearize.unlinearize_matrices" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.initialize.unlinearize.unlinearize_matrices">
+<tt class="descclassname">brake.initialize.unlinearize.</tt><tt class="descname">unlinearize_matrices</tt><big>(</big><em>evec</em><big>)</big><a class="headerlink" href="#brake.initialize.unlinearize.unlinearize_matrices" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">evec</span></tt> &#8211; eigenvectors of the generalized eigenvalue propblem</li>
@@ -351,8 +371,8 @@ STOP and return, else continue with step 1.</li>
 </div>
 <div class="section" id="solve">
 <h1>solve<a class="headerlink" href="#solve" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-projection">
-<span id="projection"></span><h2>projection<a class="headerlink" href="#module-projection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.solve.projection">
+<span id="projection"></span><h2>projection<a class="headerlink" href="#module-brake.solve.projection" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- obtain_projection_matrix:
 
@@ -361,8 +381,8 @@ STOP and return, else continue with step 1.</li>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="projection.obtain_projection_matrix">
-<tt class="descclassname">projection.</tt><tt class="descname">obtain_projection_matrix</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#projection.obtain_projection_matrix" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.solve.projection.obtain_projection_matrix">
+<tt class="descclassname">brake.solve.projection.</tt><tt class="descname">obtain_projection_matrix</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#brake.solve.projection.obtain_projection_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -383,8 +403,8 @@ singular values(based on a certain tolerance) into account</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-qevp">
-<span id="qevp"></span><h2>qevp<a class="headerlink" href="#module-qevp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.solve.qevp">
+<span id="qevp"></span><h2>qevp<a class="headerlink" href="#module-brake.solve.qevp" title="Permalink to this headline">¶</a></h2>
 <p>This module defines the following functions:</p>
 <div class="highlight-python"><div class="highlight"><pre>- brake_squeal_qevp:
 
@@ -398,8 +418,8 @@ singular values(based on a certain tolerance) into account</li>
 </pre></div>
 </div>
 <dl class="function">
-<dt id="qevp.Obtain_eigs">
-<tt class="descclassname">qevp.</tt><tt class="descname">Obtain_eigs</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>qevp_j</em>, <em>omega</em>, <em>next_shift</em><big>)</big><a class="headerlink" href="#qevp.Obtain_eigs" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.solve.qevp.Obtain_eigs">
+<tt class="descclassname">brake.solve.qevp.</tt><tt class="descname">Obtain_eigs</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>qevp_j</em>, <em>omega</em>, <em>next_shift</em><big>)</big><a class="headerlink" href="#brake.solve.qevp.Obtain_eigs" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -426,8 +446,8 @@ transformations.</li>
 </dd></dl>
 
 <dl class="function">
-<dt id="qevp.brake_squeal_qevp">
-<tt class="descclassname">qevp.</tt><tt class="descname">brake_squeal_qevp</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>omega</em><big>)</big><a class="headerlink" href="#qevp.brake_squeal_qevp" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.solve.qevp.brake_squeal_qevp">
+<tt class="descclassname">brake.solve.qevp.</tt><tt class="descname">brake_squeal_qevp</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>omega</em><big>)</big><a class="headerlink" href="#brake.solve.qevp.brake_squeal_qevp" title="Permalink to this definition">¶</a></dt>
 <dd><p>INPUT:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">obj</span></tt> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
@@ -451,8 +471,8 @@ region and repeat</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-solver">
-<span id="solver"></span><h2>solver<a class="headerlink" href="#module-solver" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.solve.solver">
+<span id="solver"></span><h2>solver<a class="headerlink" href="#module-brake.solve.solver" title="Permalink to this headline">¶</a></h2>
 <p>Function for the generalized eigenvalue problem</p>
 <p>Input
 A x = lamda B x
@@ -487,8 +507,8 @@ If sigma is specified, M has to be positive semi-definite</p>
 The &#8216;LM&#8217; clause along with sigma = 0 can be used to calculate the reciprocal eigenvalues of 
 Largest Magnitude.</p>
 </div>
-<div class="section" id="module-cover">
-<span id="cover"></span><h2>cover<a class="headerlink" href="#module-cover" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.solve.cover">
+<span id="cover"></span><h2>cover<a class="headerlink" href="#module-brake.solve.cover" title="Permalink to this headline">¶</a></h2>
 <p>Implementation of the MonteCarlo Algorithm for choosing shift points to cover the target region</p>
 <p>cover.next_shift
 Input
@@ -498,8 +518,8 @@ Input
 <p>Output
 1. next_shift (next shift point in the target region)</p>
 <dl class="function">
-<dt id="cover.next_shift">
-<tt class="descclassname">cover.</tt><tt class="descname">next_shift</tt><big>(</big><em>obj</em>, <em>previous_shifts=</em>, <span class="optional">[</span><span class="optional">]</span><em>previous_radius=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cover.next_shift" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.solve.cover.next_shift">
+<tt class="descclassname">brake.solve.cover.</tt><tt class="descname">next_shift</tt><big>(</big><em>obj</em>, <em>previous_shifts=</em>, <span class="optional">[</span><span class="optional">]</span><em>previous_radius=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#brake.solve.cover.next_shift" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain the next shift in the target region</p>
 </dd></dl>
 
@@ -507,8 +527,8 @@ Input
 </div>
 <div class="section" id="analyze">
 <h1>analyze<a class="headerlink" href="#analyze" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-residual">
-<span id="residual"></span><h2>residual<a class="headerlink" href="#module-residual" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-brake.analyze.residual">
+<span id="residual"></span><h2>residual<a class="headerlink" href="#module-brake.analyze.residual" title="Permalink to this headline">¶</a></h2>
 <p>Function definitions for obtaining the residual</p>
 </div>
 </div>
@@ -531,28 +551,28 @@ Input
   <ul>
 <li><a class="reference internal" href="#">Welcome to BrakeSqueal&#8217;s documentation!</a></li>
 <li><a class="reference internal" href="#brake">brake</a><ul>
-<li><a class="reference internal" href="#module-__init__">__init__</a></li>
+<li><a class="reference internal" href="#module-brake.__init__">__init__</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#initialize">initialize</a><ul>
-<li><a class="reference internal" href="#module-logger">logger</a></li>
-<li><a class="reference internal" href="#module-load">load</a></li>
-<li><a class="reference internal" href="#module-assemble">assemble</a></li>
-<li><a class="reference internal" href="#module-shift">shift</a></li>
-<li><a class="reference internal" href="#module-scale">scale</a></li>
-<li><a class="reference internal" href="#module-diagscale">diagscale</a></li>
-<li><a class="reference internal" href="#module-unlinearize">unlinearize</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.logger">logger</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.load">load</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.assemble">assemble</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.shift">shift</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.scale">scale</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.diagscale">diagscale</a></li>
+<li><a class="reference internal" href="#module-brake.initialize.unlinearize">unlinearize</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#solve">solve</a><ul>
-<li><a class="reference internal" href="#module-projection">projection</a></li>
-<li><a class="reference internal" href="#module-qevp">qevp</a></li>
-<li><a class="reference internal" href="#module-solver">solver</a></li>
-<li><a class="reference internal" href="#module-cover">cover</a></li>
+<li><a class="reference internal" href="#module-brake.solve.projection">projection</a></li>
+<li><a class="reference internal" href="#module-brake.solve.qevp">qevp</a></li>
+<li><a class="reference internal" href="#module-brake.solve.solver">solver</a></li>
+<li><a class="reference internal" href="#module-brake.solve.cover">cover</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#analyze">analyze</a><ul>
-<li><a class="reference internal" href="#module-residual">residual</a></li>
+<li><a class="reference internal" href="#module-brake.analyze.residual">residual</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>

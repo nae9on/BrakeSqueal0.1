@@ -17,7 +17,7 @@ brake
 __init__
 ---------------------------------------
 
-.. automodule:: __init__
+.. automodule:: brake.__init__
     :members:  
    
 initialize
@@ -26,43 +26,43 @@ initialize
 logger
 ---------------------------------------
 
-.. automodule:: logger
+.. automodule:: brake.initialize.logger
     :members:
     
 load
 ---------------------------------------
 
-.. automodule:: load
+.. automodule:: brake.initialize.load
     :members:
     
 assemble
 ---------------------------------------
 
-.. automodule:: assemble
+.. automodule:: brake.initialize.assemble
     :members:
     
 shift
 ---------------------------------------
 
-.. automodule:: shift
+.. automodule:: brake.initialize.shift
     :members:
     
 scale
 ---------------------------------------
 
-.. automodule:: scale
+.. automodule:: brake.initialize.scale
     :members:
     
 diagscale
 ---------------------------------------
 
-.. automodule:: diagscale
+.. automodule:: brake.initialize.diagscale
     :members:
     
 unlinearize
 ---------------------------------------
 
-.. automodule:: unlinearize
+.. automodule:: brake.initialize.unlinearize
     :members:   
     
 solve
@@ -71,25 +71,25 @@ solve
 projection
 ---------------------------------------
 
-.. automodule:: projection
+.. automodule:: brake.solve.projection
     :members:
 
 qevp
 ---------------------------------------
 
-.. automodule:: qevp
+.. automodule:: brake.solve.qevp
     :members:
     
 solver
 ---------------------------------------
 
-.. automodule:: solver
+.. automodule:: brake.solve.solver
     :members:
     
 cover
 ---------------------------------------
 
-.. automodule:: cover
+.. automodule:: brake.solve.cover
     :members:
     
 analyze
@@ -98,7 +98,7 @@ analyze
 residual
 ---------------------------------------
 
-.. automodule:: residual
+.. automodule:: brake.analyze.residual
     :members:    
     
 Indices and tables

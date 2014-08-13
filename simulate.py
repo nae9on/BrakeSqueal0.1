@@ -29,13 +29,13 @@ elif host == 'aif-server':
      input_path = 'd:/eigenwerte/ProblemData/Matrix/800kOmegaRef%(row)d/' % {'row': omegaRef}
 elif host == 'frenet':
      input_path = '/homes/extern/kadar/Desktop/project/python_source/data/5koref1/'
-     output_path = '/homes/extern/kadar/Desktop/brake_package/output/'
+     output_path = '/homes/extern/kadar/Desktop/BrakeSqueal0.1/output/'
 elif host == 'ubuntu':
      input_path = '/home/ali/Desktop/project/python_source/data/5koref1/'
-     output_path = '/home/ali/Desktop/brake_package/output/'
+     output_path = '/home/ali/Desktop/BrakeSqueal0.1/output/'
 else:
      input_path = '/homes/extern/kadar/Desktop/project/python_source/data/5koref1/'
-     output_path = '/homes/extern/kadar/Desktop/brake_package/output/'
+     output_path = '/homes/extern/kadar/Desktop/BrakeSqueal0.1/output/'
 
 #Logging Parameters
 '''
