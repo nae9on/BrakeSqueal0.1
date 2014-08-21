@@ -238,11 +238,11 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     
     print('Eigenvalues in the positive plane for shift',qevp_j,'=',next_shift,\
                 ' and frequency',freq_i+1,'=',"%.2f" % omega,'are')      
-    brake.print_target_eigs(obj,la,0)
+    brake.my_print_few_infile(obj,la,0)
     
     if(LOG_LEVEL):
         logger_i.info('Eigenvalues in the positive plane: ')
-        brake.print_target_eigs(obj,la,1)
+        brake.my_print_few_infile(obj,la,1)
 
     if(check_flag):
         scipy.io.savemat('evec_py.mat', mdict={'data': evec})

@@ -1,0 +1,63 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+Time = 0
+
+
+SOLVER: LU Factorization of sparse K using spilu in time : 2.06 sec
+SOLVER: Call to python eigs command: 4.25 sec
+
+
+------------------------------------
+Reading: 0.02 sec
+Assembling: 0.05 sec
+Shifting: 0.04 sec
+Scaling: 0.54 sec
+Diagonal Scaling: 1.29 sec
+Total Eigenvalue Computation Time: 6.33 sec
+Unfolding: 0.06 sec
+Error Analysis1(standard QEVP): 6.63 sec
+Error Analysis2(after unfolding): 6.68 sec
+------------------------------------
+	Total time taken by Obtain_eigs = 21.63 sec
+
+
+		Total time taken by Brake Squeal Qevp = 22.14 sec
+
+
+SOLVER: LU Factorization of sparse K using spilu in time : 2.17 sec
+SOLVER: Call to python eigs command: 4.30 sec
+
+
+------------------------------------
+Reading: 0.02 sec
+Assembling: 0.05 sec
+Shifting: 0.04 sec
+Scaling: 0.56 sec
+Diagonal Scaling: 1.36 sec
+Total Eigenvalue Computation Time: 6.48 sec
+Unfolding: 0.06 sec
+Error Analysis1(standard QEVP): 6.60 sec
+Error Analysis2(after unfolding): 6.73 sec
+------------------------------------
+	Total time taken by Obtain_eigs = 21.89 sec
+
+
+		Total time taken by Brake Squeal Qevp = 22.20 sec
+
+
+		Time taken to compute svd = 0.54
+
+
+Logging Simulation Times
+Simulation time for the 1th simulation: 0.80 sec
+Simulation time for the 2th simulation: 0.75 sec
+Simulation time for the 3th simulation: 0.88 sec
+Simulation time for the 4th simulation: 0.97 sec
+Simulation time for the 5th simulation: 0.80 sec
+Simulation time for the 6th simulation: 0.88 sec
+Simulation time for the 7th simulation: 0.89 sec
+Simulation time for the 8th simulation: 0.82 sec
+Simulation time for the 9th simulation: 0.94 sec
+Simulation time for the 10th simulation: 0.84 sec
+Simulation time for the 11th simulation: 0.85 sec
+Simulation time for the 12th simulation: 0.83 sec

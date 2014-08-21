@@ -103,13 +103,13 @@ def qev_optimized_sparse(obj,M,C,K):
    return la, v;
 
 #IN main:  la, evec = solver.qev_optimized_dense(M,C,K,evs_per_shift);
-def qev_optimized_dense(obj,M,C,K,no_of_evs):
+def qev_optimized_dense(obj,M,C,K):
     
    LOG_LEVEL = obj.log_level
    logger_t = obj.logger_t
    logger_i = obj.logger_i
    
-   evs_per_shift = no_of_evs
+   evs_per_shift = obj.evs_per_shift
 
    if(~sparse.issparse(M) & ~sparse.issparse(C) & ~sparse.issparse(K)):
         
