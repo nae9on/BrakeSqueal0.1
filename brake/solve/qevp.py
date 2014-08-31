@@ -6,7 +6,7 @@ This module defines the following functions::
     For a particuar base angular frequency this function assembles the eigenvalues
     and eigenvectors for different shift points in the target region.
     
-  -  Obtain_eigs:
+  - Obtain_eigs:
     
     For a particuar base angular frequency and for a particular shift point this 
     function evaluates the eigenvalues and eigenvectors
@@ -18,8 +18,8 @@ This module defines the following functions::
 # running the program.
 import math
 import cmath
-import timeit
 import numpy
+import timeit
 import scipy.io
 import matplotlib.pyplot
 
@@ -34,25 +34,21 @@ from brake.analyze import residual
 def brake_squeal_qevp(obj, freq_i, omega):
     r"""
         
-    INPUT:
-       
-    - ``obj`` -- object of the class ``BrakeClass``
-    - ``freq_i`` -- the index of the base angular freq in
-    - ``omega`` -- ith base angular freq
-             
-    OUTPUT:
-        
-    - ``assembled_la`` -- assembled eigenvalues
-    - ``assembled_evec`` -- assembled eigenvectors
+    :param obj: object of the class ``BrakeClass``
+    :param freq_i: the index of the base angular freq in
+    :param omega: ith base angular freq
+    :return: ``assembled_la`` - assembled eigenvalues, ``assembled_evec`` -- assembled eigenvectors
     
-    The ``assembled_la`` and ``assembled_evec`` are obtained as follows:
+    Procedure::
+    
+     The assembled_la and assembled_evec are obtained as follows:
        
-    - calculate the next shift point in the target region
-    - obtain eigenvalues and eigenvectors for that particular shift point
-    - add the eigenvalues and eigenvectors to ``assembled_la`` and ``assembled_evec`` respectively
-    - check if the required area fraction of the target region has been covered. If ``yes`` return
-      ``assembled_la`` and ``assembled_evec`` else calculate the next shift point in the target
-      region and repeat
+     - calculate the next shift point in the target region
+     - obtain eigenvalues and eigenvectors for that particular shift point
+     - add the eigenvalues and eigenvectors to assembled_la and assembled_evec respectively
+     - check if the required area fraction of the target region has been covered. If yes return
+       assembled_la and assembled_evec else calculate the next shift point in the target
+       region and repeat
 
     """
     
@@ -124,29 +120,24 @@ def brake_squeal_qevp(obj, freq_i, omega):
 def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     r"""
         
-    INPUT:
-       
-    - ``obj`` -- object of the class ``BrakeClass``
-    - ``freq_i`` -- the index of the base angular freq
-    - ``qevp_j`` -- the index of the shift point
-    - ``omega`` -- ith base angular freq
-    - ``next_shift`` -- jth shift point in the target region
-             
-    OUTPUT:
-        
-    - ``la`` -- eigenvalues
-    - ``evec`` -- eigenvectors
+    :param obj: object of the class ``BrakeClass``
+    :param freq_i: the index of the base angular freq in
+    :param qevp_j: the index of the shift point
+    :param omega: ith base angular freq
+    :param next_shift: jth shift point in the target region
+    :return: ``la`` - eigenvalues, ``evec`` - eigenvectors
     
-    The ``la`` and ``evec`` are obtained as follows:
+    Procedure::
+    
+     The la and evec are obtained as follows:
        
-    - load the various component matrices
-    - assemble the various component matrices together(for the given angular frequency
-      ``omega``) to form the mass(M), damping(C) and stiffness matrix(K).
-    - because we are interested in inner eigenvalues around certain shift points
-      ``next_shift``, so we transform the qevp using shift and invert spectral
-      transformations.
-    -
-
+     - load the various component matrices
+     - assemble the various component matrices together(for the given angular frequency
+       omega) to form the mass(M), damping(C) and stiffness matrix(K).
+     - because we are interested in inner eigenvalues around certain shift points
+       next_shift, so we transform the qevp using shift and invert spectral
+       transformations.
+     
     """
   
     #object attributes used in the function
@@ -194,7 +185,7 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     
     #----------------------------------Solver-------------------------------------------
     begin_solver = timeit.default_timer()       
-    la, evec = solver.qev_optimized_sparse(obj,M,C,K);
+    la, evec = solver.qev_sparse(obj,M,C,K);
     end_solver = timeit.default_timer()
     
     
@@ -266,6 +257,7 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
         logger_t.info('Unfolding: '+"%.2f" % (end_unfolding-begin_unfolding)+' sec')
         logger_t.info('Error Analysis1(standard QEVP): '+"%.2f" % (end_rescheck1-begin_rescheck1)+' sec')
         logger_t.info('Error Analysis2(after unfolding): '+"%.2f" % (end_rescheck2-begin_rescheck2)+' sec')
-        logger_t.info('------------------------------------')    
+        logger_t.info('------------------------------------')  
+        
     return la, evec     
 

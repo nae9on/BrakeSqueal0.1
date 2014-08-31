@@ -63,14 +63,14 @@ def norm_rc(Y):
         r"""
          
         :param Y: -- matrix that needs to be normalized across both columns and rows
-        :return: ``DL`` -  ``DL`` = ..... ``Drow3`` * ``Drow2`` * ``Drow1`` * ``I`` 
+        :return: ``DL`` -  ``DL`` = ..... ``Drow3`` * ``Drow2`` * ``Drow1`` * I 
         :return: ``DR`` -  ``DR`` = ``I`` * ``Dcol1`` * ``Dcol2`` * ``Dcol3``......
         
         Procedure::
         
          The DL and DR are obtained as a converging sequence :
         
-         set Dcol = normalize columns(Y)
+         set Dcol = normalize columns(Y)``
          set DR = DR * Dcol
          set Y = Y * Dcol
          set Drow = normalize rows(Y) = normalize columns(Y.T)

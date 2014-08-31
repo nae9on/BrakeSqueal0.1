@@ -3,7 +3,6 @@
 \documentclass[letterpaper,10pt,english]{sphinxmanual}
 \usepackage[utf8]{inputenc}
 \DeclareUnicodeCharacter{00A0}{\nobreakspace}
-\usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
 \usepackage{times}
@@ -14,7 +13,7 @@
 
 
 \title{BrakeSqueal Documentation}
-\date{August 06, 2014}
+\date{August 31, 2014}
 \release{0.1}
 \author{Ali H. Kadar}
 \newcommand{\sphinxlogo}{}
@@ -32,81 +31,75 @@
     \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
 \def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
 
-\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
-\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
-\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
-\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
-\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
-\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
-\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
-\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
-\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
-\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
-\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
-\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
-\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@gd{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\def\PYG@tok@gu{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PYG@tok@gt{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\def\PYG@tok@gs{\let\PYG@bf=\textbf}
+\def\PYG@tok@gr{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\def\PYG@tok@cm{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\def\PYG@tok@vg{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\def\PYG@tok@m{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\def\PYG@tok@mh{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\def\PYG@tok@cs{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\colorbox[rgb]{1.00,0.94,0.94}{##1}}}
+\def\PYG@tok@ge{\let\PYG@it=\textit}
+\def\PYG@tok@vc{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\def\PYG@tok@il{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\def\PYG@tok@go{\def\PYG@tc##1{\textcolor[rgb]{0.19,0.19,0.19}{##1}}}
+\def\PYG@tok@cp{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@gi{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\def\PYG@tok@gh{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PYG@tok@ni{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
+\def\PYG@tok@nl{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
+\def\PYG@tok@nn{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\def\PYG@tok@no{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
+\def\PYG@tok@na{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@nb{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@nc{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\def\PYG@tok@nd{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\def\PYG@tok@ne{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@nf{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
+\def\PYG@tok@si{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
+\def\PYG@tok@s2{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@vi{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\def\PYG@tok@nt{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
+\def\PYG@tok@nv{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\def\PYG@tok@s1{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@gp{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\def\PYG@tok@sh{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@ow{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@sx{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\def\PYG@tok@bp{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@c1{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\def\PYG@tok@kc{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@c{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\def\PYG@tok@mf{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\def\PYG@tok@err{\def\PYG@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
+\def\PYG@tok@kd{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@ss{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\def\PYG@tok@sr{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
+\def\PYG@tok@mo{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\def\PYG@tok@mi{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\def\PYG@tok@kn{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@o{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PYG@tok@kr{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@s{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@kp{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@w{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PYG@tok@kt{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
+\def\PYG@tok@sc{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@sb{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@k{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\def\PYG@tok@se{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\def\PYG@tok@sd{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
 
 \def\PYGZbs{\char`\\}
 \def\PYGZus{\char`\_}
 \def\PYGZob{\char`\{}
 \def\PYGZcb{\char`\}}
 \def\PYGZca{\char`\^}
-\def\PYGZam{\char`\&}
-\def\PYGZlt{\char`\<}
-\def\PYGZgt{\char`\>}
 \def\PYGZsh{\char`\#}
 \def\PYGZpc{\char`\%}
 \def\PYGZdl{\char`\$}
-\def\PYGZhy{\char`\-}
-\def\PYGZsq{\char`\'}
-\def\PYGZdq{\char`\"}
 \def\PYGZti{\char`\~}
 % for compatibility with earlier versions
 \def\PYGZat{@}
@@ -128,487 +121,579 @@ Contents:
 \label{index:brake}\label{index:welcome-to-brakesqueal-s-documentation}
 
 \section{\_\_init\_\_}
-\label{index:init}\label{index:module-__init__}\index{\_\_init\_\_ (module)}
+\label{index:init}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/\_\_init\_\_.py?at=master}{Source}
+\phantomsection\label{index:module-brake.__init__}\index{brake.\_\_init\_\_ (module)}
+This module defines the following functions:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+- BrakeClass:
+
+  Python Parent Class for the BrakeSqueal Project
+  
+- print\_eigs:
+  
+  Prints all the eigenvalues on the terminal (with two floating points).
+  
+- print\_target\_eigs:
+
+  Prints the eigenvalues in the target region on the terminal (when flag is false)
+  , in the info file (when flag is true).
+\end{Verbatim}
+\index{BrakeClass (class in brake.\_\_init\_\_)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.__init__.BrakeClass}\pysiglinewithargsret{\strong{class }\code{brake.\_\_init\_\_.}\bfcode{BrakeClass}}{\emph{input\_path}, \emph{output\_path}, \emph{info\_log\_file}, \emph{time\_log\_file}, \emph{log\_level}}{}
+\code{Member Functions of the BrakeClass:}
+\begin{itemize}
+\item {} 
+\_\_init\_\_
+
+\item {} 
+createInfoLogger
+
+\item {} 
+createTimeLogger
+
+\item {} 
+displayCount
+
+\item {} 
+displayParametersConsole
+
+\item {} 
+displayParametersLog
+
+\end{itemize}
+
+\end{fulllineitems}
+
+\index{print\_eigs() (in module brake.\_\_init\_\_)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.__init__.print_eigs}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{print\_eigs}}{\emph{arg}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{arg} -- eigenvalues
+
+\item[{Returns}] \leavevmode
+prints eigenvalues on the terminal
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{print\_target\_eigs() (in module brake.\_\_init\_\_)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.__init__.print_target_eigs}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{print\_target\_eigs}}{\emph{obj}, \emph{arg}, \emph{flag}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{arg} -- eigenvalues
+
+\item {} 
+\textbf{flag} -- 0/1 for output on the terminal/in info file
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+prints eigenvalues on the terminal when flag = 0 else prints output in the info file.
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+{\hyperref[index:logger]{logger}}  brake.initialize.logger
+
+
+
 
 \chapter{initialize}
 \label{index:initialize}
 
 \section{logger}
-\label{index:logger}\label{index:module-logger}\index{logger (module)}
+\label{index:logger}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/logger.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.logger}\index{brake.initialize.logger (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} return\PYGZus{}info\PYGZus{}logger:
+- return\_info\_logger:
   
   Creates and returns a python logger object for information logging
   
-\PYGZhy{} return\PYGZus{}time\PYGZus{}logger:
+- return\_time\_logger:
   
   Creates and returns a python logger object for time logging
 \end{Verbatim}
-\index{return\_info\_logger() (in module logger)}
+
+Note:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+various logging levels
+LEVELS = \PYGZob{}'notset':logging.NOTSET, \#0 --\textgreater{} numerical value (for no logging)
+         'debug': logging.DEBUG, \#10 (to capture detailed debug information)
+         'info': logging.INFO, \#20 (to capture essential information)
+         'warning': logging.WARNING, \#30
+         'error': logging.ERROR, \#40
+         'critical': logging.CRITICAL\PYGZcb{} \#50
+\end{Verbatim}
+\index{return\_info\_logger() (in module brake.initialize.logger)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:logger.return_info_logger}\pysiglinewithargsret{\code{logger.}\bfcode{return\_info\_logger}}{\emph{obj}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\phantomsection\label{index:brake.initialize.logger.return_info_logger}\pysiglinewithargsret{\code{brake.initialize.logger.}\bfcode{return\_info\_logger}}{\emph{obj}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{obj} -- object of the class \code{BrakeClass}
 
-\end{itemize}
+\item[{Returns}] \leavevmode
+\code{logger\_i} python logger object for information logging
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{logger\_i} -- python logger object for information logging
-
-\end{itemize}
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{return\_time\_logger() (in module logger)}
+\index{return\_time\_logger() (in module brake.initialize.logger)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:logger.return_time_logger}\pysiglinewithargsret{\code{logger.}\bfcode{return\_time\_logger}}{\emph{obj}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\phantomsection\label{index:brake.initialize.logger.return_time_logger}\pysiglinewithargsret{\code{brake.initialize.logger.}\bfcode{return\_time\_logger}}{\emph{obj}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{obj} -- object of the class \code{BrakeClass}
 
-\end{itemize}
+\item[{Returns}] \leavevmode
+\code{logger\_t} python logger object for time logging
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{logger\_t} -- python logger object for time logging
-
-\end{itemize}
+\end{description}\end{quote}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{https://docs.python.org/2/library/logging.html}{Python Logging}
+
 
 
 
 \section{load}
-\label{index:load}\label{index:module-load}\index{load (module)}
+\label{index:load}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/load.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.load}\index{brake.initialize.load (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} load\PYGZus{}matrices:
+- load\_matrices:
 
   This function loads the sparse data matrices in .mat format and adds them to a python list
 \end{Verbatim}
-\index{load\_matrices() (in module load)}
+\index{load\_matrices() (in module brake.initialize.load)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:load.load_matrices}\pysiglinewithargsret{\code{load.}\bfcode{load\_matrices}}{\emph{obj}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{obj} -- object of the class BrakeClass
+\phantomsection\label{index:brake.initialize.load.load_matrices}\pysiglinewithargsret{\code{brake.initialize.load.}\bfcode{load\_matrices}}{\emph{obj}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{obj} -- object of the class \code{BrakeClass}
 
-\end{itemize}
-
-OUTPUT:
-\begin{itemize}
-\item {} 
+\item[{Returns}] \leavevmode
 \code{sparse\_list} -- a python list of matrices in Compressed Sparse Column format 
 of type `\textless{}type `numpy.float64'\textgreater{}'
 
-\end{itemize}
+\end{description}\end{quote}
 
-The \code{sparse\_list} is obtained by loading the vaious .mat files present in the
-\code{data\_file\_list} attribute of the \code{BrakeClass} and then appending them into
-a python list \code{sparse\_list}
+Procedure:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+The sparse\_list is obtained by loading the vaious .mat files present in the
+data\_file\_list attribute of the BrakeClass and then appending them into
+a python list sparse\_list.
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.loadmat.html}{scipy.io.loadmat}
+
 
 
 
 \section{assemble}
-\label{index:assemble}\label{index:module-assemble}\index{assemble (module)}
+\label{index:assemble}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/assemble.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.assemble}\index{brake.initialize.assemble (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} create\PYGZus{}MCK:
+- create\_MCK:
 
   Assembles the various component matrices together(for the given angular frequency
   {}`{}`omega{}`{}`) to form the mass(M), damping(C) and stiffness matrix(K).
 \end{Verbatim}
-\index{create\_MCK() (in module assemble)}
+\index{create\_MCK() (in module brake.initialize.assemble)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:assemble.create_MCK}\pysiglinewithargsret{\code{assemble.}\bfcode{create\_MCK}}{\emph{obj}, \emph{sparse\_list}, \emph{omega}}{}
-INPUT:
-\begin{itemize}
+\phantomsection\label{index:brake.initialize.assemble.create_MCK}\pysiglinewithargsret{\code{brake.initialize.assemble.}\bfcode{create\_MCK}}{\emph{obj}, \emph{sparse\_list}, \emph{omega}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\code{sparse\_list} -- a python list of matrices in Compressed Sparse Column format 
-of type `\textless{}type `numpy.float64'\textgreater{}'
+\textbf{sparse\_list} -- a python list of matrices in Compressed Sparse Column format 
+of type `\textless{}type `numpy.float64'\textgreater{}',
 
 \item {} 
-\code{omega} -- angular frequency
+\textbf{omega} -- angular frequency
 
 \end{itemize}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{M} -- Mass Matrix
+\item[{Returns}] \leavevmode
+\code{M} - Mass Matrix, \code{C} - Damping Matrix, \code{K} - Stiffness Matrix
 
-\item {} 
-\code{C} -- Damping Matrix
+\item[{Raises }] \leavevmode
+Assemble\_BadInputError, When a matrix in the list is not sparse
 
-\item {} 
-\code{K} -- Stiffness Matrix
+\item[{Raises }] \leavevmode
+Assemble\_BadInputError, When a matrix in the list is not square
 
-\end{itemize}
+\item[{Raises }] \leavevmode
+Assemble\_BadInputError, When the matrix  are not of the same size
 
-The \code{M} , \code{C} , \code{K} are assembled as follows:
-\begin{itemize}
-\item {} 
-\code{M} = m
+\end{description}\end{quote}
 
-\item {} 
-\code{C} = c1+c2*(omega/omegaRef)+c3*(omegaRef/omega)
+Procedure:
 
-\item {} 
-\code{K} = k1+k2+k3*math.pow((omega/omegaRef),2)
+\begin{Verbatim}[commandchars=\\\{\}]
+The M , C , K are assembled as follows:
 
-\end{itemize}
+- M = m
+- C = c1+c2*(omega/omegaRef)+c3*(omegaRef/omega)
+- K = k1+k2+k3*math.pow((omega/omegaRef),2)
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html}{scipy.sparse.linalg.onenormest}
+
 
 
 
 \section{shift}
-\label{index:shift}\label{index:module-shift}\index{shift (module)}
+\label{index:shift}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/shift.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.shift}\index{brake.initialize.shift (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} shift\PYGZus{}matrices:
+- shift\_matrices:
 
   Transform the qevp using shift and invert spectral transformations.
 \end{Verbatim}
-\index{shift\_matrices() (in module shift)}
+\index{shift\_matrices() (in module brake.initialize.shift)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:shift.shift_matrices}\pysiglinewithargsret{\code{shift.}\bfcode{shift\_matrices}}{\emph{obj}, \emph{m}, \emph{c}, \emph{k}, \emph{tau}}{}
-INPUT:
-\begin{itemize}
+\phantomsection\label{index:brake.initialize.shift.shift_matrices}\pysiglinewithargsret{\code{brake.initialize.shift.}\bfcode{shift\_matrices}}{\emph{obj}, \emph{m}, \emph{c}, \emph{k}, \emph{tau}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\code{m} -- Mass Matrix
+\textbf{m} -- Mass Matrix
 
 \item {} 
-\code{c} -- Damping Matrix
+\textbf{c} -- Damping Matrix
 
 \item {} 
-\code{k} -- Stiffness Matrix
+\textbf{k} -- Stiffness Matrix
 
 \item {} 
-\code{tau} -- shift
+\textbf{tau} -- Shift
 
 \end{itemize}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{M} -- Shifted Mass Matrix
+\item[{Returns}] \leavevmode
+\code{M}, \code{C}, \code{K} - Shifted Mass, Damping and Stiffness Matrix respectively
 
-\item {} 
-\code{C} -- Shifted Damping Matrix
+\end{description}\end{quote}
 
-\item {} 
-\code{K} -- Shifted Stiffness Matrix
+Procedure:
 
-\end{itemize}
+\begin{Verbatim}[commandchars=\\\{\}]
+The M , C , K are obtained as follows:
 
-The \code{M} , \code{C} , \code{K} are obtained as follows:
-\begin{itemize}
-\item {} 
-\code{M} = m
-
-\item {} 
-\code{C} = 2 * tau * m + c
-
-\item {} 
-\code{K} = tau\_squared * m + tau * c + k
-
-\end{itemize}
+ M = m
+ C = 2 * tau * m + c
+ K = tau\_squared * m + tau * c + k
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html}{scipy.sparse.linalg.onenormest}
+
 
 
 
 \section{scale}
-\label{index:scale}\label{index:module-scale}\index{scale (module)}
+\label{index:scale}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/scale.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.scale}\index{brake.initialize.scale (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} scale\PYGZus{}matrices:
+- scale\_matrices:
 
-  Scales the M, C, K matrices using 2\PYGZhy{}scalers before linearization.
+  Scales the M, C, K matrices using 2-scalers before linearization.
 \end{Verbatim}
-\index{scale\_matrices() (in module scale)}
+\index{scale\_matrices() (in module brake.initialize.scale)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:scale.scale_matrices}\pysiglinewithargsret{\code{scale.}\bfcode{scale\_matrices}}{\emph{obj}, \emph{m}, \emph{c}, \emph{k}}{}
-INPUT:
-\begin{itemize}
+\phantomsection\label{index:brake.initialize.scale.scale_matrices}\pysiglinewithargsret{\code{brake.initialize.scale.}\bfcode{scale\_matrices}}{\emph{obj}, \emph{m}, \emph{c}, \emph{k}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\code{m} -- Mass Matrix
+\textbf{m} -- Mass Matrix
 
 \item {} 
-\code{c} -- Damping Matrix
+\textbf{c} -- Damping Matrix
 
 \item {} 
-\code{k} -- Stiffness Matrix
+\textbf{k} -- Stiffness Matrix
 
 \end{itemize}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{M} -- Scaled Mass Matrix
+\item[{Returns}] \leavevmode
+\code{M}, \code{C}, \code{K} - Shifted Mass, Damping and Stiffness Matrix respectively
 
-\item {} 
-\code{C} -- Scaled Damping Matrix
+\item[{Returns}] \leavevmode
+scaling parameters, - \code{gamma} and \code{delta}
 
-\item {} 
-\code{K} -- Scaled Stiffness Matrix
+\end{description}\end{quote}
 
-\item {} 
-\code{gamma} -- scaling parameter
+Procedure:
 
-\item {} 
-\code{delta} -- scaling parameter
+\begin{Verbatim}[commandchars=\\\{\}]
+The M , C , K, gamma, delta  are obtained as follows:
 
-\end{itemize}
+M = gamma*gamma*delta*m;
+C = gamma*delta*c;
+K = delta*k;
+gamma = math.sqrt(k\_norm/m\_norm);
+delta = 2/(k\_norm+c\_norm*gamma);
+\end{Verbatim}
 
-The \code{M} , \code{C} , \code{K}, \code{gamma}, \code{delta}  are obtained as follows:
-\begin{itemize}
-\item {} 
-\code{M} = gamma*gamma*delta*m;
+Note:
 
-\item {} 
-\code{C} = gamma*delta*c;
-
-\item {} 
-\code{K} = delta*k;
-
-\item {} 
-\code{gamma} = math.sqrt(k\_norm/m\_norm);
-
-\item {} 
-\code{delta} = 2/(k\_norm+c\_norm*gamma);
-
-\end{itemize}
+\begin{Verbatim}[commandchars=\\\{\}]
+scipy.sparse.linalg.onenormest - Computes a lower bound of the 1-norm of a sparse matrix.
+In the disk brake modelling theory spectral norm has been used but since I could not
+find a better(less computational cost) way to obtain this in python, I have used 1-norm
+approximation
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html}{scipy.sparse.linalg.onenormest}
+
 
 
 
 \section{diagscale}
-\label{index:module-diagscale}\label{index:diagscale}\index{diagscale (module)}
+\label{index:diagscale}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/diagscale.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.diagscale}\index{brake.initialize.diagscale (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} normalize\PYGZus{}cols:
+- normalize\_cols:
 
   Returns a diagonal matrix D such that every column of A*D has eucledian norm = 1. 
   
-\PYGZhy{} norm\PYGZus{}rc:
+- norm\_rc:
 
   Returns diagonal matrix DL and DR such that every row and every column of DL*Y*DR
-  has euclidean norm \PYGZti{} 1.
+  has euclidean norm \textasciitilde{} 1.
 
-\PYGZhy{} diag\PYGZus{}scale\PYGZus{}matrices:
+- diag\_scale\_matrices:
 
-  Diagonally scales the shifted scalar\PYGZhy{}scaled matrices using DL, DR to improve the
+  Diagonally scales the shifted scalar-scaled matrices using DL, DR to improve the
   condition number.
 \end{Verbatim}
-\index{diag\_scale\_matrices() (in module diagscale)}
+\index{diag\_scale\_matrices() (in module brake.initialize.diagscale)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:diagscale.diag_scale_matrices}\pysiglinewithargsret{\code{diagscale.}\bfcode{diag\_scale\_matrices}}{\emph{obj}, \emph{M}, \emph{C}, \emph{K}}{}
-INPUT:
-\begin{itemize}
+\phantomsection\label{index:brake.initialize.diagscale.diag_scale_matrices}\pysiglinewithargsret{\code{brake.initialize.diagscale.}\bfcode{diag\_scale\_matrices}}{\emph{obj}, \emph{M}, \emph{C}, \emph{K}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\code{M} -- Mass Matrix
+\textbf{M} -- Mass Matrix
 
 \item {} 
-\code{C} -- Damping Matrix
+\textbf{C} -- Damping Matrix
 
 \item {} 
-\code{K} -- Stiffness Matrix
+\textbf{K} -- Stiffness Matrix
 
 \end{itemize}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{M} -- Diagonally Scaled Mass Matrix
+\item[{Returns}] \leavevmode
+\code{M}, \code{C}, \code{K} - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively
 
-\item {} 
-\code{C} -- Diagonally Scaled Damping Matrix
+\item[{Returns}] \leavevmode
+\code{DR} - Matrix that normalize the columns
 
-\item {} 
-\code{K} -- Diagonally Scaled Stiffness Matrix
+\end{description}\end{quote}
 
-\item {} 
-\code{DR} -- Matrix that normalize the columns
+Procedure:
 
-\end{itemize}
+\begin{Verbatim}[commandchars=\\\{\}]
+The M , C , K, DR  are obtained as follows:
 
-The \code{M} , \code{C} , \code{K}, \code{DR}  are obtained as follows:
-\begin{itemize}
-\item {} 
-\code{M} = \code{DL * M * DR}
-
-\item {} 
-\code{C} = \code{DL * C * DR}
-
-\item {} 
-\code{K} = \code{DL * K * DR}
-
-\end{itemize}
+M = DL * M * DR
+C = DL * C * DR
+K = DL * K * DR
+\end{Verbatim}
 
 \end{fulllineitems}
 
-\index{norm\_rc() (in module diagscale)}
+\index{norm\_rc() (in module brake.initialize.diagscale)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:diagscale.norm_rc}\pysiglinewithargsret{\code{diagscale.}\bfcode{norm\_rc}}{\emph{Y}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{Y} -- matrix that needs to be normalized across both columns and rows
+\phantomsection\label{index:brake.initialize.diagscale.norm_rc}\pysiglinewithargsret{\code{brake.initialize.diagscale.}\bfcode{norm\_rc}}{\emph{Y}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{Y} -- -- matrix that needs to be normalized across both columns and rows
 
-\end{itemize}
+\item[{Returns}] \leavevmode
+\code{DL} -  \code{DL} = ..... \code{Drow3} * \code{Drow2} * \code{Drow1} * \code{I}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{DL} -- \code{DL} = ..... \code{Drow3} * \code{Drow2} * \code{Drow1} * I
+\item[{Returns}] \leavevmode
+\code{DR} -  \code{DR} = \code{I} * \code{Dcol1} * \code{Dcol2} * \code{Dcol3}......
 
-\item {} 
-\code{DR} -- \code{DR} = \code{I} * \code{Dcol1} * \code{Dcol2} * \code{Dcol3}......
+\end{description}\end{quote}
 
-\end{itemize}
+Procedure:
 
-The \code{DL} and \code{DR} are obtained as a converging sequence :
-\begin{itemize}
-\item {} 
-set \code{Dcol = normalize columns(Y)}
+\begin{Verbatim}[commandchars=\\\{\}]
+The DL and DR are obtained as a converging sequence :
 
-\item {} 
-set \code{DR = DR * Dcol}
-
-\item {} 
-set \code{Y = Y * Dcol}
-
-\item {} 
-set \code{Drow = normalize rows(Y) = normalize columns(Y.T)}
-
-\item {} 
-set \code{DL = Drow * DL}
-
-\item {} 
-set \code{Y = Drow * Y}
-
-\item {} 
-when \code{Dcol} and \code{Drow} are sufficiently close to \code{I} or max no of iterations reached
+set Dcol = normalize columns(Y)
+set DR = DR * Dcol
+set Y = Y * Dcol
+set Drow = normalize rows(Y) = normalize columns(Y.T)
+set DL = Drow * DL
+set Y = Drow * Y
+when Dcol and Drow are sufficiently close to I or max no of iterations reached
 STOP and return, else continue with step 1.
-
-\end{itemize}
+\end{Verbatim}
 
 \end{fulllineitems}
 
-\index{normalize\_cols() (in module diagscale)}
+\index{normalize\_cols() (in module brake.initialize.diagscale)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:diagscale.normalize_cols}\pysiglinewithargsret{\code{diagscale.}\bfcode{normalize\_cols}}{\emph{A}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{A} -- matrix that needs to be normalized(columnwise)
+\phantomsection\label{index:brake.initialize.diagscale.normalize_cols}\pysiglinewithargsret{\code{brake.initialize.diagscale.}\bfcode{normalize\_cols}}{\emph{A}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{A} -- -- matrix that needs to be normalized(columnwise)
 
-\end{itemize}
+\item[{Returns}] \leavevmode
+\code{D} - diagonal matrix such that every column of \code{A*D} has eucledian norm = 1.
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{D} -- diagonal matrix such that every column of \code{A*D} has eucledian norm = 1.
+\end{description}\end{quote}
 
-\end{itemize}
+Procedure:
 
-\code{D} is obtained as follows:
-\begin{itemize}
-\item {} 
+\begin{Verbatim}[commandchars=\\\{\}]
+D is obtained as follows:
 square the elements of A and sum each column
-
-\item {} 
 set the diagonal elemnts of D as the inverse square root of the column sums
-
-\end{itemize}
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+\begin{description}
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.eigs.html}{scipy.sparse.linalg.eigs}}] \leavevmode
+Documentation of the Python eigs command
+
+\end{description}
+
 
 
 
 \section{unlinearize}
-\label{index:module-unlinearize}\label{index:unlinearize}\index{unlinearize (module)}
+\label{index:unlinearize}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/unlinearize.py?at=master}{Source}
+\phantomsection\label{index:module-brake.initialize.unlinearize}\index{brake.initialize.unlinearize (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} unlinearize\PYGZus{}matrices:
+- unlinearize\_matrices:
   
   To obtain the eigenvectors prior linearization of the QEVP from the 
   resulting eigenvectors (after classical companion linearization of the QEVP
   to obtain the generalized eigenvalue propblem).
 \end{Verbatim}
-\index{unlinearize\_matrices() (in module unlinearize)}
+\index{unlinearize\_matrices() (in module brake.initialize.unlinearize)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:unlinearize.unlinearize_matrices}\pysiglinewithargsret{\code{unlinearize.}\bfcode{unlinearize\_matrices}}{\emph{evec}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{evec} -- eigenvectors of the generalized eigenvalue propblem
+\phantomsection\label{index:brake.initialize.unlinearize.unlinearize_matrices}\pysiglinewithargsret{\code{brake.initialize.unlinearize.}\bfcode{unlinearize\_matrices}}{\emph{evec}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{evec} -- eigenvectors of the generalized eigenvalue propblem
 
-\end{itemize}
+\item[{Returns}] \leavevmode
+\code{evec\_prior} - eigenvectors prior linearization of the QEVP
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{evec\_prior} -- eigenvectors prior linearization of the QEVP
+\end{description}\end{quote}
 
-\end{itemize}
+Procedure:
 
-The \code{evec\_prior} are obtained as follows:
-\begin{itemize}
-\item {} 
-check for every vector \code{i} of the GEVP(\code{evec}) (consider MATLAB convention)
+\begin{Verbatim}[commandchars=\\\{\}]
+The evec\_prior are obtained as follows:
 
-\item {} 
-if \code{norm(evec{[}1:n,i{]}) \textgreater{} norm(evec{[}n+1:2*n,i{]}) set evec\_prior{[}:,i{]} = evec{[}1:n,i{]}}
-
-\item {} 
-else \code{set evec\_prior{[}:,i{]} = evec{[}n+1:2*n,i{]}}
-
-\end{itemize}
+check for every vector i of the GEVP(evec) (consider MATLAB convention)
+if norm(evec[1:n,i]) \textgreater{} norm(evec[n+1:2*n,i]) set evec\_prior[:,i] = evec[1:n,i]
+else set evec\_prior[:,i] = evec[n+1:2*n,i]
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+{\hyperref[index:diagscale]{diagscale}}  brake.initialize.diagscale
+
 
 
 
@@ -616,198 +701,182 @@ else \code{set evec\_prior{[}:,i{]} = evec{[}n+1:2*n,i{]}}
 \label{index:solve}
 
 \section{projection}
-\label{index:module-projection}\label{index:projection}\index{projection (module)}
+\label{index:projection}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/projection.py?at=master}{Source}
+\phantomsection\label{index:module-brake.solve.projection}\index{brake.solve.projection (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} obtain\PYGZus{}projection\PYGZus{}matrix:
+- obtain\_projection\_matrix:
 
  This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
  for each base angular frequency.
 \end{Verbatim}
-\index{obtain\_projection\_matrix() (in module projection)}
+\index{obtain\_projection\_matrix() (in module brake.solve.projection)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:projection.obtain_projection_matrix}\pysiglinewithargsret{\code{projection.}\bfcode{obtain\_projection\_matrix}}{\emph{obj}}{}
-INPUT:
-\begin{itemize}
-\item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\phantomsection\label{index:brake.solve.projection.obtain_projection_matrix}\pysiglinewithargsret{\code{brake.solve.projection.}\bfcode{obtain\_projection\_matrix}}{\emph{obj}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{obj} -- object of the class \code{BrakeClass}
 
-\end{itemize}
+\item[{Returns}] \leavevmode
+\code{Q} - projection matrix
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{Q} -- projection matrix
+\end{description}\end{quote}
 
-\end{itemize}
+Procedure:
 
+\begin{Verbatim}[commandchars=\\\{\}]
 The projection matrix is obtained as follows:
-\begin{itemize}
-\item {} 
-Obtain the measurment matrix \code{X = {[}X\_real X\_imag{]}}, with \code{X\_real} as a list of 
-real parts of eigenvectors and \code{X\_imag} as a list of imaginary parts of 
-eigenvectors, corresponding to each base angular frequency in \code{omega\_basis}.
 
-\item {} 
-Compute the thin svd of the measurment matrix. \code{X = U * s * V}
-
-\item {} 
-Set \code{Q = truncated(U)}, where the truncation is done to take only the significant 
-singular values(based on a certain tolerance) into account
-
-\end{itemize}
+- Obtain the measurment matrix X = [X\_real X\_imag], with X\_real as a list of 
+  real parts of eigenvectors and X\_imag as a list of imaginary parts of 
+  eigenvectors, corresponding to each base angular frequency in omega\_basis.
+- Compute the thin svd of the measurment matrix. X = U * s * V
+- Set Q = truncated(U), where the truncation is done to take only the significant 
+  singular values(based on a certain tolerance) into account
+\end{Verbatim}
 
 \end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html}{scipy.linalg.svd}
+
 
 
 
 \section{qevp}
-\label{index:qevp}\label{index:module-qevp}\index{qevp (module)}
+\label{index:qevp}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/qevp.py?at=master}{Source}
+\phantomsection\label{index:module-brake.solve.qevp}\index{brake.solve.qevp (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
-\PYGZhy{} brake\PYGZus{}squeal\PYGZus{}qevp:
+- brake\_squeal\_qevp:
 
   For a particuar base angular frequency this function assembles the eigenvalues
   and eigenvectors for different shift points in the target region.
   
-\PYGZhy{}  Obtain\PYGZus{}eigs:
+- Obtain\_eigs:
   
   For a particuar base angular frequency and for a particular shift point this 
   function evaluates the eigenvalues and eigenvectors
 \end{Verbatim}
-\index{Obtain\_eigs() (in module qevp)}
+\index{Obtain\_eigs() (in module brake.solve.qevp)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:qevp.Obtain_eigs}\pysiglinewithargsret{\code{qevp.}\bfcode{Obtain\_eigs}}{\emph{obj}, \emph{freq\_i}, \emph{qevp\_j}, \emph{omega}, \emph{next\_shift}}{}
-INPUT:
-\begin{itemize}
+\phantomsection\label{index:brake.solve.qevp.Obtain_eigs}\pysiglinewithargsret{\code{brake.solve.qevp.}\bfcode{Obtain\_eigs}}{\emph{obj}, \emph{freq\_i}, \emph{qevp\_j}, \emph{omega}, \emph{next\_shift}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\code{freq\_i} -- the index of the base angular freq
+\textbf{freq\_i} -- the index of the base angular freq in
 
 \item {} 
-\code{qevp\_j} -- the index of the shift point
+\textbf{qevp\_j} -- the index of the shift point
 
 \item {} 
-\code{omega} -- ith base angular freq
+\textbf{omega} -- ith base angular freq
 
 \item {} 
-\code{next\_shift} -- jth shift point in the target region
+\textbf{next\_shift} -- jth shift point in the target region
 
 \end{itemize}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{la} -- eigenvalues
+\item[{Returns}] \leavevmode
+\code{la} - eigenvalues, \code{evec} - eigenvectors
 
-\item {} 
-\code{evec} -- eigenvectors
+\end{description}\end{quote}
 
-\end{itemize}
+Procedure:
 
-The \code{la} and \code{evec} are obtained as follows:
-\begin{itemize}
-\item {} 
-load the various component matrices
-
-\item {} 
-assemble the various component matrices together(for the given angular frequency
-\code{omega}) to form the mass(M), damping(C) and stiffness matrix(K).
-
-\item {} 
-because we are interested in inner eigenvalues around certain shift points
-\code{next\_shift}, so we transform the qevp using shift and invert spectral
-transformations.
-
-\item {} 
-\end{itemize}
+\begin{Verbatim}[commandchars=\\\{\}]
+The la and evec are obtained as follows:
+  
+- load the various component matrices
+- assemble the various component matrices together(for the given angular frequency
+  omega) to form the mass(M), damping(C) and stiffness matrix(K).
+- because we are interested in inner eigenvalues around certain shift points
+  next\_shift, so we transform the qevp using shift and invert spectral
+  transformations.
+\end{Verbatim}
 
 \end{fulllineitems}
 
-\index{brake\_squeal\_qevp() (in module qevp)}
+\index{brake\_squeal\_qevp() (in module brake.solve.qevp)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:qevp.brake_squeal_qevp}\pysiglinewithargsret{\code{qevp.}\bfcode{brake\_squeal\_qevp}}{\emph{obj}, \emph{freq\_i}, \emph{omega}}{}
-INPUT:
-\begin{itemize}
+\phantomsection\label{index:brake.solve.qevp.brake_squeal_qevp}\pysiglinewithargsret{\code{brake.solve.qevp.}\bfcode{brake\_squeal\_qevp}}{\emph{obj}, \emph{freq\_i}, \emph{omega}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\code{obj} -- object of the class \code{BrakeClass}
+\textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\code{freq\_i} -- the index of the base angular freq in
+\textbf{freq\_i} -- the index of the base angular freq in
 
 \item {} 
-\code{omega} -- ith base angular freq
+\textbf{omega} -- ith base angular freq
 
 \end{itemize}
 
-OUTPUT:
-\begin{itemize}
-\item {} 
-\code{assembled\_la} -- assembled eigenvalues
+\item[{Returns}] \leavevmode
+\code{assembled\_la} - assembled eigenvalues, \code{assembled\_evec} -- assembled eigenvectors
 
-\item {} 
-\code{assembled\_evec} -- assembled eigenvectors
+\end{description}\end{quote}
 
-\end{itemize}
+Procedure:
 
-The \code{assembled\_la} and \code{assembled\_evec} are obtained as follows:
-\begin{itemize}
-\item {} 
-calculate the next shift point in the target region
-
-\item {} 
-obtain eigenvalues and eigenvectors for that particular shift point
-
-\item {} 
-add the eigenvalues and eigenvectors to \code{assembled\_la} and \code{assembled\_evec} respectively
-
-\item {} 
-check if the required area fraction of the target region has been covered. If \code{yes} return
-\code{assembled\_la} and \code{assembled\_evec} else calculate the next shift point in the target
-region and repeat
-
-\end{itemize}
+\begin{Verbatim}[commandchars=\\\{\}]
+The assembled\_la and assembled\_evec are obtained as follows:
+  
+- calculate the next shift point in the target region
+- obtain eigenvalues and eigenvectors for that particular shift point
+- add the eigenvalues and eigenvectors to assembled\_la and assembled\_evec respectively
+- check if the required area fraction of the target region has been covered. If yes return
+  assembled\_la and assembled\_evec else calculate the next shift point in the target
+  region and repeat
+\end{Verbatim}
 
 \end{fulllineitems}
 
 
 
 \section{solver}
-\label{index:module-solver}\label{index:solver}\index{solver (module)}
-Function for the generalized eigenvalue problem
+\label{index:solver}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/solver.py?at=master}{Source}
+\phantomsection\label{index:module-brake.solve.solver}\index{brake.solve.solver (module)}
+This module defines the following functions:
 
-Input
-A x = lamda B x
-evs\_per\_shift: no of eigenvalues required
-kind: largest or smallest in magnitude. parameters `LM', `SM' respectively
-flag: flag should be passed true when B is positive definite
-\begin{description}
-\item[{Output}] \leavevmode\begin{enumerate}
-\item {} 
-la (Array of evs\_per\_shift eigenvalues.)
+\begin{Verbatim}[commandchars=\\\{\}]
+- qev\_sparse:
 
-\item {} \begin{description}
-\item[{v (An array of evs\_per\_shift eigenvectors. v{[}:, i{]} is the eigenvector }] \leavevmode
-corresponding to the eigenvalue la{[}i{]})
+  Obtains the eigenvalues(smallest in magnitude) and corresponding eigenvectors 
+  for the given Quadratic Eigenvalue Problem(QEVP) with sparse M, C, K matrices.
+ 
+- qev\_dense
 
-\end{description}
+  Obtains the eigenvalues(smallest in magnitude) and corresponding eigenvectors 
+  for the given Quadratic Eigenvalue Problem(QEVP) with dense M, C, K matrices.
+    
+- gev\_sparse
 
-\end{enumerate}
+  Obtains the eigenvalues(smallest in magnitude) and corresponding eigenvectors 
+  for the Generalized Eigenvalue Problem(GEVP) with sparse A, B matrices. 
+  
+- gev\_dense
 
-\end{description}
+  Obtains the eigenvalues(smallest in magnitude) and corresponding eigenvectors 
+  for the Generalized Eigenvalue Problem(GEVP) with dense A, B matrices.
+\end{Verbatim}
 
-Additional Info
-Example of eigs
-eigs(A, k=6, M=None, sigma=None, which='LM', v0=None, ncv=None, maxiter=None, tol=0,
-return\_eigenvectors=True, Minv=None, OPinv=None, OPpart=None)
+Note:
 
+\begin{Verbatim}[commandchars=\\\{\}]
 The eigs function of PYTHON can calculate the eigenvalues of the generalized eigenvalue
 problem A*x=lamda*M*x with the following conditions.
 M must represent a real, symmetric matrix if A is real, and must represent a complex, 
@@ -815,30 +884,285 @@ hermitian matrix if A is complex.
 If sigma is None, M has to be positive definite 
 If sigma is specified, M has to be positive semi-definite
 
-When sigma is specified `say 0' then eigs function will calculate the eigenvalues nearest to sigma. 
-The `LM' clause along with sigma = 0 can be used to calculate the reciprocal eigenvalues of 
+When sigma is specified 'ex 0' then eigs function will calculate the eigenvalues nearest to sigma. 
+The 'LM' clause along with sigma = 0 can be used to calculate the reciprocal eigenvalues of 
 Largest Magnitude.
+\end{Verbatim}
+\index{gev\_dense() (in module brake.solve.solver)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.solver.gev_dense}\pysiglinewithargsret{\code{brake.solve.solver.}\bfcode{gev\_dense}}{\emph{obj}, \emph{A}, \emph{B}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{A} -- \code{A x = lamda B x}
+
+\item {} 
+\textbf{B} -- \code{A x = lamda B x}
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{la} - eigenvalues, \code{v} - eigenvectors
+
+\item[{Raises }] \leavevmode
+SOLVER\_BadInputError, When the matrix A, B are not all dense
+
+\end{description}\end{quote}
+
+Example:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+.
+\end{Verbatim}
+
+\end{fulllineitems}
+
+\index{gev\_sparse() (in module brake.solve.solver)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.solver.gev_sparse}\pysiglinewithargsret{\code{brake.solve.solver.}\bfcode{gev\_sparse}}{\emph{obj}, \emph{A}, \emph{B}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{A} -- \code{A x = lamda B x}
+
+\item {} 
+\textbf{B} -- \code{A x = lamda B x}
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{la} - eigenvalues, \code{v} - eigenvectors
+
+\item[{Raises }] \leavevmode
+SOLVER\_BadInputError, When the matrix A, B are not all in sparse format
+
+\end{description}\end{quote}
+
+Example:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+.
+\end{Verbatim}
+
+\end{fulllineitems}
+
+\index{qev\_dense() (in module brake.solve.solver)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.solver.qev_dense}\pysiglinewithargsret{\code{brake.solve.solver.}\bfcode{qev\_dense}}{\emph{obj}, \emph{M}, \emph{C}, \emph{K}, \emph{no\_of\_evs}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{M} -- Mass Matrix
+
+\item {} 
+\textbf{C} -- Damping Matrix
+
+\item {} 
+\textbf{K} -- Stiffness Matrix
+
+\item {} 
+\textbf{no\_of\_evs} -- No of eigenvalues to be computed
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{la} - eigenvalues, \code{v} - eigenvectors
+
+\item[{Raises }] \leavevmode
+SOLVER\_BadInputError, When the matrix M,C,K are not all dense
+
+\end{description}\end{quote}
+
+Example:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+.
+\end{Verbatim}
+
+\end{fulllineitems}
+
+\index{qev\_sparse() (in module brake.solve.solver)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.solver.qev_sparse}\pysiglinewithargsret{\code{brake.solve.solver.}\bfcode{qev\_sparse}}{\emph{obj}, \emph{M}, \emph{C}, \emph{K}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{M} -- Mass Matrix
+
+\item {} 
+\textbf{C} -- Damping Matrix
+
+\item {} 
+\textbf{K} -- Stiffness Matrix
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{la} - eigenvalues, \code{v} - eigenvectors
+
+\item[{Raises }] \leavevmode
+SOLVER\_BadInputError, When the matrix M,C,K are not all in sparse format
+
+\end{description}\end{quote}
+
+Example:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+.
+\end{Verbatim}
+
+\end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+\begin{description}
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.eigs.html}{scipy.sparse.linalg.eigs}}] \leavevmode
+Documentation of the Python eigs command
+
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.splu.html}{scipy.sparse.linalg.splu}}] \leavevmode
+Documentation of the Python splu command
+
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.spilu.html}{scipy.sparse.linalg.spilu}}] \leavevmode
+Documentation of the Python spilu command
+
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.lu\_factor.html}{scipy.linalg.lu\_factor}}] \leavevmode
+Documentation of the Python lu\_factor command
+
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.lu\_solve.html}{scipy.linalg.lu\_solve}}] \leavevmode
+Documentation of the Python lu\_solve command
+
+\end{description}
+
+
 
 
 \section{cover}
-\label{index:cover}\label{index:module-cover}\index{cover (module)}
-Implementation of the MonteCarlo Algorithm for choosing shift points to cover the target region
+\label{index:cover}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/cover.py?at=master}{Source}
+\phantomsection\label{index:module-brake.solve.cover}\index{brake.solve.cover (module)}
+This module defines the following functions:
 
-cover.next\_shift
-Input
-1. target (target region for the shift points)
-2. previous\_shifts (python list for the previous shift points already calculated)
-3. previous\_radius (corresponding radius of the previous shift points)
+\begin{Verbatim}[commandchars=\\\{\}]
+- next\_shift
 
-Output
-1. next\_shift (next shift point in the target region)
-\index{next\_shift() (in module cover)}
+  Implementation of the MonteCarlo Algorithm for choosing the next shift point 
+  in the target region
+
+- calculate\_area\_fraction
+
+  Calculates the area fraction covered(of the target rectangle) by the chosen shift points
+  
+- draw\_circles
+
+  plots a circle corresponding to the next shift point and appends it to the existing plot.
+  Thus creates a simulation showing how the target region is covered by the various shift points
+  chosen on fly.
+\end{Verbatim}
+\index{calculate\_area\_fraction() (in module brake.solve.cover)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:cover.next_shift}\pysiglinewithargsret{\code{cover.}\bfcode{next\_shift}}{\emph{obj}, \emph{previous\_shifts=}\optional{}, \emph{previous\_radius=}\optional{}}{}
-Obtain the next shift in the target region
+\phantomsection\label{index:brake.solve.cover.calculate_area_fraction}\pysiglinewithargsret{\code{brake.solve.cover.}\bfcode{calculate\_area\_fraction}}{\emph{obj}, \emph{previous\_shifts}, \emph{previous\_radius}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{previous\_shifts} -- python list for the previous shift points already calculated
+
+\item {} 
+\textbf{previous\_radius} -- corresponding radius of the previous shift points
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{area\_fraction\_covered} - the total area fraction covered with the chosen shift points
+
+\item[{Raises }] \leavevmode
+\code{Cover\_BadInputError}, When the provided input is not as expected
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
+
+\index{draw\_circles() (in module brake.solve.cover)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.cover.draw_circles}\pysiglinewithargsret{\code{brake.solve.cover.}\bfcode{draw\_circles}}{\emph{obj}, \emph{next\_shift}, \emph{next\_radius}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{next\_shift} -- the shift point to be shown on the plot
+
+\item {} 
+\textbf{next\_radius} -- the radius of the shift point to be shown
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+plots a circle corresponding to the next shift point and appends it to the existing plot.
+
+\item[{Raises }] \leavevmode
+\code{Cover\_BadInputError}, When the provided input is not as expected
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{next\_shift() (in module brake.solve.cover)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.cover.next_shift}\pysiglinewithargsret{\code{brake.solve.cover.}\bfcode{next\_shift}}{\emph{obj}, \emph{previous\_shifts=}\optional{}, \emph{previous\_radius=}\optional{}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{previous\_shifts} -- python list for the previous shift points already calculated
+
+\item {} 
+\textbf{previous\_radius} -- corresponding radius of the previous shift points
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{next\_shift} - next shift point in the target region
+
+\item[{Raises }] \leavevmode
+\code{Cover\_BadInputError}, When the provided input is not as expected
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+\begin{description}
+\item[{\href{http://matplotlib.org/api/pyplot\_api.html}{matplotlib.pyplot}}] \leavevmode
+Documentation of the Python Matplotlib library
+
+\item[{\href{https://docs.python.org/2/library/random.html}{randon.py}}] \leavevmode
+Documentation of the Python random number generator module
+
+\end{description}
+
 
 
 
@@ -846,8 +1170,27 @@ Obtain the next shift in the target region
 \label{index:analyze}
 
 \section{residual}
-\label{index:residual}\label{index:module-residual}\index{residual (module)}
+\label{index:residual}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/analyze/residual.py?at=master}{Source}
+\phantomsection\label{index:module-brake.analyze.residual}\index{brake.analyze.residual (module)}
 Function definitions for obtaining the residual
+
+
+\strong{See Also:}
+
+\begin{description}
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.eigs.html}{scipy.sparse.linalg.eigs}}] \leavevmode
+Documentation of the Python eigs command
+
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.spilu.html}{scipy.sparse.linalg.spilu}}] \leavevmode
+Documentation of the Python spilu command
+
+\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.splu.html}{scipy.sparse.linalg.splu}}] \leavevmode
+Documentation of the Python splu command
+
+\end{description}
+
+
 
 
 \chapter{Indices and tables}
@@ -867,38 +1210,20 @@ Function definitions for obtaining the residual
 \renewcommand{\indexname}{Python Module Index}
 \begin{theindex}
 \def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
-\bigletter{\_}
-\item {\texttt{\_\_init\_\_}}, \pageref{index:module-__init__}
-\indexspace
-\bigletter{a}
-\item {\texttt{assemble}}, \pageref{index:module-assemble}
-\indexspace
-\bigletter{c}
-\item {\texttt{cover}}, \pageref{index:module-cover}
-\indexspace
-\bigletter{d}
-\item {\texttt{diagscale}}, \pageref{index:module-diagscale}
-\indexspace
-\bigletter{l}
-\item {\texttt{load}}, \pageref{index:module-load}
-\item {\texttt{logger}}, \pageref{index:module-logger}
-\indexspace
-\bigletter{p}
-\item {\texttt{projection}}, \pageref{index:module-projection}
-\indexspace
-\bigletter{q}
-\item {\texttt{qevp}}, \pageref{index:module-qevp}
-\indexspace
-\bigletter{r}
-\item {\texttt{residual}}, \pageref{index:module-residual}
-\indexspace
-\bigletter{s}
-\item {\texttt{scale}}, \pageref{index:module-scale}
-\item {\texttt{shift}}, \pageref{index:module-shift}
-\item {\texttt{solver}}, \pageref{index:module-solver}
-\indexspace
-\bigletter{u}
-\item {\texttt{unlinearize}}, \pageref{index:module-unlinearize}
+\bigletter{b}
+\item {\texttt{brake.\_\_init\_\_}}, \pageref{index:module-brake.__init__}
+\item {\texttt{brake.analyze.residual}}, \pageref{index:module-brake.analyze.residual}
+\item {\texttt{brake.initialize.assemble}}, \pageref{index:module-brake.initialize.assemble}
+\item {\texttt{brake.initialize.diagscale}}, \pageref{index:module-brake.initialize.diagscale}
+\item {\texttt{brake.initialize.load}}, \pageref{index:module-brake.initialize.load}
+\item {\texttt{brake.initialize.logger}}, \pageref{index:module-brake.initialize.logger}
+\item {\texttt{brake.initialize.scale}}, \pageref{index:module-brake.initialize.scale}
+\item {\texttt{brake.initialize.shift}}, \pageref{index:module-brake.initialize.shift}
+\item {\texttt{brake.initialize.unlinearize}}, \pageref{index:module-brake.initialize.unlinearize}
+\item {\texttt{brake.solve.cover}}, \pageref{index:module-brake.solve.cover}
+\item {\texttt{brake.solve.projection}}, \pageref{index:module-brake.solve.projection}
+\item {\texttt{brake.solve.qevp}}, \pageref{index:module-brake.solve.qevp}
+\item {\texttt{brake.solve.solver}}, \pageref{index:module-brake.solve.solver}
 \end{theindex}
 
 \renewcommand{\indexname}{Index}

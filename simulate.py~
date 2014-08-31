@@ -153,9 +153,9 @@ for i in range(0,len(obj.omega_range)):
 	n = M.shape[0]
 	no_of_evs = n-5;
 	begin_solver = timeit.default_timer()	
-        la, evec = solver.qev_optimized_dense(obj,M,C,K,no_of_evs);
+        la, evec = solver.qev_dense(obj,M,C,K,no_of_evs);
         end_solver = timeit.default_timer()
-	res_qevp = residual.residual_qevp_nonsparse(M,C,K,la,evec[0:n,:])
+	res_qevp = residual.residual_qevp(M,C,K,la,evec[0:n,:])
 	print 'Maximum Residual error for the QEVP is ',max(res_qevp)
 	
         brake.print_target_eigs(obj,la,0)

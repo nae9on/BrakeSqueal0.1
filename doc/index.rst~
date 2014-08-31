@@ -175,9 +175,10 @@ visual
     
 .. seealso::
 
-   `matplotlib.pyplot <http://matplotlib.org/api/pyplot_api.html>`__  
-      Documentation of the Python Matplotlib library
-      
+   `scipy.sparse.linalg.onenormest <http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html>`__
+
+   `numpy.linalg.norm <http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html>`_
+   
 Indices and tables
 ==================
 

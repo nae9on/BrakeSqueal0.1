@@ -5,17 +5,17 @@
 \contentsline {section}{\numberline {2.1}logger}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}load}{5}{section.2.2}
 \contentsline {section}{\numberline {2.3}assemble}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}shift}{6}{section.2.4}
+\contentsline {section}{\numberline {2.4}shift}{7}{section.2.4}
 \contentsline {section}{\numberline {2.5}scale}{7}{section.2.5}
-\contentsline {section}{\numberline {2.6}diagscale}{7}{section.2.6}
+\contentsline {section}{\numberline {2.6}diagscale}{8}{section.2.6}
 \contentsline {section}{\numberline {2.7}unlinearize}{9}{section.2.7}
 \contentsline {chapter}{\numberline {3}solve}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}projection}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}qevp}{11}{section.3.2}
 \contentsline {section}{\numberline {3.3}solver}{12}{section.3.3}
-\contentsline {section}{\numberline {3.4}cover}{13}{section.3.4}
-\contentsline {chapter}{\numberline {4}analyze}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}residual}{15}{section.4.1}
-\contentsline {chapter}{\numberline {5}Indices and tables}{17}{chapter.5}
-\contentsline {chapter}{Python Module Index}{19}{section*.17}
-\contentsline {chapter}{Index}{21}{section*.18}
+\contentsline {section}{\numberline {3.4}cover}{14}{section.3.4}
+\contentsline {chapter}{\numberline {4}analyze}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}residual}{17}{section.4.1}
+\contentsline {chapter}{\numberline {5}Indices and tables}{19}{chapter.5}
+\contentsline {chapter}{Python Module Index}{21}{section*.39}
+\contentsline {chapter}{Index}{23}{section*.40}

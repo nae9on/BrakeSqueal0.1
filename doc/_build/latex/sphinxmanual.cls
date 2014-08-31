@@ -1,5 +1,5 @@
 %
-% sphinxmanual.cls for Sphinx (http://sphinx-doc.org/)
+% sphinxmanual.cls for Sphinx (http://sphinx.pocoo.org/)
 %
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
@@ -97,7 +97,6 @@
 %
 \let\py@OldTableofcontents=\tableofcontents
 \renewcommand{\tableofcontents}{%
-  \pagenumbering{roman}%
   \setcounter{page}{1}%
   \pagebreak%
   \pagestyle{plain}%
@@ -115,7 +114,6 @@
   \pagenumbering{arabic}%
   \@ifundefined{fancyhf}{}{\pagestyle{normal}}%
 }
-\pagenumbering{alph}
 
 % This is needed to get the width of the section # area wide enough in the
 % library reference.  Doing it here keeps it the same for all the manuals.
@@ -132,17 +130,4 @@
   \phantomsection
   \py@OldThebibliography{1}
   \addcontentsline{toc}{chapter}{\bibname}
-}
-
-% Same for the indices.
-% The memoir class already does this, so we don't duplicate it in that case.
-%
-\@ifclassloaded{memoir}{}{
-  \let\py@OldTheindex=\theindex
-  \renewcommand{\theindex}{
-    \cleardoublepage
-    \phantomsection
-    \py@OldTheindex
-    \addcontentsline{toc}{chapter}{\indexname}
-  }
 }

@@ -1,27 +1,36 @@
-\indexentry{\_\_init\_\_ (module)|hyperpage}{3}
-\indexentry{logger (module)|hyperpage}{5}
-\indexentry{return\_info\_logger() (in module logger)|hyperpage}{5}
-\indexentry{return\_time\_logger() (in module logger)|hyperpage}{5}
-\indexentry{load (module)|hyperpage}{5}
-\indexentry{load\_matrices() (in module load)|hyperpage}{5}
-\indexentry{assemble (module)|hyperpage}{6}
-\indexentry{create\_MCK() (in module assemble)|hyperpage}{6}
-\indexentry{shift (module)|hyperpage}{6}
-\indexentry{shift\_matrices() (in module shift)|hyperpage}{6}
-\indexentry{scale (module)|hyperpage}{7}
-\indexentry{scale\_matrices() (in module scale)|hyperpage}{7}
-\indexentry{diagscale (module)|hyperpage}{7}
-\indexentry{diag\_scale\_matrices() (in module diagscale)|hyperpage}{8}
-\indexentry{norm\_rc() (in module diagscale)|hyperpage}{8}
-\indexentry{normalize\_cols() (in module diagscale)|hyperpage}{9}
-\indexentry{unlinearize (module)|hyperpage}{9}
-\indexentry{unlinearize\_matrices() (in module unlinearize)|hyperpage}{9}
-\indexentry{projection (module)|hyperpage}{11}
-\indexentry{obtain\_projection\_matrix() (in module projection)|hyperpage}{11}
-\indexentry{qevp (module)|hyperpage}{11}
-\indexentry{Obtain\_eigs() (in module qevp)|hyperpage}{11}
-\indexentry{brake\_squeal\_qevp() (in module qevp)|hyperpage}{12}
-\indexentry{solver (module)|hyperpage}{12}
-\indexentry{cover (module)|hyperpage}{13}
-\indexentry{next\_shift() (in module cover)|hyperpage}{13}
-\indexentry{residual (module)|hyperpage}{15}
+\indexentry{brake.\_\_init\_\_ (module)|hyperpage}{3}
+\indexentry{BrakeClass (class in brake.\_\_init\_\_)|hyperpage}{3}
+\indexentry{print\_eigs() (in module brake.\_\_init\_\_)|hyperpage}{3}
+\indexentry{print\_target\_eigs() (in module brake.\_\_init\_\_)|hyperpage}{3}
+\indexentry{brake.initialize.logger (module)|hyperpage}{5}
+\indexentry{return\_info\_logger() (in module brake.initialize.logger)|hyperpage}{5}
+\indexentry{return\_time\_logger() (in module brake.initialize.logger)|hyperpage}{5}
+\indexentry{brake.initialize.load (module)|hyperpage}{5}
+\indexentry{load\_matrices() (in module brake.initialize.load)|hyperpage}{6}
+\indexentry{brake.initialize.assemble (module)|hyperpage}{6}
+\indexentry{create\_MCK() (in module brake.initialize.assemble)|hyperpage}{6}
+\indexentry{brake.initialize.shift (module)|hyperpage}{7}
+\indexentry{shift\_matrices() (in module brake.initialize.shift)|hyperpage}{7}
+\indexentry{brake.initialize.scale (module)|hyperpage}{7}
+\indexentry{scale\_matrices() (in module brake.initialize.scale)|hyperpage}{7}
+\indexentry{brake.initialize.diagscale (module)|hyperpage}{8}
+\indexentry{diag\_scale\_matrices() (in module brake.initialize.diagscale)|hyperpage}{8}
+\indexentry{norm\_rc() (in module brake.initialize.diagscale)|hyperpage}{8}
+\indexentry{normalize\_cols() (in module brake.initialize.diagscale)|hyperpage}{9}
+\indexentry{brake.initialize.unlinearize (module)|hyperpage}{9}
+\indexentry{unlinearize\_matrices() (in module brake.initialize.unlinearize)|hyperpage}{9}
+\indexentry{brake.solve.projection (module)|hyperpage}{11}
+\indexentry{obtain\_projection\_matrix() (in module brake.solve.projection)|hyperpage}{11}
+\indexentry{brake.solve.qevp (module)|hyperpage}{11}
+\indexentry{Obtain\_eigs() (in module brake.solve.qevp)|hyperpage}{12}
+\indexentry{brake\_squeal\_qevp() (in module brake.solve.qevp)|hyperpage}{12}
+\indexentry{brake.solve.solver (module)|hyperpage}{12}
+\indexentry{gev\_dense() (in module brake.solve.solver)|hyperpage}{13}
+\indexentry{gev\_sparse() (in module brake.solve.solver)|hyperpage}{13}
+\indexentry{qev\_dense() (in module brake.solve.solver)|hyperpage}{13}
+\indexentry{qev\_sparse() (in module brake.solve.solver)|hyperpage}{14}
+\indexentry{brake.solve.cover (module)|hyperpage}{14}
+\indexentry{calculate\_area\_fraction() (in module brake.solve.cover)|hyperpage}{15}
+\indexentry{draw\_circles() (in module brake.solve.cover)|hyperpage}{15}
+\indexentry{next\_shift() (in module brake.solve.cover)|hyperpage}{15}
+\indexentry{brake.analyze.residual (module)|hyperpage}{17}

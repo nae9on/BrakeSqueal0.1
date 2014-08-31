@@ -19,7 +19,7 @@ from brake.initialize import diagscale
 def unlinearize_matrices(evec):
     r"""
         
-    :param evec: eigenvectors of the generalized eigenvalue propblem
+    :param evec: - eigenvectors of the generalized eigenvalue propblem
     :return: ``evec_prior`` - eigenvectors prior linearization of the QEVP
     
     Procedure::

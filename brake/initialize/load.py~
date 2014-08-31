@@ -19,7 +19,7 @@ def load_matrices(obj):
         :return: ``sparse_list`` -- a python list of matrices in Compressed Sparse Column format 
           of type '<type 'numpy.float64'>'
         
-        Procedure::
+        Note::
         
          The sparse_list is obtained by loading the vaious .mat files present in the
          data_file_list attribute of the BrakeClass and then appending them into
