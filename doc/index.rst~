@@ -16,7 +16,7 @@ brake
 
 __init__
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/__init__.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/__init__.py?at=master>`__
 
 .. automodule:: brake.__init__
     :members:
@@ -28,7 +28,7 @@ initialize
 
 logger
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/logger.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/logger.py?at=master>`__
 
 .. automodule:: brake.initialize.logger
     :members:
@@ -37,7 +37,7 @@ logger
         
 load
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/load.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/load.py?at=master>`__
 
 .. automodule:: brake.initialize.load
     :members:
@@ -46,7 +46,7 @@ load
 
 assemble
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/assemble.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/assemble.py?at=master>`__
 
 .. automodule:: brake.initialize.assemble
     :members:
@@ -55,7 +55,7 @@ assemble
 
 shift
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/shift.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/shift.py?at=master>`__
 
 .. automodule:: brake.initialize.shift
     :members:
@@ -64,7 +64,7 @@ shift
       
 scale
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/scale.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/scale.py?at=master>`__
 
 .. automodule:: brake.initialize.scale
     :members:
@@ -73,7 +73,7 @@ scale
       
 diagscale
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/diagscale.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/diagscale.py?at=master>`__
 
 .. automodule:: brake.initialize.diagscale
     :members:
@@ -85,7 +85,7 @@ diagscale
       
 unlinearize
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/unlinearize.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/unlinearize.py?at=master>`__
 
 .. automodule:: brake.initialize.unlinearize
     :members:   
@@ -97,7 +97,7 @@ solve
 
 projection
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/projection.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/projection.py?at=master>`__
 
 .. automodule:: brake.solve.projection
     :members:
@@ -106,14 +106,14 @@ projection
 
 qevp
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/qevp.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/qevp.py?at=master>`__
 
 .. automodule:: brake.solve.qevp
     :members:
 
 solver
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/solver.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/solver.py?at=master>`__
 
 .. automodule:: brake.solve.solver
     :members:
@@ -137,7 +137,7 @@ solver
       
 cover
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/cover.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/cover.py?at=master>`__
 
 .. automodule:: brake.solve.cover
     :members:
@@ -155,7 +155,7 @@ analyze
 
 residual
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/analyze/residual.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/analyze/residual.py?at=master>`__
 
 .. automodule:: brake.analyze.residual
     :members:
@@ -168,17 +168,16 @@ residual
      
 visual
 ---------------------------------------
-`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/analyze/py_plot.py?at=master>`__
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/analyze/visual.py?at=master>`__
 
 .. automodule:: brake.analyze.visual
     :members:
     
 .. seealso::
 
-   `scipy.sparse.linalg.onenormest <http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html>`__
-
-   `numpy.linalg.norm <http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html>`_
-   
+   `matplotlib.pyplot <http://matplotlib.org/api/pyplot_api.html>`__  
+      Documentation of the Python Matplotlib library
+      
 Indices and tables
 ==================
 

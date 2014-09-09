@@ -55,7 +55,7 @@ def obtain_projection_matrix(obj):
         for i in range(0,len(omega_basis)):
                 
                 begin = timeit.default_timer()
-                la, evec = qevp.brake_squeal_qevp(obj, i, omega_basis[i])
+                la, evec = qevp.brake_squeal_qevp(obj, i+1, omega_basis[i])
                 end = timeit.default_timer()
                 
                 if(LOG_LEVEL):

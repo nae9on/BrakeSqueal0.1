@@ -35,7 +35,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
     r"""
         
     :param obj: object of the class ``BrakeClass``
-    :param freq_i: the index of the base angular freq in
+    :param freq_i: the index of the base angular freq
     :param omega: ith base angular freq
     :return: ``assembled_la`` - assembled eigenvalues, ``assembled_evec`` -- assembled eigenvectors
     
@@ -62,7 +62,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
     if(LOG_LEVEL):
         logger_i.info("\n"+"\n"+'-----------------------------------------------------------------')
         logger_i.info('Taking eigenvector snapshots of brakesqueal problem for frequence '\
-                                                        +str(freq_i+1)+' = '+str(omega/(2*math.pi)))
+                                                        +str(freq_i)+' = '+str(omega/(2*math.pi)))
     x1 = target[0]
     x2 = target[1]
     y1 = target[2]
@@ -85,6 +85,15 @@ def brake_squeal_qevp(obj, freq_i, omega):
            if(LOG_LEVEL):
              logger_t.info('\tTotal time taken by Obtain_eigs = '+"%.2f" % (end-begin)+' sec')
 
+            #obtain radius = distance of the farthest eigenvalue from next_shift
+           farthest_eval_dist = 0
+           for itr in range(0,len(la)):
+              rad = cmath.polar(la[itr]-next_shift)[0] 
+              if (rad > farthest_eval_dist):
+                 farthest_eval_dist = rad
+           next_radius = farthest_eval_dist
+           
+           #Update Phase
            if(qevp_j==1):
               assembled_la = la
               assembled_evec = evec
@@ -92,14 +101,6 @@ def brake_squeal_qevp(obj, freq_i, omega):
               assembled_la = numpy.concatenate((assembled_la,la), axis=1)
               assembled_evec = numpy.concatenate((assembled_evec,evec), axis=1)
            
-           #obtain radius = distance of the farthest eigenvalue from origin
-           farthest_eval_dist = 0
-           for itr in range(0,len(la)):
-              rad = cmath.polar(la[itr]-next_shift)[0] 
-              if (rad > farthest_eval_dist):
-                 farthest_eval_dist = rad
-           next_radius = farthest_eval_dist
-        
            previous_shifts.append(next_shift)
            previous_radius.append(next_radius)
            
@@ -107,7 +108,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
                                                                                 previous_radius)
            if(LOG_LEVEL):
               logger_i.info("\n"+'for Shift '+str(qevp_j)+' = '+str(next_shift)+\
-' approximate area fraction covered = '+str(area_fraction_covered))
+                             ' approximate area fraction covered = '+str(area_fraction_covered))
               
            cover.draw_circles(obj, next_shift, next_radius)
            qevp_j = qevp_j + 1
@@ -121,7 +122,7 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     r"""
         
     :param obj: object of the class ``BrakeClass``
-    :param freq_i: the index of the base angular freq in
+    :param freq_i: the index of the base angular freq
     :param qevp_j: the index of the shift point
     :param omega: ith base angular freq
     :param next_shift: jth shift point in the target region
@@ -227,13 +228,13 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     #def_list.my_print(la)
     '''
     
-    print('Eigenvalues in the positive plane for shift',qevp_j,'=',next_shift,\
-                ' and frequency',freq_i+1,'=',"%.2f" % omega,'are')      
-    brake.print_target_eigs(obj,la,0)
+    print('Eigenvalues for shift',qevp_j,'=',next_shift,\
+                ' and frequency',freq_i,'=',"%.2f" % omega,'are')      
+    brake.print_eigs(obj,la,'target','terminal')
     
     if(LOG_LEVEL):
-        logger_i.info('Eigenvalues in the positive plane: ')
-        brake.print_target_eigs(obj,la,1)
+        logger_i.info('Eigenvalues : ')
+        brake.print_eigs(obj,la,'target','file')
 
     if(check_flag):
         scipy.io.savemat('evec_py.mat', mdict={'data': evec})

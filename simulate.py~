@@ -11,7 +11,7 @@ import datetime
 import brake
 from brake.initialize import load, assemble, scale, diagscale
 from brake.solve import projection, solver
-from brake.analyze import residual, py_plot
+from brake.analyze import residual, visual
 
 begin_program = timeit.default_timer()
 
@@ -81,7 +81,7 @@ setattr(obj, 'fRef', 1600) #Reference omega
 setattr(obj, 'omega_basis', numpy.array([1,20])*2*math.pi)  
 
 #set range of angular velocity's for simulation
-setattr(obj, 'omega_range', numpy.linspace(1, 20, num=2*2*math.pi))
+setattr(obj, 'omega_range', numpy.linspace(17, 17, num=1)*2*math.pi)
 
 setattr(obj, 'target', numpy.array([-10,1000,-50,12000])) #target rectangular region
 
@@ -159,8 +159,8 @@ for i in range(0,len(obj.omega_range)):
 	print 'Maximum Residual error for the QEVP is ',max(res_qevp)
 	
         brake.print_target_eigs(obj,la,0)
-	radius = py_plot.plot_eigs_cover(obj,la)
-        radius = py_plot.plot_eigs_transition(obj,la)
+	radius = visual.plot_eigs_cover(obj,la)
+        radius = visual.plot_eigs_transition(obj,la)
 
 	#set enable = 1 for verification
 	if(obj.enable):
