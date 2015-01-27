@@ -38,8 +38,7 @@ def load_matrices(obj):
           logger_i.debug("\n"+"\n"+"\n"+'In load matrices (load_matrices.py)')
           logger_i.debug('-------------------------------------------------------------------')
           logger_i.debug('loading the following .mat files '+str(data_file_list))
-          logger_i.debug('load returns a list of matrices in Compressed Sparse Column format \
-                of type numpy.float64')
+          logger_i.debug('load returns a list of matrices in Compressed Sparse Column format of type numpy.float64')
                 
         sparse_list = []
         

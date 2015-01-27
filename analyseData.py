@@ -1,4 +1,6 @@
-# Driver file for the brakesqueal project
+ 
+# This file reads the component matrices and displays there sparsity pattern
+# and other properties
 
 #----------------------------------Standard Library Imports---------------------------------------
 import math
@@ -6,8 +8,9 @@ import numpy
 import timeit
 import socket
 import datetime
-import matplotlib.pyplot as plt
-
+import matplotlib.pylab as plt
+import scipy.sparse.linalg as norm
+ 
 #----------------------------Application Specific Imports-----------------------------------------
 import brake
 from brake.initialize import load, assemble, scale, diagscale
@@ -39,6 +42,7 @@ else:
      input_path = './data/5koref1/'
      output_path = './output/'
 
+
 #Logging Parameters
 '''
 'notset':logging.NOTSET, #0 (for no logging - fastest)
@@ -47,8 +51,8 @@ else:
 '''
 log_level = 10
 dt = datetime.date.today()
-info_log_file = output_path+'info_'+dt.strftime("%d%b")+'.log' #example info_02Aug.log
-time_log_file = output_path+'time_'+dt.strftime("%d%b")+'.log' #example time_02Aug.log
+info_log_file = output_path+'dataProperties'+'.log' #example info_02Aug.log
+time_log_file = output_path+'dataAnalysisTime'+'.log' #example time_02Aug.log
 
 
 '''
@@ -101,8 +105,6 @@ setattr(obj, 'evs_per_shift', 30)
 setattr(obj, 'desired_area_fraction', 0.99)
 
 
-
-
 #------------------------------------------------done initialization
 
 #Log all the BrakeClass attribute values in the info log file
@@ -112,78 +114,31 @@ if(obj.log_level):
 #Begin creating the projection matrix
 #################################################
 if(obj.log_level):
-  obj.logger_i.info("\n"+"\n"+'Beginning Setup Phase')
+  obj.logger_i.info("\n"+"\n"+'Beginning Data Analysis')
   obj.logger_i.info('------------------------------------------------------------------------')
 
-print "\n"+"\n"+'Beginning Setup Phase: Creating the Projection Matrix'
+print "\n"+"\n"+'Beginning Data Analysis'
 
-begin = timeit.default_timer()
-Q = projection.obtain_projection_matrix(obj)
-end = timeit.default_timer()
-#------------------------------------------------done creating the projection matrix
-
-
-'''
-Using the projection matrix(Q) constructed above for the base frequencies, we can now obtain results 
-for several intermediate frequencies by projecting each of them onto a smaller subspace 
-'''
-#-------------------------------------------Simulation-------------------------------------------
-print "\n","\n","\n",'Beginning Simulation Phase'
-
-if(obj.log_level):
-  obj.logger_i.info("\n"+"\n"+'Beginning Simulation Phase')
-  obj.logger_i.info('-------------------------------------------------------------------------')
-  obj.logger_i.info('Performing Proper Orthogonal Decomposition for the following frequencies')
-	
 sparse_list = load.load_matrices(obj)
 
-obj.logger_t.info("\n"+"\n"+'Logging Simulation Times')
-for i in range(0,len(obj.omega_range)):
-        begin_sim = timeit.default_timer()
-	print "\n"
-	print '---------------------------------- QEVP '+str(i+1),' --------------------------'
-	omega = obj.omega_range[i]
-	print 'omega = ',str(omega/(2*math.pi))
-	if(obj.log_level):
-          obj.logger_i.info("\n"+"\n"+'POD for omega = '+str(omega/(2*math.pi)))
-	M, C, K = assemble.create_MCK(obj, sparse_list, omega)
-	print 'Projecting the QEVP having dimension '+str(M.shape)
-	#Projection
-	QT = Q.T.conjugate()
-	M =  QT.dot(M.dot(Q))
-	C =  QT.dot(C.dot(Q))
-	K =  QT.dot(K.dot(Q))
-	print 'Onto a smaller subspace of dimension '+str(M.shape)
-	
-	n = M.shape[0]
-	no_of_evs = n-5;
-	begin_solver = timeit.default_timer()	
-        la, evec = solver.qev_dense(obj,M,C,K,no_of_evs);
-        end_solver = timeit.default_timer()
-	res_qevp = residual.residual_qevp(M,C,K,la,evec[0:n,:])
-	print 'Maximum Residual error for the QEVP is ',max(res_qevp)
-	
-        brake.print_eigs(obj,la,'target','terminal')
-	radius = visual.plot_eigs_cover(obj,la)
-        radius = visual.plot_eigs_transition(obj,la)
+obj.logger_i.debug("\n"+'Properties of various component matrices')
 
-	#set enable = 1 for verification
-	if(obj.enable):
-	  obj.logger_i.info("\n"+'The eigenvalues(in the target region) approximated using \
-										POD are :'+"\n") 
-	  brake.print_eigs(obj,la,'target','terminal')
-	  la, evec = brake_squeal_qevp.BrakeSquealQevp(i,path,data_file_list,omega,
-								megaRef, fRef,target, evs_per_shift)
-	  obj.logger_i.info("\n"+'The eigenvalues(in the target region) obtained after solving \
-								the original QEVP are :'+"\n") 
-	  brake.print_eigs(obj,la,'target','terminal')
-	  obj.logger_i.info("\n"+'----------------------------------------------------------'+"\n")
-        
-        end_sim = timeit.default_timer() 
-        obj.logger_t.info('Simulation time for the '+str(i+1)+'th simulation: '+"%.2f" % \
-        (end_sim-begin_sim)+' sec')
-        
+obj.logger_i.debug('Matrices in CSC format converted to CSR')
+
+fig = plt.gcf()
+
+for i in range(0,len(sparse_list)):
+	componentMatrix = sparse_list[i]
+	normMatrix = norm.onenormest(componentMatrix.tocsr(), t=3, itmax=5, compute_v=False, compute_w=False)
+	print obj.data_file_list[i], obj.data_file_name[i], ' NonZeros = ', componentMatrix.nnz, ' 1-Norm = ', normMatrix
+	obj.logger_i.debug(obj.data_file_list[i]+' '+obj.data_file_name[i]+' Nonzeros = '+str(componentMatrix.nnz)+' 1-Norm = '+str(normMatrix))
+	fig.clf()
+	fig.gca().add_artist(plt.spy(componentMatrix))
+        fig.savefig(obj.output_path+'sparsity_'+obj.data_file_name[i]+'.png')
+
 
 end_program = timeit.default_timer()
 
 print "\n","\n","\n",'Total Run Time = : '+"%.2f" % (end_program-begin_program)+' sec'
+
+

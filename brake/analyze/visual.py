@@ -35,7 +35,7 @@ def plot_eigs_cover(obj,la):
         radius=max(abs(la-tau))
          
         fig = plt.gcf()
-        circle=plt.Circle((tau.real,tau.imag),radius,color='b',fill=False)
+        circle=plt.Circle((tau.real,tau.imag),radius,color='g',fill=False)
         react = plt.Rectangle((x1,y1),abs(x2-x1),abs(y2-y1),color='black',fill=False)
         ax = plt.gca()
         ax.cla() # clear things for fresh plot
@@ -54,6 +54,7 @@ def plot_eigs_cover(obj,la):
         ax.plot((tau.real),(tau.imag),'+',color='r')
         fig.gca().add_artist(circle)
         fig.gca().add_artist(react)
+	plt.draw()
         fig.savefig(obj.output_path+'plotcover.png')
         return radius;
 
