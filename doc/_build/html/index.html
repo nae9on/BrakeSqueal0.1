@@ -67,12 +67,7 @@
   
 - print_eigs:
   
-  Prints all the eigenvalues on the terminal (with two floating points).
-  
-- print_target_eigs:
-
-  Prints the eigenvalues in the target region on the terminal (when flag is false)
-  , in the info file (when flag is true).</pre>
+  Prints all the eigenvalues on the terminal (with two floating points).</pre>
 </div>
 <dl class="class">
 <dt id="brake.__init__.BrakeClass">
@@ -90,22 +85,7 @@
 
 <dl class="function">
 <dt id="brake.__init__.print_eigs">
-<tt class="descclassname">brake.__init__.</tt><tt class="descname">print_eigs</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#brake.__init__.print_eigs" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg</strong> &#8211; eigenvalues</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">prints eigenvalues on the terminal</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="brake.__init__.print_target_eigs">
-<tt class="descclassname">brake.__init__.</tt><tt class="descname">print_target_eigs</tt><big>(</big><em>obj</em>, <em>arg</em>, <em>flag</em><big>)</big><a class="headerlink" href="#brake.__init__.print_target_eigs" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">brake.__init__.</tt><tt class="descname">print_eigs</tt><big>(</big><em>obj</em>, <em>arg</em>, <em>which_flag</em>, <em>where_flag</em><big>)</big><a class="headerlink" href="#brake.__init__.print_eigs" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -113,11 +93,12 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
 <li><strong>arg</strong> &#8211; eigenvalues</li>
-<li><strong>flag</strong> &#8211; 0/1 for output on the terminal/in info file</li>
+<li><strong>which_flag</strong> &#8211; which eigenvalues are needed(&#8216;all&#8217; or &#8216;target&#8217; or &#8216;critical&#8217; or &#8216;positive&#8217;)</li>
+<li><strong>where_flag</strong> &#8211; where to print the eigenvalues(&#8216;terminal&#8217; or &#8216;file&#8217;)</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">prints eigenvalues on the terminal when flag = 0 else prints output in the info file.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">prints eigenvalues in the desired format(upto 2 decimal places)</p>
 </td>
 </tr>
 </tbody>
@@ -579,7 +560,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
-<li><strong>freq_i</strong> &#8211; the index of the base angular freq in</li>
+<li><strong>freq_i</strong> &#8211; the index of the base angular freq</li>
 <li><strong>qevp_j</strong> &#8211; the index of the shift point</li>
 <li><strong>omega</strong> &#8211; ith base angular freq</li>
 <li><strong>next_shift</strong> &#8211; jth shift point in the target region</li>
@@ -612,7 +593,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
-<li><strong>freq_i</strong> &#8211; the index of the base angular freq in</li>
+<li><strong>freq_i</strong> &#8211; the index of the base angular freq</li>
 <li><strong>omega</strong> &#8211; ith base angular freq</li>
 </ul>
 </td>

@@ -12,5 +12,7 @@ Getting Started
 
 Install using `python setup.py install`
 
+Build documentation using `BrakeSqueal0.1/doc/ make html`
+
 Examples
 --------

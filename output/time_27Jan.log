@@ -1,0 +1,53 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+Time = 0
+
+
+SOLVER: LU Factorization of sparse K using spilu in time : 2.29 sec
+SOLVER: Call to python eigs command: 4.41 sec
+
+
+------------------------------------
+Reading: 0.02 sec
+Assembling: 0.05 sec
+Shifting: 0.03 sec
+Scaling: 0.38 sec
+Diagonal Scaling: 0.72 sec
+Total Eigenvalue Computation Time: 6.71 sec
+Unfolding: 0.03 sec
+Error Analysis1(standard QEVP): 4.69 sec
+Error Analysis2(after unfolding): 4.68 sec
+------------------------------------
+	Total time taken by Obtain_eigs = 17.30 sec
+
+
+		Total time taken by Brake Squeal Qevp = 17.72 sec
+
+
+SOLVER: LU Factorization of sparse K using spilu in time : 2.27 sec
+SOLVER: Call to python eigs command: 4.42 sec
+
+
+------------------------------------
+Reading: 0.01 sec
+Assembling: 0.03 sec
+Shifting: 0.02 sec
+Scaling: 0.37 sec
+Diagonal Scaling: 0.71 sec
+Total Eigenvalue Computation Time: 6.71 sec
+Unfolding: 0.03 sec
+Error Analysis1(standard QEVP): 4.65 sec
+Error Analysis2(after unfolding): 5.01 sec
+------------------------------------
+	Total time taken by Obtain_eigs = 17.55 sec
+
+
+		Total time taken by Brake Squeal Qevp = 17.80 sec
+
+
+		Time taken to compute svd = 0.60
+
+
+Logging Simulation Times
+Simulation time for the 1th simulation: 0.76 sec
+Simulation time for the 2th simulation: 0.73 sec

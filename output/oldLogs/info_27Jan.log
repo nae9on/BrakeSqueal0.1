@@ -1,0 +1,77 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+In Driver file
+
+BrakeClass Attributes and there values
+logger_i   <logging.Logger object at 0x22b5c10>
+cutoff   0.0001
+enable   0
+log_level   20
+target   [  -10  1000   -50 12000]
+desired_area_fraction   0.99
+data_file_list   ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+omegaRef   1
+time_log_file   ./output/time_27Jan.log
+fRef   1600
+omega_range   [   6.28318531  125.66370614]
+evs_per_shift   30
+output_path   ./output/
+info_log_file   ./output/info_27Jan.log
+input_path   ./data/5koref1/
+logger_t   <logging.Logger object at 0x22b5d10>
+omega_basis   [   6.28318531  125.66370614]
+
+
+Beginning Setup Phase
+------------------------------------------------------------------------
+
+Creating the Measurment matrix X and Projection matrix Q
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 1 = 1.0
+Eigenvalues : 
+('-8.834e-04', '5.131e+03')
+('-2.462e+00', '3.338e+03')
+Maximum Residual error(solver) for the QEVP is (3.81687795843e-15+0j)
+Maximum Residual error = (2.436028221e-15+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 2 = 20.0
+Eigenvalues : 
+('1.083e-03', '5.131e+03')
+('-3.809e+00', '3.576e+03')
+('-6.673e+00', '9.836e+03')
+('-9.215e+00', '1.413e+03')
+Maximum Residual error(solver) for the QEVP is (5.18036471449e-15+0j)
+Maximum Residual error = (3.65839945986e-15+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+
+------------------ Now creating the Measurment matrix --------
+The number of QEVP solved = 2
+
+The number of eigenvectors computed for frequency 1 = 30
+
+The number of eigenvectors computed for frequency 2 = 30
+
+The shapes of U,s,V of the measurment matrix are as follows (4669, 120) (120,) (120, 120)
+The no of singular values = 120
+The no of singular values after truncation = 49
+The dimensions of the projection matrix = (4669, 49)
+
+
+Beginning Simulation Phase
+-------------------------------------------------------------------------
+Performing Proper Orthogonal Decomposition for the following frequencies
+
+
+POD for omega = 1.0
+
+
+POD for omega = 20.0
