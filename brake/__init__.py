@@ -9,6 +9,10 @@ This module defines the following functions::
     
     Prints all the eigenvalues on the terminal (with two floating points).
     
+  - extractEigs:
+   
+    Returns all the required eigenpairs. 
+    
 """
 
 #----------------------------------Standard Library Imports---------------------------------------
@@ -23,7 +27,8 @@ from initialize import logger
 
 __all__ = [
     'BrakeClass',
-    'print_eigs'
+    'print_eigs',
+    'extractEigs'
     ]
 
 class BrakeClass:
@@ -95,6 +100,11 @@ def print_eigs(obj,arg,which_flag,where_flag):
     #create a temporary bool array to indicate required eigenvalues
     bool_array = np.zeros(n)
     
+    targetFlag = 0;
+    criticalFlag = 0;
+    positiveFlag = 0;
+    
+    
     if which_flag == 'all': #no condition
       bool_array = np.ones(n)
       
@@ -103,6 +113,13 @@ def print_eigs(obj,arg,which_flag,where_flag):
       if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
           arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3]):
            bool_array[i] = 1
+           targetFlag = 1
+     if targetFlag == 0:
+      if(where_flag == 'file'):
+            logger_i.info('No eigenvalues is the target region found')
+      if(where_flag == 'terminal'):
+            print('No eigenvalues is the target region found')
+     
            
     if which_flag == 'critical':
      for i in range(0, n):
@@ -110,11 +127,25 @@ def print_eigs(obj,arg,which_flag,where_flag):
           arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3] and \
           arg[i].real >= 0):
            bool_array[i] = 1
+           criticalFlag = 1
+     if criticalFlag == 0:
+      if(where_flag == 'file'):
+            logger_i.info('No positive eigenvalues in the target region found')
+      if(where_flag == 'terminal'):
+            print('No positive eigenvalues in the target region found')      
 
     if which_flag == 'positive':
      for i in range(0, n):
       if (arg[i].real >= 0):
            bool_array[i] = 1
+           positiveFlag = 1
+     if positiveFlag == 0:
+      if(where_flag == 'file'):
+            logger_i.info('No positive eigenvalues found')
+      if(where_flag == 'terminal'):
+            print('No positive eigenvalues found')      
+     
+           
            
     
     for i in range(0, n):
@@ -131,3 +162,80 @@ def print_eigs(obj,arg,which_flag,where_flag):
             logger_i.info(x)
           if(where_flag == 'terminal'):
             print("%04.03e" % arg[i].real, '+',  "%04.03e" % arg[i].imag, 'I')
+
+            
+def extractEigs(obj,arg,arg2,which_flag):
+    r"""
+        
+    :param obj: object of the class ``BrakeClass``
+    :param arg: eigenvalues
+    :param arg2: eigenvectors
+    :param which_flag: which eigenvalues are needed('all' or 'target' or 'critical' or 'positive')
+    :return: ``laExtracted`` - required eigenvalues, ``evecExtracted`` -- corresponding eigenvectors
+    
+    """
+    
+    n = arg.shape[0]
+    #arg=sorted(arg,reverse=True)
+    logger_i = obj.logger_i
+    
+    #create a temporary bool array to indicate required eigenvalues
+    bool_array = np.zeros(n)
+    
+    targetFlag = 0;
+    criticalFlag = 0;
+    positiveFlag = 0;
+    
+    
+    if which_flag == 'all': #no condition
+      bool_array = np.ones(n)
+      
+    if which_flag == 'target':
+     for i in range(0, n):
+      if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
+          arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3]):
+           bool_array[i] = 1
+           targetFlag = 1
+     if targetFlag == 0:
+      if(where_flag == 'file'):
+            logger_i.info('No eigenvalues is the target region found')
+      if(where_flag == 'terminal'):
+            print('No eigenvalues is the target region found')
+     
+           
+    if which_flag == 'critical':
+     for i in range(0, n):
+      if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
+          arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3] and \
+          arg[i].real >= 0):
+           bool_array[i] = 1
+           criticalFlag = 1
+     if criticalFlag == 0:
+      if(where_flag == 'file'):
+            logger_i.info('No positive eigenvalues in the target region found')
+      if(where_flag == 'terminal'):
+            print('No positive eigenvalues in the target region found')      
+
+    if which_flag == 'positive':
+     for i in range(0, n):
+      if (arg[i].real >= 0):
+           bool_array[i] = 1
+           positiveFlag = 1
+     if positiveFlag == 0:
+      if(where_flag == 'file'):
+            logger_i.info('No positive eigenvalues found')
+      if(where_flag == 'terminal'):
+            print('No positive eigenvalues found')      
+     
+     
+    laExtracted = np.zeros(np.count_nonzero(bool_array),dtype=np.complex128)
+    evecExtracted = np.zeros((arg2.shape[0], np.count_nonzero(bool_array)),dtype=np.complex128)
+    
+    j = 0
+    for i in range(0, n):
+     if bool_array[i] == 1:
+       laExtracted[j] = arg[i]
+       evecExtracted[:,j] = arg2[:,i]
+       j = j+1
+       
+    return laExtracted, evecExtracted

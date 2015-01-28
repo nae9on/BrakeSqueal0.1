@@ -96,7 +96,7 @@ def qev_sparse(obj,M,C,K):
             '''
             
             end_LU = timeit.default_timer()
-            logger_t.info("\n"+"\n"+'SOLVER: LU Factorization of sparse K using spilu in time : '\
+            logger_t.info("\n"+"\n"+'SOLVER: LU Factorization of sparse K using splu in time : '\
             +"%.2f" % (end_LU-begin_LU)+' sec')
             
         except RuntimeError:

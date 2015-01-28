@@ -67,7 +67,11 @@
   
 - print_eigs:
   
-  Prints all the eigenvalues on the terminal (with two floating points).</pre>
+  Prints all the eigenvalues on the terminal (with two floating points).
+  
+- extractEigs:
+ 
+  Returns all the required eigenpairs. </pre>
 </div>
 <dl class="class">
 <dt id="brake.__init__.BrakeClass">
@@ -99,6 +103,28 @@
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">prints eigenvalues in the desired format(upto 2 decimal places)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="brake.__init__.extractEigs">
+<tt class="descclassname">brake.__init__.</tt><tt class="descname">extractEigs</tt><big>(</big><em>obj</em>, <em>arg</em>, <em>arg2</em>, <em>which_flag</em><big>)</big><a class="headerlink" href="#brake.__init__.extractEigs" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><strong>arg</strong> &#8211; eigenvalues</li>
+<li><strong>arg2</strong> &#8211; eigenvectors</li>
+<li><strong>which_flag</strong> &#8211; which eigenvalues are needed(&#8216;all&#8217; or &#8216;target&#8217; or &#8216;critical&#8217; or &#8216;positive&#8217;)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">laExtracted</span></tt> - required eigenvalues, <tt class="docutils literal"><span class="pre">evecExtracted</span></tt> &#8211; corresponding eigenvectors</p>
 </td>
 </tr>
 </tbody>
@@ -244,9 +270,9 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 <p>Procedure:</p>
 <div class="highlight-python"><pre>The M , C , K are assembled as follows:
 
-- M = m
-- C = c1+c2*(omega/omegaRef)+c3*(omegaRef/omega)
-- K = k1+k2+k3*math.pow((omega/omegaRef),2)</pre>
+- M = M1
+- C = D1+DR*(omegaRef/omega)+DG*(omega/omegaRef)
+- K = K1+KR+KGeo*math.pow((omega/omegaRef),2)</pre>
 </div>
 </dd></dl>
 

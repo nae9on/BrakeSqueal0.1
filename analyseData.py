@@ -1,58 +1,23 @@
- 
 # This file reads the component matrices and displays there sparsity pattern
 # and other properties
 
 #----------------------------------Standard Library Imports---------------------------------------
-import math
-import numpy
 import timeit
-import socket
-import datetime
 import matplotlib.pylab as plt
 import scipy.sparse.linalg as norm
- 
+
 #----------------------------Application Specific Imports-----------------------------------------
-import brake
-from brake.initialize import load, assemble, scale, diagscale
-from brake.solve import projection, solver
-from brake.analyze import residual, visual
+import createBrakeClassObject
+from brake.initialize import load
+
+
+
 
 begin_program = timeit.default_timer()
 
-#Initializing Parameters
-#################################################        
 
-#Set Input/Output Path
-#Get the host system name to define the path
-host=socket.gethostname()
-print "Working on :", host, "computer"
-
-if host == 'laplace':
-   input_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/\
-   Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
-elif host == 'aif-server':
-     input_path = 'd:/eigenwerte/ProblemData/Matrix/800kOmegaRef%(row)d/' % {'row': omegaRef}
-elif host == 'frenet':
-     input_path = '/homes/extern/kadar/Desktop/project/python_source/data/5koref1/'
-     output_path = '/homes/extern/kadar/Desktop/BrakeSqueal0.1/output/'
-elif host == 'ali-Inspiron-1525':
-     input_path = './data/5koref1/'
-     output_path = './output/'  
-else:
-     input_path = './data/5koref1/'
-     output_path = './output/'
-
-
-log_level = 10
-dt = datetime.date.today()
-info_log_file = output_path+'dataAnalysis/dataProperties'+'.log' 
-time_log_file = output_path+'dataAnalysis/dataAnalysisTime'+'.log' 
-
-obj = brake.BrakeClass(input_path, output_path, info_log_file, time_log_file, log_level)
-
-setattr(obj, 'data_file_list', ['BMLL','BDLL','BYLL','BDIWLL','BHLL','BKLL','BKQLL','BWLL'])
-setattr(obj, 'data_file_name', ['M1','D1','DG','DR','D4','K1','KR','KGeo'])
-
+#----------------------------Create Object--------------------------------------------------------
+obj = createBrakeClassObject.returnObject()
 
 if(obj.log_level):
   obj.logger_i.info("\n"+"\n"+'Beginning Data Analysis')
