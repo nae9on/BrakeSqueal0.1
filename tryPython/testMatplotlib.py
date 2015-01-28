@@ -1,30 +1,28 @@
 
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import pylab
 
-fig = plt.figure()
-
-def f(x, y):
-    return np.sin(x) + np.cos(y)
-
-x = np.linspace(0, 2 * np.pi, 120)
-y = np.linspace(0, 2 * np.pi, 100).reshape(-1, 1)
-
-plt.imshow(f(x, y), cmap=plt.get_cmap('jet'))
-
-'''
-def updatefig(*args):
-    global x,y
-    x += np.pi / 15.
-    y += np.pi / 20.
-    im.set_array(f(x,y))
-    return im,
-
-ani = animation.FuncAnimation(fig, updatefig, interval=50, blit=True)
-'''
 plt.ion()
+
+fig = plt.figure()
+fig2 = plt.figure()
+
+ax = fig.add_subplot(1,1,1) # two rows, one column, first plot
+rect = matplotlib.patches.Rectangle( (1,1), width=5, height=12)
+ax.add_patch(rect)
+ax.autoscale_view()
+ax.figure.canvas.draw()
+
+
+t = np.arange(0.0, 1.0, 0.01)
+s = np.sin(2*np.pi*t)
+
+ax2 = fig2.add_axes([0.15, 0.1, 0.7, 0.3])
+ax2.plot(t,s)
+
+
 plt.show()
-plt.hold(True)
-plt.pause(0.0001)
+

@@ -1,0 +1,485 @@
+Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)
+
+In Driver file
+
+BrakeClass Attributes and there values
+logger_i   <logging.Logger object at 0x28c1990>
+omega_basis   [   6.28318531   62.83185307  125.66370614]
+enable   0
+log_level   10
+target   [  -10  1000   -50 12000]
+desired_area_fraction   0.99
+cutoff   0.0001
+data_file_list   ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+data_file_name   ['M1', 'D1', 'DG', 'DR', 'D4', 'K1', 'KR', 'KGeo']
+time_log_file   ./output/time_28Jan.log
+fRef   1600
+omega_range   [   6.28318531   19.54768762   32.81218994   46.07669225   59.34119457
+   72.60569688   85.8701992    99.13470151  112.39920383  125.66370614]
+evs_per_shift   30
+output_path   ./output/
+info_log_file   ./output/info_28Jan.log
+input_path   ./data/5koref1/
+logger_t   <logging.Logger object at 0x28c1a90>
+omegaRef   1
+
+
+Beginning Setup Phase
+------------------------------------------------------------------------
+
+Creating the Measurment matrix X and Projection matrix Q
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 1 = 1.0
+
+
+
+In load matrices (load_matrices.py)
+-------------------------------------------------------------------
+loading the following .mat files ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+load returns a list of matrices in Compressed Sparse Column format of type numpy.float64
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00376973947516
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 12.0068122872
+K  Nonzeros = 291758 1-Norm = 107410423.147
+
+
+
+In shift matrices (shift_matrices.py)
+----------------------------------------------------------------
+Shifting about the point (495+5975j)
+Properties of shifted matrices
+
+M  No of nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  No of nonzeros = 97509 1-Norm = 12.3562601053
+K  No of nonzeros = 291758 1-Norm = 107410223.501
+
+
+
+In scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Scaling factors gamma = 1094804.3114 delta = 1.65374115893e-08
+The scaled problem has rho = 1.0
+
+
+
+In diagonal scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Condition Number of K before scaling [ 578974.73114647]
+Condition Number of K after scaling [ 198208.88317071]
+The condition number of K decreases after diagonal scaling
+Eigenvalues : 
+('-8.834e-04', '5.131e+03')
+('-2.462e+00', '3.338e+03')
+Maximum Residual error(solver) for the QEVP is (4.86154372922e-15+0j)
+Maximum Residual error = (6.16540345517e-15+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 2 = 10.0
+
+
+
+In load matrices (load_matrices.py)
+-------------------------------------------------------------------
+loading the following .mat files ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+load returns a list of matrices in Compressed Sparse Column format of type numpy.float64
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.129817
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383683624397
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.5231028108
+K  Nonzeros = 291758 1-Norm = 107410423.144
+
+
+
+In shift matrices (shift_matrices.py)
+----------------------------------------------------------------
+Shifting about the point (495+5975j)
+Properties of shifted matrices
+
+M  No of nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  No of nonzeros = 97509 1-Norm = 10.8739150962
+K  No of nonzeros = 291758 1-Norm = 107410223.499
+
+
+
+In scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Scaling factors gamma = 1094804.31138 delta = 1.67623471742e-08
+The scaled problem has rho = 1.0
+
+
+
+In diagonal scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Condition Number of K before scaling [ 599370.80369307]
+Condition Number of K after scaling [ 189129.6091845]
+The condition number of K decreases after diagonal scaling
+Eigenvalues : 
+('9.553e-04', '5.131e+03')
+('-5.638e+00', '1.001e+04')
+('-7.174e+00', '3.322e+03')
+('-7.284e+00', '3.537e+03')
+('-9.549e+00', '1.413e+03')
+Maximum Residual error(solver) for the QEVP is (5.45974042831e-15+0j)
+Maximum Residual error = (5.92247840286e-15+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+-----------------------------------------------------------------
+Taking eigenvector snapshots of brakesqueal problem for frequence 3 = 20.0
+
+
+
+In load matrices (load_matrices.py)
+-------------------------------------------------------------------
+loading the following .mat files ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+load returns a list of matrices in Compressed Sparse Column format of type numpy.float64
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.0038385028588
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.4406745065
+K  Nonzeros = 291758 1-Norm = 107410423.136
+
+
+
+In shift matrices (shift_matrices.py)
+----------------------------------------------------------------
+Shifting about the point (495+5975j)
+Properties of shifted matrices
+
+M  No of nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  No of nonzeros = 97509 1-Norm = 10.7915738834
+K  No of nonzeros = 291758 1-Norm = 107410223.491
+
+
+
+In scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Scaling factors gamma = 1094804.31135 delta = 1.6775021408e-08
+The scaled problem has rho = 1.0
+
+
+
+In diagonal scale matrices (scale_matrices.py)
+----------------------------------------------------------------
+Condition Number of K before scaling [ 666320.07657182]
+Condition Number of K after scaling [ 188099.92700362]
+The condition number of K decreases after diagonal scaling
+Eigenvalues : 
+('1.083e-03', '5.131e+03')
+('-3.809e+00', '3.576e+03')
+('-6.673e+00', '9.836e+03')
+('-9.215e+00', '1.413e+03')
+Maximum Residual error(solver) for the QEVP is (4.92977048193e-15+0j)
+Maximum Residual error = (3.10727230178e-15+0j)
+
+for Shift 1 = (495+5975j) approximate area fraction covered = 1.0
+
+
+
+------------------ Now creating the Measurment matrix --------
+The number of QEVP solved = 3
+
+The number of eigenvectors computed for frequency 1 = 30
+
+The number of eigenvectors computed for frequency 2 = 30
+
+The number of eigenvectors computed for frequency 3 = 30
+
+The shapes of U,s,V of the measurment matrix are as follows (4669, 180) (180,) (180, 180)
+The no of singular values = 180
+The no of singular values after truncation = 49
+The dimensions of the projection matrix = (4669, 49)
+
+
+Beginning Simulation Phase
+-------------------------------------------------------------------------
+Performing Proper Orthogonal Decomposition for the following frequencies
+
+
+
+In load matrices (load_matrices.py)
+-------------------------------------------------------------------
+loading the following .mat files ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+load returns a list of matrices in Compressed Sparse Column format of type numpy.float64
+
+
+POD for omega = 1.0
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383683706423
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 12.0068122872
+K  Nonzeros = 291758 1-Norm = 107410423.147
+
+
+POD for omega = 3.11111111111
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475855
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.129817
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383850286071
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.8881424439
+K  Nonzeros = 291758 1-Norm = 107410423.147
+
+
+POD for omega = 5.22222222222
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475855
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383683709698
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.6739290696
+K  Nonzeros = 291758 1-Norm = 107410423.146
+
+
+POD for omega = 7.33333333333
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475855
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.129817
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383850572317
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.5830506684
+K  Nonzeros = 291758 1-Norm = 107410423.145
+
+
+POD for omega = 9.44444444444
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.129817
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383683691084
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.5328002583
+K  Nonzeros = 291758 1-Norm = 107410423.144
+
+
+POD for omega = 11.5555555556
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383850572317
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.500910575
+K  Nonzeros = 291758 1-Norm = 106806847.776
+
+
+POD for omega = 13.6666666667
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.129817
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383683636659
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.478872989
+K  Nonzeros = 291758 1-Norm = 107410423.142
+
+
+POD for omega = 15.7777777778
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.129817
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383850269256
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.4627327851
+K  Nonzeros = 291758 1-Norm = 107410423.14
+
+
+POD for omega = 17.8888888889
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475855
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00383850572414
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.4504020704
+K  Nonzeros = 291758 1-Norm = 107410423.138
+
+
+POD for omega = 20.0
+
+
+
+In assemble matrices (assemble.py)
+----------------------------------------------------------------
+Matrices in CSC format converted to CSR
+BMLL M1 Nonzeros = 93207 1-Norm = 8.96133313175e-05
+BDLL D1 Nonzeros = 5683 1-Norm = 10.3582462023
+BYLL DG Nonzeros = 66643 1-Norm = 0.000219139615422
+BDIWLL DR Nonzeros = 5683 1-Norm = 10.3582462023
+BHLL D4 Nonzeros = 23885 1-Norm = 63318.9475846
+BKLL K1 Nonzeros = 280845 1-Norm = 107410423.147
+BKQLL KR Nonzeros = 21646 1-Norm = 357014.030151
+BWLL KGeo Nonzeros = 280871 1-Norm = 0.00368584386766
+
+
+Properties of assembled matrices
+M  Nonzeros = 93207 1-Norm = 8.96133313175e-05
+C  Nonzeros = 71536 1-Norm = 10.4406745065
+K  Nonzeros = 291758 1-Norm = 107410423.136

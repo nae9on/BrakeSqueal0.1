@@ -54,7 +54,7 @@ def plot_eigs_cover(obj,la):
         ax.plot((tau.real),(tau.imag),'+',color='r')
         fig.gca().add_artist(circle)
         fig.gca().add_artist(react)
-	plt.draw()
+	
         fig.savefig(obj.output_path+'plotcover.png')
         return radius;
 
