@@ -50,11 +50,10 @@ def return_info_logger(obj):
     if(LOG_LEVEL == 0):
         logger_i.setLevel(logging.INFO)
         logger_i.info('The current level of logging is '+str(LOG_LEVEL))
-        logger_i.info('To enable detailed logging provide one of the following parameters:')
-        logger_i.info('info,debug')
+        logger_i.info('To enable detailed logging set log level to non zero during object creation:')
+	logger_i.info('Set log level = 10(debug mode), log level = 20(info mode)')
         logger_i.info('The Info Data is logged in the file : '+INFO_LOG_FILENAME)
         logger_i.info('The Time Data is logged in the file : '+TIME_LOG_FILENAME)       
-        logger_i.info('ex execute following in shell: python main.py info')
         logger_i.setLevel(logging.NOTSET)
 
     if(LOG_LEVEL):
@@ -86,11 +85,10 @@ def return_time_logger(obj):
     if(LOG_LEVEL == 0):
         logger_t.setLevel(logging.INFO)
         logger_t.info('The current level of logging is '+str(LOG_LEVEL))
-        logger_t.info('To enable detailed logging provide one of the following parameters:')
-        logger_t.info('info,debug')
+        logger_t.info('To enable detailed logging set log level to non zero during object creation')
+	logger_t.info('Set log level = 10(debug mode), log level = 20(info mode)')
         logger_t.info('The Info Data is logged in the file : '+INFO_LOG_FILENAME)
         logger_t.info('The Time Data is logged in the file : '+TIME_LOG_FILENAME)       
-        logger_t.info('ex execute following in shell: python main.py info')
         logger_t.setLevel(logging.NOTSET)
 
     if(LOG_LEVEL):

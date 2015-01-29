@@ -1,6 +1,7 @@
 # Creates and returns the BrakeClass Object
 
 #----------------------------------Standard Library Imports---------------------------------------
+import os
 import math
 import numpy
 import timeit
@@ -37,17 +38,25 @@ def returnObject():
       input_path = './data/5koref1/'
       output_path = './output/'
 
+  print '\n Input Path: '+input_path
+  print '\n Output Path: '+output_path
+
   #Logging Parameters
   '''
   'notset':logging.NOTSET, #0 (for no logging - fastest)
   'debug': logging.DEBUG, #10 (to capture detailed debug information - slowest)
   'info': logging.INFO, #20 (to capture essential information)
   '''
+
   log_level = 0
   dt = datetime.date.today()
-  info_log_file = output_path+'info_'+dt.strftime("%d%b")+'.log' #example info_02Aug.log
-  time_log_file = output_path+'time_'+dt.strftime("%d%b")+'.log' #example time_02Aug.log
+  output_path = output_path+dt.strftime("%b%d")+'/'
+  info_log_file = output_path+'info_'+dt.strftime("%b%d")+'.log' #example info_Aug02.log
+  time_log_file = output_path+'time_'+dt.strftime("%b%d")+'.log' #example time_Aug02.log
 
+  #Create output directory if it does not exist
+  if not os.path.exists(output_path):
+    os.makedirs(output_path)
 
   '''
   This would create the first object of BrakeClass with certain limited attributes. 
@@ -75,28 +84,32 @@ def returnObject():
   target - target rectangular region.
 
 
-  cutoff - cutoff for truncating the less sgnificant singular values
-  as comapred to the most significant s[0]
-  ex s[i] < s[0]*cutoff
+  projectionDimension(dimension of the projection matrix) - The number of significant 
+  singular values to be taken into consideration while creating the projection matrix 
+  from the measurment matrix.
 
   evs_per_shift - number of eigenvalues to be calculated per shift
   desired_area_fraction - area fraction of the target region to be covered
 
+  omegaTest - test omega for comparison of the classical approach with the POD approach
   '''
 
   setattr(obj, 'data_file_list', ['BMLL','BDLL','BYLL','BDIWLL','BHLL','BKLL','BKQLL','BWLL'])
   setattr(obj, 'data_file_name', ['M1','D1','DG','DR','D4','K1','KR','KGeo'])
   setattr(obj, 'omegaRef', 1)
   setattr(obj, 'fRef', 1600)
-  #setattr(obj, 'omega_basis', numpy.array([1,20])*2*math.pi)
-  setattr(obj, 'omega_basis', numpy.array([1,5,10,15,20])*2*math.pi)
+
+  setattr(obj, 'omega_basis', numpy.array([1,20])*2*math.pi)
+  #setattr(obj, 'omega_basis', numpy.array([1,5,10,15,20])*2*math.pi)
+  #setattr(obj, 'omega_basis', numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi)
+
   setattr(obj, 'omega_range', numpy.linspace(1, 20, num=2)*2*math.pi)
   setattr(obj, 'target', numpy.array([-10,1000,-50,12000]))
-  setattr(obj, 'cutoff', 0.0001) 
+  setattr(obj, 'projectionDimension', 10)
   setattr(obj, 'evs_per_shift', 30)
   setattr(obj, 'desired_area_fraction', 0.99)
-  
+
   setattr(obj, 'omegaTest', 16*2*math.pi)
-  
+
   return obj
 

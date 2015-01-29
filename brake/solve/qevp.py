@@ -230,11 +230,11 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     
     print('Eigenvalues for shift',qevp_j,'=',next_shift,\
                 ' and frequency',freq_i,'=',"%.2f" % omega,'are')      
-    brake.print_eigs(obj,la,'target','terminal')
+    brake.printEigs(obj,la,'target','terminal')
     
     if(LOG_LEVEL):
         logger_i.info('Eigenvalues : ')
-        brake.print_eigs(obj,la,'target','file')
+        brake.printEigs(obj,la,'target','file')
 
     if(check_flag):
         scipy.io.savemat('evec_py.mat', mdict={'data': evec})

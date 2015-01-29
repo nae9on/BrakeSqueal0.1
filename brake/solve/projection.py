@@ -5,6 +5,11 @@ This module defines the following functions::
   
    This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
    for each base angular frequency.
+   
+   - obtain_measurment_matrix
+   
+   This function forms the Measurment Matrix by solving the quadratic eigenvalue problem 
+   for each base angular frequency.
 """
 
 #----------------------------------Standard Library Imports---------------------------------------
@@ -17,7 +22,7 @@ import scipy
 #----------------------------Application Specific Imports----------------------------------------- 
 from brake.solve import qevp
 
-def obtain_projection_matrix(obj):
+def obtain_projection_matrix(obj,X):
         r"""
         
         :param obj: object of the class ``BrakeClass``
@@ -41,10 +46,58 @@ def obtain_projection_matrix(obj):
         logger_t = obj.logger_t
         logger_i = obj.logger_i
         omega_basis = obj.omega_basis
-        cutoff = obj.cutoff
-        
+ 
         if(LOG_LEVEL):
           logger_i.info("\n"+'Creating the Measurment matrix X and Projection matrix Q')
+
+        #X = obtain_measurment_matrix(obj)
+        '''
+        Obtaining the projection matrix Q
+        1. Compute the thin svd of the measurment matrix. X = U * s * V
+        2. Set Q = truncated(U), where the truncation is done to take only the 
+           significant singular values(based on a certain tolerance) into account
+        '''
+        start_svd = timeit.default_timer()
+        U, s, V = scipy.linalg.svd(X, full_matrices=False)
+        stop_svd = timeit.default_timer()
+        
+        
+        if(LOG_LEVEL):
+           logger_i.info("\n"+'The shapes of U,s,V of the measurment matrix are as follows '\
+                                                +str(U.shape)+' '+str(s.shape)+' '+str(V.shape))
+           logger_t.info("\n"+"\n"+'\t\tTime taken to compute svd = '+"%.2f" % (stop_svd-start_svd))    
+
+        s_truncated = s[0:obj.projectionDimension]
+        Q = U[:,0:obj.projectionDimension]
+        
+        if(LOG_LEVEL):
+           logger_i.info('The no of singular values = '+str(s.shape[0]))
+           logger_i.info('The no of singular values after truncation = '+str(s_truncated.shape[0]))
+           logger_i.info('The dimensions of the projection matrix = '+str(Q.shape))
+
+        return Q
+
+def obtain_measurment_matrix(obj):
+        r"""
+        
+        :param obj: object of the class ``BrakeClass``
+        :return: ``X`` - measurment matrix
+        
+        Procedure::
+        
+         The measurment matrix is obtained as follows:
+        
+         - Obtain the measurment matrix X = [X_real X_imag], with X_real as a list of 
+           real parts of eigenvectors and X_imag as a list of imaginary parts of 
+           eigenvectors, corresponding to each base angular frequency in omega_basis.
+        """
+
+        #object attributes used in the function
+        LOG_LEVEL = obj.log_level
+        logger_t = obj.logger_t
+        logger_i = obj.logger_i
+        omega_basis = obj.omega_basis
+        
         
         ''' Creating the measurment matrix with X_real as a list of real part of eigenvectors 
         and X_imag as a list of imaginary part of eigenvectors corresponding to all the base 
@@ -85,32 +138,4 @@ def obtain_projection_matrix(obj):
         for i in range(0,len(X_imag)):
                 X = numpy.concatenate((X,X_imag[i]), axis=1)
         
-        '''
-        Obtaining the projection matrix Q
-        1. Compute the thin svd of the measurment matrix. X = U * s * V
-        2. Set Q = truncated(U), where the truncation is done to take only the 
-           significant singular values(based on a certain tolerance) into account
-        '''
-        start_svd = timeit.default_timer()
-        U, s, V = scipy.linalg.svd(X, full_matrices=False)
-        stop_svd = timeit.default_timer()
-        
-        
-        if(LOG_LEVEL):
-           logger_i.info("\n"+'The shapes of U,s,V of the measurment matrix are as follows '\
-                                                +str(U.shape)+' '+str(s.shape)+' '+str(V.shape))
-           logger_t.info("\n"+"\n"+'\t\tTime taken to compute svd = '+"%.2f" % (stop_svd-start_svd))    
-
-        for i in range(0,len(s)):
-                if s[i] < s[0]*cutoff:
-                  break
-        
-        s_truncated = s[0:i+1]
-        Q = U[:,0:(i+1)]
-        
-        if(LOG_LEVEL):
-           logger_i.info('The no of singular values = '+str(s.shape[0]))
-           logger_i.info('The no of singular values after truncation = '+str(s_truncated.shape[0]))
-           logger_i.info('The dimensions of the projection matrix = '+str(Q.shape))
-
-        return Q                
+	return X

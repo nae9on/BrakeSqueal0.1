@@ -1,7 +1,10 @@
-# Driver File
-# Compares Tradional Approach with POD Approach
-
+''' 
+1. Compares Tradional Approach with POD Approach.
+2. Does Convergence anaylysis with increasing dimension of the projection subspace.
+3. Compares POD approach for different samples.
+'''
 #----------------------------------Standard Library Imports---------------------------------------
+import os
 import math
 import numpy
 import timeit
@@ -24,125 +27,114 @@ obj = createBrakeClassObject.returnObject()
 #Log all the BrakeClass attribute values in the info log file
 if(obj.log_level):
   obj.displayParametersLog()
-  
-'''  
+
 ####################################################################
 ####################################################################
 ####################### Exact Eigenvalues ##########################
 ####################################################################
 ####################################################################
-  
+
 #Calculating exact eigenpairs of the QEVP for omega = omegaTest in the target region
 #--------------------------------------------------------------------------------------------------
-la_exact, evec_exact = qevp.brake_squeal_qevp(obj, 1, obj.omegaTest)
-
-#print '\n\n Eigenvalues in the target region are'
-#brake.print_eigs(obj,la_exact,'target','terminal')
-
+print "\n"+"\n"+'Calculating exact eigenpairs of the QEVP for omega = '+str(obj.omegaTest/(2*math.pi))+' in the target region'
+laExact, evecExact = qevp.brake_squeal_qevp(obj, 1, obj.omegaTest)
+#brake.printEigs(obj,la_exact,'target','terminal')
 #Extracting eigenpairs in the target region from the computed eigenpairs
-laTarget, evecTarget = brake.extractEigs(obj,la_exact,evec_exact,'target')
+laTarget, evecTarget = brake.extractEigs(obj, laExact, evecExact, 'target')
 
-  
 ####################################################################
 ####################################################################
 ####################### POD Approach ###############################
 ####################################################################
 ####################################################################
-  
-#Begin creating the projection matrix
+
+#Begin creating the Measurment matrix
 #################################################
 if(obj.log_level):
-  obj.logger_i.info("\n"+"\n"+'Beginning Setup Phase: Creating the Projection Matrix')
+  obj.logger_i.info("\n"+"\n"+'Beginning Setup Phase: Creating the Measurment Matrix')
   obj.logger_i.info('------------------------------------------------------------------------')
 
-print "\n"+"\n"+'Beginning Setup Phase: Creating the Projection Matrix'
-
+print "\n"+"\n"+'Beginning Setup Phase: Creating the Measurment Matrix'
 begin = timeit.default_timer()
-Q = projection.obtain_projection_matrix(obj)
-end = timeit.default_timer()
-#------------------------------------------------done creating the projection matrix
 
+X = []
+
+obj.omega_basis = numpy.array([1,20])*2*math.pi
+X_wset1 = projection.obtain_measurment_matrix(obj)
+X.append(X_wset1)
+
+obj.omega_basis = numpy.array([1,5,10,15,20])*2*math.pi
+X_wset2 = projection.obtain_measurment_matrix(obj)
+X.append(X_wset2)
+
+obj.omega_basis = numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi
+X_wset3 = projection.obtain_measurment_matrix(obj)
+X.append(X_wset3)
+
+
+end = timeit.default_timer()
+#------------------------------------------------done creating the Measurment matrix
+
+#Obtaining the original M,C,K matrices
 sparse_list = load.load_matrices(obj)
 print '\n\n Testing for omega = ',str(obj.omegaTest/(2*math.pi))
-M, C, K = assemble.create_MCK(obj, sparse_list, obj.omegaTest)
-print 'Projecting the QEVP having dimension '+str(M.shape)
-#Projection
-QT = Q.T.conjugate()
-M =  QT.dot(M.dot(Q))
-C =  QT.dot(C.dot(Q))
-K =  QT.dot(K.dot(Q))
-print 'Onto a smaller subspace of dimension '+str(M.shape)
+M_orig, C_orig, K_orig = assemble.create_MCK(obj, sparse_list, obj.omegaTest)
 
-n = M.shape[0]
-no_of_evs = 2*n-2;
-la_pod, evec_pod = solver.qev_dense(obj,M,C,K,no_of_evs)
+#Relative error plot with increasing dimension of the projection matrix
+xDim = numpy.arange(10,310,10)
 
-res_qevp = residual.residual_qevp(M,C,K,la_pod,evec_pod[0:n,:])
-print 'Maximum Residual error for the QEVP is ',max(res_qevp)
+yDeltaList = []
 
-print '\n\n Eigenvalues in the target region computed using projection'
-brake.print_eigs(obj,la_pod,'target','terminal')
+for setItr in range(0,len(X)):
+	
+	yDelta = numpy.zeros(xDim.shape[0],dtype=numpy.float64)
+	
+	for i1 in range(0,len(xDim)):
+		
+		obj.projectionDimension = xDim[i1]
+		Q = projection.obtain_projection_matrix(obj,X[setItr])
+	        
+		print 'wset '+str(setItr)+' Projecting the QEVP having dimension '+str(M_orig.shape)
+		
+		#Projection
+		QT = Q.T.conjugate()
+		M =  QT.dot(M_orig.dot(Q))
+		C =  QT.dot(C_orig.dot(Q))
+		K =  QT.dot(K_orig.dot(Q))
+		print 'Onto a smaller subspace of dimension '+str(M.shape)
+	
+		n = M.shape[0]
+		no_of_evs = 2*n-2;
+		la_pod, evec_pod = solver.qev_dense(obj,M,C,K,no_of_evs)
+		
+		'''
+		res_qevp = residual.residual_qevp(M,C,K,la_pod,evec_pod[0:n,:])
+		print 'Maximum Residual error for the QEVP is ',max(res_qevp)
+		
+		print '\n\n Eigenvalues in the target region computed using projection'
+		brake.printEigs(obj,la_pod,'target','terminal')
+		'''
+		
+		#print '\n\n\nCalculating Delta'
+		delta = numpy.zeros(laTarget.shape[0],dtype=numpy.float64)
+		for itr in range(0,len(laTarget)):
+		    delta[itr] = numpy.min(numpy.absolute(la_pod-laTarget[itr]))
+		
+		yDelta[i1] = numpy.max(delta)/numpy.max(numpy.absolute(laTarget))
+		
+        yDeltaList.append(yDelta)
 
-print '\n\n\nCalculating Delta'
-delta = numpy.zeros(laTarget.shape[0],dtype=numpy.float64)
-for itr in range(0,len(laTarget)):
-  delta[itr] = numpy.min(numpy.absolute(la_pod-laTarget[itr]))/numpy.absolute(laTarget[itr])
-  
-print delta 
-print '\n\n',numpy.max(delta)
+print '\n\n The delta values for the three sets are as follows \n\n'
+for setItr in range(0,len(X)):
+	print yDeltaList[setItr]
 
-'''
-
-####################################################################
-####################################################################
-####################### Classical Approach #########################
-####################################################################
-####################################################################
-  
-#Begin creating the projection matrix
-#################################################
-if(obj.log_level):
-  obj.logger_i.info("\n"+"\n"+'Beginning Setup Phase: Creating the Projection Matrix')
-  obj.logger_i.info('------------------------------------------------------------------------')
-
-print "\n"+"\n"+'Beginning Setup Phase: Creating the Projection Matrix'
-
-begin = timeit.default_timer()
-Q = classicalProjection.obtain_projection_matrix(obj)
-end = timeit.default_timer()
-#------------------------------------------------done creating the projection matrix
-
-sparse_list = load.load_matrices(obj)
-print '\n\n Testing for omega = ',str(obj.omegaTest/(2*math.pi))
-M, C, K = assemble.create_MCK(obj, sparse_list, obj.omegaTest)
-print 'Projecting the QEVP having dimension '+str(M.shape)
-#Projection
-QT = Q.T.conjugate()
-M =  QT.dot(M.dot(Q))
-C =  QT.dot(C.dot(Q))
-K =  QT.dot(K.dot(Q))
-print 'Onto a smaller subspace of dimension '+str(M.shape)
-
-n = M.shape[0]
-no_of_evs = 2*n-2;
-la_pod, evec_pod = solver.qev_dense(obj,M,C,K,no_of_evs)
-
-res_qevp = residual.residual_qevp(M,C,K,la_pod,evec_pod[0:n,:])
-print 'Maximum Residual error for the QEVP is ',max(res_qevp)
-
-print '\n\n Eigenvalues in the target region computed using projection'
-brake.print_eigs(obj,la_pod,'target','terminal')
-
-print '\n\n\nCalculating Delta'
-delta = numpy.zeros(laTarget.shape[0],dtype=numpy.float64)
-for itr in range(0,len(laTarget)):
-  delta[itr] = numpy.min(numpy.absolute(la_pod-laTarget[itr]))/numpy.absolute(laTarget[itr])
-  
-print delta 
-print '\n\n',numpy.max(delta)
-
-
-  
-  
-  
-  
+plt.figure(1)
+plt.xlabel('dimension')
+plt.ylabel('relative error')
+plt.title('logarithmic decay of relative error with dimension')
+plt.plot(xDim, yDeltaList[0], '-ro')
+plt.plot(xDim, yDeltaList[1], '-bD')
+plt.plot(xDim, yDeltaList[2], '-gs')
+plt.yscale('log')
+plt.grid(True)
+brake.save(obj.output_path+'errorDecay', ext="png", close=True, verbose=False)

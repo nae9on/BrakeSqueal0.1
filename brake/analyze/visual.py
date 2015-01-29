@@ -15,7 +15,7 @@ This module defines the following functions::
     variable output_path).
   
 """
-
+import brake
 import matplotlib.pyplot as plt
 def plot_eigs_cover(obj,la):
         r"""
@@ -55,7 +55,8 @@ def plot_eigs_cover(obj,la):
         fig.gca().add_artist(circle)
         fig.gca().add_artist(react)
 	
-        fig.savefig(obj.output_path+'plotcover.png')
+        #fig.savefig(obj.output_path+'plotcover.png')
+	brake.save(output_path+'plotcover', ext="png", close=True, verbose=False)
         return radius;
 
 def plot_eigs_transition(obj,la):
@@ -94,5 +95,6 @@ def plot_eigs_transition(obj,la):
         ax.plot((tau.real),(tau.imag),'+',color='r')
         #fig.gca().add_artist(circle)
         #fig.gca().add_artist(react)
-        fig.savefig(obj.output_path+'plottransition.png')
+        #fig.savefig(obj.output_path+'plottransition.png')
+	brake.save(output_path+'plottransition', ext="png", close=True, verbose=False)
         return radius;
