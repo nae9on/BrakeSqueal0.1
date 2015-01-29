@@ -1,6 +1,0 @@
-The current level of logging is 0
-To enable detailed logging provide one of the following parameters:
-info,debug
-The Info Data is logged in the file : ./output/info_28Jan.log
-The Time Data is logged in the file : ./output/time_28Jan.log
-ex execute following in shell: python main.py info
