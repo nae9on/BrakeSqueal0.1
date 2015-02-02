@@ -3,114 +3,146 @@ This module defines the following functions::
 
   - obtain_projection_matrix:
   
-   This function forms the Classical Projection Matrix by solving the quadratic eigenvalue problem. 
+   This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
+   for each base angular frequency.
+   
+   - obtain_measurment_matrix
+   
+   This function forms the Measurment Matrix by solving the quadratic eigenvalue problem 
+   for each base angular frequency.
 """
 
 #----------------------------------Standard Library Imports---------------------------------------
 # Please ensure that the following libraries are installed on the system prior 
 # running the program.
+import timeit
 import numpy
 import scipy
-import timeit
-
 
 #----------------------------Application Specific Imports----------------------------------------- 
-from brake.solve import qevp
+import brake
+from brake.initialize import load, assemble, shift, scale, diagscale, unlinearize
+from brake.solve import solver
+from brake.analyze import residual
 
-def obtain_projection_matrix(obj):
-        r"""
-        
-        :param obj: object of the class ``BrakeClass``
-        :return: ``Q`` - classical projection matrix
-        
-        Procedure::
-        
-         The projection matrix is obtained as follows:
-        
-         - Obtain the measurment matrix X = [X_real X_imag], with X_real as a list of 
-           real parts of eigenvectors and X_imag as a list of imaginary parts of 
-           eigenvectors.
-         - Compute the thin svd of the measurment matrix. X = U * s * V
-         - Set Q = truncated(U), where the truncation is done to take only the significant 
-           singular values(based on a certain tolerance) into account
+def Obtain_eigs(obj,no_of_evs):
 
-        """
-        
-        #object attributes used in the function
-        LOG_LEVEL = obj.log_level
-        logger_t = obj.logger_t
-        logger_i = obj.logger_i
-        
-        cutoff = obj.cutoff
-        
-        if(LOG_LEVEL):
-          logger_i.info("\n"+'Creating the Measurment matrix X and Projection matrix Q')
-        
-        ''' Creating the measurment matrix with X_real as a list of real part of eigenvectors 
-        and X_imag as a list of imaginary part of eigenvectors corresponding to all the base 
-        frequencies 
-        '''
-        X_real = []
-        X_imag = []
-        
-                
-        begin = timeit.default_timer()
-        la, evec = qevpClassical.brake_squeal_qevp(obj)
-        end = timeit.default_timer()
-        
-        if(LOG_LEVEL):
-          logger_t.info("\n"+"\n"+'\t\tTotal time taken by Brake Squeal Qevp = '+"%.2f" % (end-begin)+' sec')
-                
-        X_real.append(evec.real)
-        X_imag.append(evec.imag)
-        
-        
-        if(LOG_LEVEL):
-         logger_i.info("\n"+"\n")
-         logger_i.info('------------------ Now creating the Measurment matrix --------')
-         logger_i.info('The number of QEVP solved = '+str(len(omega_basis)))
+    #object attributes used in the function
+    LOG_LEVEL = obj.log_level
+    logger_t = obj.logger_t
+    logger_i = obj.logger_i
 
-        for i in range(0,len(omega_basis)):
-                if(LOG_LEVEL):
-                   logger_i.info("\n"+'The number of eigenvectors computed for frequency '\
-                                                        +str(i+1)+' = '+str(X_real[i].shape[1]))
-        '''
-        The Measurment matrix X = [X_real X_imag]
-        '''
-        #adding the real part of computed eigenvectors to the measurment matrix
-        X = X_real[0]
-        for i in range(1,len(X_real)):
-                X = numpy.concatenate((X,X_real[i]), axis=1)
-        #adding the imaginary part of computed eigenvectors to the measurment matrix
-        for i in range(0,len(X_imag)):
-                X = numpy.concatenate((X,X_imag[i]), axis=1)
-        
-        '''
-        Obtaining the projection matrix Q
-        1. Compute the thin svd of the measurment matrix. X = U * s * V
-        2. Set Q = truncated(U), where the truncation is done to take only the 
-           significant singular values(based on a certain tolerance) into account
-        '''
-        start_svd = timeit.default_timer()
-        U, s, V = scipy.linalg.svd(X, full_matrices=False)
-        stop_svd = timeit.default_timer()
-        
-        
-        if(LOG_LEVEL):
-           logger_i.info("\n"+'The shapes of U,s,V of the measurment matrix are as follows '\
-                                                +str(U.shape)+' '+str(s.shape)+' '+str(V.shape))
-           logger_t.info("\n"+"\n"+'\t\tTime taken to compute svd = '+"%.2f" % (stop_svd-start_svd))    
+    #------------------------------Initialization---------------------------------------
+    #Making the shift point as the center of the target rectangular region
+    tau = complex((obj.target[0]+obj.target[1])/2,(obj.target[2]+obj.target[3])/2)
+    check_flag = 0
 
-        for i in range(0,len(s)):
-                if s[i] < s[0]*cutoff:
-                  break
-        
-        s_truncated = s[0:i+1]
-        Q = U[:,0:(i+1)]
-        
-        if(LOG_LEVEL):
-           logger_i.info('The no of singular values = '+str(s.shape[0]))
-           logger_i.info('The no of singular values after truncation = '+str(s_truncated.shape[0]))
-           logger_i.info('The dimensions of the projection matrix = '+str(Q.shape))
+    #------------------------------Reading Data Files-----------------------------------
+    begin_read = timeit.default_timer()
+    sparse_list = load.load_matrices(obj)
+    end_read = timeit.default_timer()
 
-        return Q                
+    #------------------------------Preprocessing---------------------------------------
+    #---Assembling---------------
+    begin_assemble = timeit.default_timer()
+    M = sparse_list[0].tocsr()
+    C = 0*M
+    K = sparse_list[5].tocsr() + sparse_list[7].tocsr()
+    end_assemble = timeit.default_timer()
+
+    n = M.shape[0]
+
+    #save the matrices before shift
+    M_orig = M
+    C_orig = C
+    K_orig = K
+
+    #---Shifting---------------
+    begin_shift = timeit.default_timer()
+    M, C, K = shift.shift_matrices(obj, M, C, K, tau)
+    end_shift = timeit.default_timer()
+
+    #---Scaling----------------
+    begin_scale = timeit.default_timer()
+    M, C, K, gamma = scale.scale_matrices(obj, M, C, K)
+    end_scale = timeit.default_timer()\
+
+    #---Diagonal Scaling----------------
+    begin_diagscale = timeit.default_timer()
+    M, C, K, D2 = diagscale.diag_scale_matrices(obj,M,C,K)
+    end_diagscale = timeit.default_timer()
+
+    #----------------------------------Solver-------------------------------------------
+    saveEVS = obj.evs_per_shift
+    obj.evs_per_shift = no_of_evs
+    begin_solver = timeit.default_timer()
+    la, evec = solver.qev_sparse(obj,M,C,K);
+
+    end_solver = timeit.default_timer()
+    obj.evs_per_shift = saveEVS
+
+    #Residual check for the quadratic eigenvalue problem
+    if(LOG_LEVEL):
+        begin_rescheck1 = timeit.default_timer()        
+        res_qevp_prior = residual.residual_qevp(M,C,K,la,evec[0:n])
+        end_rescheck1 = timeit.default_timer()  
+
+    #---------------------------Unfolding-----------------------------------------------
+    begin_unfolding = timeit.default_timer()
+
+    #obtaining the original eigenvalues
+    #undo scaling
+    la = la*gamma
+    #undo shifting
+    la = tau+la
+
+    #obtaining the original eigenvectors
+    evec = unlinearize.unlinearize_matrices(evec) #evec = evec_after_diagscale
+    evec = D2*evec; #D2 = DR
+
+    #normalizing the eigenvector(why is it needed ?)
+    DD = diagscale.normalize_cols(evec)
+    evec = evec * DD
+
+    end_unfolding = timeit.default_timer()      
+
+    #---------------------------Post Processing-----------------------------------------
+    #---------------------------Error Analysis------------------------------------------
+    if(LOG_LEVEL):
+        begin_rescheck2 = timeit.default_timer()        
+        res_qevp_post = residual.residual_qevp(M_orig,C_orig,K_orig,la,evec)
+        end_rescheck2 = timeit.default_timer()
+
+    print('Eigenvalues for the classical problem are')
+    brake.printEigs(obj,la,'target','terminal')
+    print('largest real part of obtained eigenvalue = '),numpy.max(la.real)
+
+    if(LOG_LEVEL):
+        logger_i.info('Eigenvalues : ')
+        brake.printEigs(obj,la,'target','file')
+
+    if(check_flag):
+        scipy.io.savemat('evec_py.mat', mdict={'data': evec})
+        scipy.io.savemat('eval_py.mat', mdict={'data': la})
+
+
+    #---------------Logging-----------------
+    if(LOG_LEVEL):
+        #----------------Logging Result--------------
+        logger_i.info('Maximum Residual error(solver) for the QEVP is '+str(max(res_qevp_prior)))
+        logger_i.info('Maximum Residual error = '+str(max(res_qevp_post)))
+
+        #----------------Logging Time Complexity-----
+        logger_t.info("\n"+"\n"+'------------------------------------')
+        logger_t.info('Reading: '+"%.2f" % (end_read-begin_read)+' sec')
+        logger_t.info('Assembling: '+"%.2f" % (end_assemble-begin_assemble)+' sec')
+        logger_t.info('Shifting: '+"%.2f" % (end_shift-begin_shift)+' sec')
+        logger_t.info('Scaling: '+"%.2f" % (end_scale-begin_scale)+' sec')
+        logger_t.info('Diagonal Scaling: '+"%.2f" % (end_diagscale-begin_diagscale)+' sec')
+        logger_t.info('Total Eigenvalue Computation Time: '+"%.2f" % (end_solver-begin_solver)+' sec')
+        logger_t.info('Unfolding: '+"%.2f" % (end_unfolding-begin_unfolding)+' sec')
+        logger_t.info('Error Analysis1(standard QEVP): '+"%.2f" % (end_rescheck1-begin_rescheck1)+' sec')
+        logger_t.info('Error Analysis2(after unfolding): '+"%.2f" % (end_rescheck2-begin_rescheck2)+' sec')
+        logger_t.info('------------------------------------')  
+
+    return la, evec

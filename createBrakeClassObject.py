@@ -79,8 +79,8 @@ def returnObject():
 
   omegaRef - reference omega.
   fRef - reference frequency.
-  omega_basis - base angular velocity's to be used for creating the projection matrix.
-  omega_range - range of angular velocity's for simulation.
+  #omega_basis - array of base frequencies that would be used for creating the measurment matrix
+  omega_range - array of frequencies for simulating the brake squealing(using projection matrix from omega_basis)
   target - target rectangular region.
 
 
@@ -98,16 +98,17 @@ def returnObject():
   setattr(obj, 'data_file_name', ['M1','D1','DG','DR','D4','K1','KR','KGeo'])
   setattr(obj, 'omegaRef', 1)
   setattr(obj, 'fRef', 1600)
-
+  
   setattr(obj, 'omega_basis', numpy.array([1,20])*2*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,5,10,15,20])*2*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi)
 
   setattr(obj, 'omega_range', numpy.linspace(1, 20, num=2)*2*math.pi)
   setattr(obj, 'target', numpy.array([-10,1000,-50,12000]))
-  setattr(obj, 'projectionDimension', 10)
+  setattr(obj, 'projectionDimension', 0)
   setattr(obj, 'evs_per_shift', 30)
   setattr(obj, 'desired_area_fraction', 0.99)
+  setattr(obj, 'desiredCount', 0)
 
   setattr(obj, 'omegaTest', 16*2*math.pi)
 

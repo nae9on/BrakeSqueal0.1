@@ -58,6 +58,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
     logger_i = obj.logger_i
     target = obj.target
     desired_area_fraction = obj.desired_area_fraction
+    desiredCount = obj.desiredCount
         
     if(LOG_LEVEL):
         logger_i.info("\n"+"\n"+'-----------------------------------------------------------------')
@@ -69,13 +70,14 @@ def brake_squeal_qevp(obj, freq_i, omega):
     y2 = target[3]
 
     total_area = math.fabs((x2-x1)*(y2-y1))
-    area_fraction_covered = 0 
+    area_fraction_covered = 0
+    eigCount = 0 
     assembled_la = []
     assembled_evec = []  
     previous_shifts = []
     previous_radius = []
     qevp_j= 1   
-    while (area_fraction_covered < desired_area_fraction):
+    while ((area_fraction_covered < desired_area_fraction) | (eigCount < desiredCount)):
            next_shift = cover.next_shift(obj, previous_shifts, previous_radius)
 
            begin = timeit.default_timer()
@@ -106,7 +108,9 @@ def brake_squeal_qevp(obj, freq_i, omega):
            
            area_fraction_covered = cover.calculate_area_fraction(obj, previous_shifts, \
                                                                                 previous_radius)
-           if(LOG_LEVEL):
+           
+	   eigCount = eigCount + len(la)
+	   if(LOG_LEVEL):
               logger_i.info("\n"+'for Shift '+str(qevp_j)+' = '+str(next_shift)+\
                              ' approximate area fraction covered = '+str(area_fraction_covered))
               

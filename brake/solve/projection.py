@@ -59,16 +59,21 @@ def obtain_projection_matrix(obj,X):
         '''
         start_svd = timeit.default_timer()
         U, s, V = scipy.linalg.svd(X, full_matrices=False)
-        stop_svd = timeit.default_timer()
-        
-        
-        if(LOG_LEVEL):
+	stop_svd = timeit.default_timer()
+	
+	if(LOG_LEVEL):
            logger_i.info("\n"+'The shapes of U,s,V of the measurment matrix are as follows '\
                                                 +str(U.shape)+' '+str(s.shape)+' '+str(V.shape))
            logger_t.info("\n"+"\n"+'\t\tTime taken to compute svd = '+"%.2f" % (stop_svd-start_svd))    
 
-        s_truncated = s[0:obj.projectionDimension]
+        
+	if obj.projectionDimension > s.shape[0]:
+	 print 'Warning: projection dimension exceeds the no of available singular values '
+	
+	s_truncated = s[0:obj.projectionDimension]
         Q = U[:,0:obj.projectionDimension]
+		
+	print '\n Extracted '+str(obj.projectionDimension)+' significant singular values from '+str(s.shape[0])+' to obtain projection matrix of dimension '+str(Q.shape)
         
         if(LOG_LEVEL):
            logger_i.info('The no of singular values = '+str(s.shape[0]))
