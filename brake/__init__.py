@@ -26,7 +26,9 @@ import os
 import string
 import logging
 import numpy as np
+from numpy.linalg import norm
 import matplotlib.pyplot as plt
+
 
 #----------------------------Application Specific Imports----------------------------------------- 
 from initialize import logger
@@ -36,7 +38,8 @@ __all__ = [
     'BrakeClass',
     'printEigs',
     'extractEigs',
-    'save'
+    'save',
+    'acuteAngleBetween'
     ]
 
 class BrakeClass:
@@ -297,3 +300,8 @@ def save(path, ext='png', close=True, verbose=True):
 
     if verbose:
         print("Done")
+	
+def acuteAngleBetween(a,b):
+    arccosInput = np.absolute(np.dot(a,b))/(norm(a)*norm(b))
+    arccosInput = 1.0 if arccosInput > 1.0 else arccosInput
+    return math.acos(arccosInput)

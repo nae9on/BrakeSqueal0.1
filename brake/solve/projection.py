@@ -80,7 +80,7 @@ def obtain_projection_matrix(obj,X):
            logger_i.info('The no of singular values after truncation = '+str(s_truncated.shape[0]))
            logger_i.info('The dimensions of the projection matrix = '+str(Q.shape))
 
-        return Q
+        return Q, s
 
 def obtain_measurment_matrix(obj):
         r"""
