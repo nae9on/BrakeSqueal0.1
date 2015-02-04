@@ -11,7 +11,7 @@ import datetime
 #----------------------------Application Specific Imports-----------------------------------------
 import brake
 
-def returnObject():
+def returnObject(logLevel):
 
   begin_program = timeit.default_timer()
 
@@ -48,7 +48,7 @@ def returnObject():
   'info': logging.INFO, #20 (to capture essential information)
   '''
 
-  log_level = 0
+  log_level = logLevel
   dt = datetime.date.today()
   output_path = output_path+dt.strftime("%b%d")+'/'
   info_log_file = output_path+'info_'+dt.strftime("%b%d")+'.log' #example info_Aug02.log

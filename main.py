@@ -22,8 +22,8 @@ from brake.initialize import load, assemble, scale, diagscale, unlinearize
 from brake.solve import projection, classicalProjection, solver, qevp
 from brake.analyze import residual, visual
 
-#----------------------------Create Object--------------------------------------------------------
-obj = createBrakeClassObject.returnObject()
+#----------------------------Create Object with no logging ---------------------------------------
+obj = createBrakeClassObject.returnObject(0)
 
 #Log all the BrakeClass attribute values in the info log file
 if(obj.log_level):
@@ -43,7 +43,10 @@ laExact, evecExact = qevp.brake_squeal_qevp(obj, 1, obj.omegaTest)
 #brake.printEigs(obj,la_exact,'target','terminal')
 #Extracting eigenpairs in the target region from the computed eigenpairs
 laTarget, evecTarget = brake.extractEigs(obj, laExact, evecExact, 'target')
-  
+
+fig1 = plt.figure(1)
+cax = plt.plot(laTarget,'o')
+plt.show()
   
 ####################################################################
 ####################################################################
@@ -99,7 +102,7 @@ print '\n\nTesting for omega = '+str(obj.omegaTest/(2*math.pi))+'\n\n'
 M_orig, C_orig, K_orig = assemble.create_MCK(obj, sparse_list, obj.omegaTest)
 
 #Relative error plot with increasing dimension of the projection matrix
-xDim = numpy.arange(10,310,10)
+xDim = numpy.arange(10,110,10)
 
 yDeltaList = []
 yTheta1List = []
@@ -176,7 +179,7 @@ for setItr in range(0,len(X)):
 		
 		yDelta[i1] = numpy.max(delta)/numpy.max(numpy.absolute(laTarget))
 		yTheta1[i1] = max(numpy.max(Theta1),math.pow(0.1,30)) #setting 10^-30 if 0 for log plot
-		yTheta2[i1] = max(numpy.max(Theta2),math.pow(0.1,30)) #setting 10^-30 if 0 for log plot
+		yTheta2[i1] = numpy.max(Theta2)
 		ySingular[i1] = singularValues[obj.projectionDimension-1] #min(singularValues)
 		
 		
@@ -185,17 +188,21 @@ for setItr in range(0,len(X)):
 	yTheta2List.append(yTheta2)
 	ySingularList.append(ySingular)
 
+'''
 print '\n\n The delta values for the three sets are as follows \n\n'
 for setItr in range(0,len(X)):
 	print yTheta1List[setItr]
+'''
 
-fig = plt.figure('logarithmic decay of different parameters with dimension')
+#fig = plt.figure('logarithmic decay of different parameters with dimension')
+fig = plt.figure(figsize=(24.0, 15.0))
 
 plt.subplot(221)
-plt.plot(xDim, yDeltaList[0], '-ro')
-plt.plot(xDim, yDeltaList[1], '-kD')
-plt.plot(xDim, yDeltaList[2], '-bs')
-plt.plot(xDim, yDeltaList[3], '-go')
+plt.plot(xDim, yDeltaList[0], '-ro', label='Classical')
+plt.plot(xDim, yDeltaList[1], '-kD', label='wset1')
+plt.plot(xDim, yDeltaList[2], '-bs', label='wset2')
+plt.plot(xDim, yDeltaList[3], '-go', label='wset3')
+plt.legend(loc='lower left', shadow=True)
 plt.yscale('log')
 plt.xlabel('dimension')
 plt.ylabel('delta')
@@ -203,10 +210,11 @@ plt.ylabel('delta')
 plt.grid(True)
 
 plt.subplot(222)
-plt.plot(xDim, yTheta1List[0], '-ro')
-plt.plot(xDim, yTheta1List[1], '-kD')
-plt.plot(xDim, yTheta1List[2], '-bs')
-plt.plot(xDim, yTheta1List[3], '-go')
+plt.plot(xDim, yTheta1List[0], '-ro', label='Classical')
+plt.plot(xDim, yTheta1List[1], '-kD', label='wset1')
+plt.plot(xDim, yTheta1List[2], '-bs', label='wset2')
+plt.plot(xDim, yTheta1List[3], '-go', label='wset3')
+plt.legend(loc='upper right', shadow=True)
 plt.yscale('log')
 plt.xlabel('dimension')
 plt.ylabel('theta1')
@@ -214,10 +222,11 @@ plt.ylabel('theta1')
 plt.grid(True)
 
 plt.subplot(223)
-plt.plot(xDim, yTheta2List[0], '-ro')
-plt.plot(xDim, yTheta2List[1], '-kD')
-plt.plot(xDim, yTheta2List[2], '-bs')
-plt.plot(xDim, yTheta2List[3], '-go')
+plt.plot(xDim, yTheta2List[0], '-ro', label='Classical')
+plt.plot(xDim, yTheta2List[1], '-kD', label='wset1')
+plt.plot(xDim, yTheta2List[2], '-bs', label='wset2')
+plt.plot(xDim, yTheta2List[3], '-go', label='wset3')
+plt.legend(loc='lower left', shadow=True)
 plt.yscale('log')
 plt.xlabel('dimension')
 plt.ylabel('theta2')
@@ -225,16 +234,16 @@ plt.ylabel('theta2')
 plt.grid(True)
 
 plt.subplot(224)
-#plt.plot(xDim, ySingularList[0], '-ro')
-plt.plot(xDim, ySingularList[1], '-kD')
-plt.plot(xDim, ySingularList[2], '-bs')
-plt.plot(xDim, ySingularList[3], '-go')
+#plt.plot(xDim, ySingularList[0], '-ro', label='Classical')
+plt.plot(xDim, ySingularList[1], '-kD', label='wset1')
+plt.plot(xDim, ySingularList[2], '-bs', label='wset2')
+plt.plot(xDim, ySingularList[3], '-go', label='wset3')
+plt.legend(loc='lower left', shadow=True)
 plt.yscale('log')
 plt.xlabel('dimension')
 plt.ylabel('singular values')
-plt.title('decay of singular values')
+plt.title('Decay of singular values')
 plt.grid(True)
 
-plt.subplot_tool()
+brake.save(obj.output_path+'classicalVsPOD'+str(obj.omegaTest/(2*math.pi)), ext="png", close=False, verbose=True)
 plt.show()
-brake.save(obj.output_path+'errorDecay', ext="png", close=True, verbose=False)

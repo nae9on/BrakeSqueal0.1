@@ -35,6 +35,7 @@ def plot_eigs_cover(obj,la):
         radius=max(abs(la-tau))
          
         fig = plt.gcf()
+	#fig = plt.figure(figsize=(24.0, 15.0))
         circle=plt.Circle((tau.real,tau.imag),radius,color='g',fill=False)
         react = plt.Rectangle((x1,y1),abs(x2-x1),abs(y2-y1),color='black',fill=False)
         ax = plt.gca()
@@ -56,7 +57,7 @@ def plot_eigs_cover(obj,la):
         fig.gca().add_artist(react)
 	
         #fig.savefig(obj.output_path+'plotcover.png')
-	brake.save(output_path+'plotcover', ext="png", close=True, verbose=False)
+	brake.save(obj.output_path+'plotEigsCover', ext="png", close=True, verbose=False)
         return radius;
 
 def plot_eigs_transition(obj,la):
@@ -96,5 +97,5 @@ def plot_eigs_transition(obj,la):
         #fig.gca().add_artist(circle)
         #fig.gca().add_artist(react)
         #fig.savefig(obj.output_path+'plottransition.png')
-	brake.save(output_path+'plottransition', ext="png", close=True, verbose=False)
+	brake.save(obj.output_path+'plotEigsTransition', ext="png", close=True, verbose=False)
         return radius;
