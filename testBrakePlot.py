@@ -20,4 +20,6 @@ ax.set_title('Gaussian noise with vertical colorbar')
 cbar = fig.colorbar(cax, ticks=[-1, 0, 1])
 cbar.ax.set_yticklabels(['< -1', '0', '> 1'])# vertically oriented colorbar
 
+
+
 plt.show()

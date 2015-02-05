@@ -34,8 +34,8 @@ def plot_eigs_cover(obj,la):
         
         radius=max(abs(la-tau))
          
-        fig = plt.gcf()
-	#fig = plt.figure(figsize=(24.0, 15.0))
+        #fig = plt.gcf()
+	fig = plt.figure(figsize=(24.0, 15.0))
         circle=plt.Circle((tau.real,tau.imag),radius,color='g',fill=False)
         react = plt.Rectangle((x1,y1),abs(x2-x1),abs(y2-y1),color='black',fill=False)
         ax = plt.gca()
@@ -76,7 +76,8 @@ def plot_eigs_transition(obj,la):
         tau = complex((x1+x2)/2,(y1+y2)/2)
         
         radius=max(abs(la-tau))
-        fig = plt.gcf()
+        #fig = plt.gcf()
+	fig = plt.figure(figsize=(24.0, 15.0))
         circle=plt.Circle((tau.real,tau.imag),radius,color='b',fill=False)
         react = plt.Rectangle((x1,y1),abs(x2-x1),abs(y2-y1),color='black',fill=False)
         ax = plt.gca()

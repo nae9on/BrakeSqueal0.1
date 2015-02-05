@@ -4,8 +4,8 @@
 import os
 import math
 import numpy
-import timeit
 import socket
+import timeit
 import datetime
 
 #----------------------------Application Specific Imports-----------------------------------------
@@ -103,14 +103,14 @@ def returnObject(logLevel):
   #setattr(obj, 'omega_basis', numpy.array([1,5,10,15,20])*2*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi)
 
-  setattr(obj, 'omega_range', numpy.linspace(1, 20, num=2)*2*math.pi)
+  setattr(obj, 'omega_range', numpy.linspace(1, 20, num=20)*2*math.pi)
   setattr(obj, 'target', numpy.array([-10,1000,-50,12000]))
-  setattr(obj, 'projectionDimension', 0)
+  setattr(obj, 'projectionDimension', 100)
   setattr(obj, 'evs_per_shift', 30)
   setattr(obj, 'desired_area_fraction', 0.99)
   setattr(obj, 'desiredCount', 0)
 
-  setattr(obj, 'omegaTest', 16*2*math.pi)
+  setattr(obj, 'omegaTest', 17*2*math.pi)
 
   return obj
 

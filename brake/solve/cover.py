@@ -227,5 +227,5 @@ def draw_circles(obj, next_shift, next_radius):
         plt.axvline(0, color='blue')
         fig.gca().add_artist(circle)
         fig.gca().add_artist(react)
-        fig.savefig(obj.output_path+'draw_circles.png')
+        fig.savefig(obj.output_path+'drawCircles.png')
         return

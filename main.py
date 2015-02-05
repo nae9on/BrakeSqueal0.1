@@ -44,10 +44,6 @@ laExact, evecExact = qevp.brake_squeal_qevp(obj, 1, obj.omegaTest)
 #Extracting eigenpairs in the target region from the computed eigenpairs
 laTarget, evecTarget = brake.extractEigs(obj, laExact, evecExact, 'target')
 
-fig1 = plt.figure(1)
-cax = plt.plot(laTarget,'o')
-plt.show()
-  
 ####################################################################
 ####################################################################
 ####################### Classical Projection #######################
@@ -102,7 +98,7 @@ print '\n\nTesting for omega = '+str(obj.omegaTest/(2*math.pi))+'\n\n'
 M_orig, C_orig, K_orig = assemble.create_MCK(obj, sparse_list, obj.omegaTest)
 
 #Relative error plot with increasing dimension of the projection matrix
-xDim = numpy.arange(10,110,10)
+xDim = numpy.arange(10,310,10)
 
 yDeltaList = []
 yTheta1List = []
