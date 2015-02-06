@@ -1,0 +1,5 @@
+The current level of logging is 0
+To enable detailed logging set log level to non zero during object creation:
+Set log level = 10(debug mode), log level = 20(info mode)
+The Info Data is logged in the file : ./output/Feb06/info_Feb06.log
+The Time Data is logged in the file : ./output/Feb06/time_Feb06.log

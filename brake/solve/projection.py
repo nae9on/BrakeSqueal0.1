@@ -26,18 +26,16 @@ def obtain_projection_matrix(obj,X):
         r"""
         
         :param obj: object of the class ``BrakeClass``
+	:param X: measurment matrix
         :return: ``Q`` - projection matrix
         
         Procedure::
         
          The projection matrix is obtained as follows:
         
-         - Obtain the measurment matrix X = [X_real X_imag], with X_real as a list of 
-           real parts of eigenvectors and X_imag as a list of imaginary parts of 
-           eigenvectors, corresponding to each base angular frequency in omega_basis.
          - Compute the thin svd of the measurment matrix. X = U * s * V
          - Set Q = truncated(U), where the truncation is done to take only the significant 
-           singular values(based on a certain tolerance) into account
+           singular values(provided by user in obj.projectionDimension) into account
 
         """
         
@@ -73,7 +71,7 @@ def obtain_projection_matrix(obj,X):
 	s_truncated = s[0:obj.projectionDimension]
         Q = U[:,0:obj.projectionDimension]
 		
-	print '\n Extracted '+str(obj.projectionDimension)+' significant singular values from '+str(s.shape[0])+' to obtain projection matrix of dimension '+str(Q.shape)
+	print '\nExtracted '+str(obj.projectionDimension)+' significant singular values from '+str(s.shape[0])+' to obtain projection matrix of dimension '+str(Q.shape)
         
         if(LOG_LEVEL):
            logger_i.info('The no of singular values = '+str(s.shape[0]))

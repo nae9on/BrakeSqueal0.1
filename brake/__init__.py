@@ -11,7 +11,7 @@ This module defines the following functions::
     
   - extractEigs:
    
-    Returns all the required eigenpairs.
+    Extracts the required eigenpairs.
     
   - save
     
@@ -38,8 +38,7 @@ __all__ = [
     'BrakeClass',
     'printEigs',
     'extractEigs',
-    'save',
-    'acuteAngleBetween'
+    'save'
     ]
 
 class BrakeClass:
@@ -249,7 +248,7 @@ def extractEigs(obj,arg,arg2,which_flag):
     return laExtracted, evecExtracted
 
 
-def save(path, ext='png', close=True, verbose=True):
+def save(path, ext='png', close=False, verbose=True):
     r"""Save a figure from pyplot.
 
     Parameters
@@ -300,8 +299,3 @@ def save(path, ext='png', close=True, verbose=True):
 
     if verbose:
         print("Done")
-	
-def acuteAngleBetween(a,b):
-    arccosInput = np.absolute(np.dot(a,b))/(norm(a)*norm(b))
-    arccosInput = 1.0 if arccosInput > 1.0 else arccosInput
-    return math.acos(arccosInput)

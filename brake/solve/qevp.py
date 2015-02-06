@@ -9,7 +9,7 @@ This module defines the following functions::
   - Obtain_eigs:
     
     For a particuar base angular frequency and for a particular shift point this 
-    function evaluates the eigenvalues and eigenvectors
+    function obtains obj.evs_per_shift eigenvalues and the corresponding eigenvectors
   
 """
 

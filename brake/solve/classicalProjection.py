@@ -113,7 +113,7 @@ def Obtain_eigs(obj,no_of_evs):
         res_qevp_post = residual.residual_qevp(M_orig,C_orig,K_orig,la,evec)
         end_rescheck2 = timeit.default_timer()
 
-    print('Eigenvalues for the classical problem are')
+    print('Calculating eigenpairs of the QEVP corressponding to the Classical Projection')
     brake.printEigs(obj,la,'target','terminal')
     print('largest real part of obtained eigenvalue = '),numpy.max(la.real)
 

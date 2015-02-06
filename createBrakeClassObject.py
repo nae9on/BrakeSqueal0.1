@@ -24,8 +24,7 @@ def returnObject(logLevel):
   print "Working on :", host, "computer"
 
   if host == 'laplace':
-    input_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/\
-    Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
+      input_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
   elif host == 'aif-server':
       input_path = 'd:/eigenwerte/ProblemData/Matrix/800kOmegaRef%(row)d/' % {'row': omegaRef}
   elif host == 'frenet':
@@ -65,7 +64,6 @@ def returnObject(logLevel):
   '''
   obj = brake.BrakeClass(input_path, output_path, info_log_file, time_log_file, log_level)
 
-
   '''
   Adding more attributes to the BrakeClass object 'obj' created above.
 
@@ -90,7 +88,7 @@ def returnObject(logLevel):
 
   evs_per_shift - number of eigenvalues to be calculated per shift
   desired_area_fraction - area fraction of the target region to be covered
-
+  desiredCount - the minimum count of the eigenvalues to be captured for each frequency
   omegaTest - test omega for comparison of the classical approach with the POD approach
   '''
 
@@ -109,8 +107,11 @@ def returnObject(logLevel):
   setattr(obj, 'evs_per_shift', 30)
   setattr(obj, 'desired_area_fraction', 0.99)
   setattr(obj, 'desiredCount', 0)
+  setattr(obj, 'omegaTest', 16*2*math.pi)
 
-  setattr(obj, 'omegaTest', 17*2*math.pi)
+  #Log all the BrakeClass attribute values in the info log file
+  if(obj.log_level):
+     obj.displayParametersLog()
 
   return obj
 
