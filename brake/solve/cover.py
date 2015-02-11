@@ -25,6 +25,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
+import brake
 #Define exceptions
 class CoverError(Exception): pass
 class Cover_BadInputError(CoverError): pass
@@ -227,5 +228,5 @@ def draw_circles(obj, next_shift, next_radius):
         plt.axvline(0, color='blue')
         fig.gca().add_artist(circle)
         fig.gca().add_artist(react)
-        fig.savefig(obj.output_path+'drawCircles.png')
+        brake.save(obj.output_path+'drawCircles', ext="png", close=True, verbose=False)
         return

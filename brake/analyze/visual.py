@@ -90,9 +90,9 @@ def plot_eigs_transition(obj,la):
         y = la.imag
         for i in range(0,len(x)):
                 if x[i] >= 0:
-                        ax.plot(x[i],y[i],'.',color='red')
+                        ax.plot(x[i],y[i],'.',color='red', marker='+', mew=5, ms=20)
                 else:
-                        ax.plot(x[i],y[i],'.',color='green')    
+                        ax.plot(x[i],y[i],'.',color='green', marker='+', mew=5, ms=20)    
         
         ax.plot((tau.real),(tau.imag),'+',color='r')
         #fig.gca().add_artist(circle)

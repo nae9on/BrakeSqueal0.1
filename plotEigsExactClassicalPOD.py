@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import brake
 import createBrakeClassObject
 from brake.initialize import load, assemble, scale, diagscale, unlinearize
-from brake.solve import projection, classicalProjection, solver, qevp
+from brake.solve import projection, traditionalProjection, solver, qevp
 from brake.analyze import residual, visual
 
 #----------------------------Create Object with no logging ---------------------------------------
@@ -48,16 +48,16 @@ M_orig, C_orig, K_orig = assemble.create_MCK(obj, sparse_list, obj.omegaTest)
 
 ####################################################################
 ####################################################################
-####################### Classical Projection #######################
+####################### Traditional Projection #######################
 ####################################################################
 ####################################################################
-print '\n\nObtaining the classical projection matrix'
-la, evec = classicalProjection.Obtain_eigs(obj,150)
-XClassical = numpy.concatenate((evec.real,evec.imag), axis=1)
-print '\nClassical Projection with size of measurment matrix = '+str(XClassical.shape)
+print '\n\nObtaining the traditional projection matrix'
+la, evec = traditionalProjection.Obtain_eigs(obj,150)
+XTraditional = numpy.concatenate((evec.real,evec.imag), axis=1)
+print '\nTraditional Projection with size of measurment matrix = '+str(XTraditional.shape)
 #Setting Dimension of the projection matrix
 obj.projectionDimension = 300
-Q, singularValues = projection.obtain_projection_matrix(obj,XClassical)
+Q, singularValues = projection.obtain_projection_matrix(obj,XTraditional)
 QT = Q.T.conjugate()
 M =  QT.dot(M_orig.dot(Q))
 C =  QT.dot(C_orig.dot(Q))
@@ -65,13 +65,13 @@ K =  QT.dot(K_orig.dot(Q))
 print 'Projected the QEVP having dimension '+str(M_orig.shape)+' onto a smaller subspace of dimension '+str(M.shape[1])
 n = M.shape[0]
 no_of_evs = 2*n-2;
-laClassical, evecClassical = solver.qev_dense(obj,M,C,K,no_of_evs)
-evecClassical = unlinearize.unlinearize_matrices(evecClassical)
+laTraditional, evecTraditional = solver.qev_dense(obj,M,C,K,no_of_evs)
+evecTraditional = unlinearize.unlinearize_matrices(evecTraditional)
 
 #print '\n\n\nCalculating Delta'
-deltaClassical = numpy.zeros(laClassical.shape[0],dtype=numpy.float64)
-for itr in range(0,len(laClassical)):
-	deltaClassical[itr] = numpy.min(numpy.absolute(laClassical[itr]-laTarget))/numpy.max(numpy.absolute(laTarget))
+deltaTraditional = numpy.zeros(laTraditional.shape[0],dtype=numpy.float64)
+for itr in range(0,len(laTraditional)):
+	deltaTraditional[itr] = numpy.min(numpy.absolute(laTraditional[itr]-laTarget))/numpy.max(numpy.absolute(laTarget))
 
 ####################################################################
 ####################################################################
@@ -102,8 +102,8 @@ deltaPOD = numpy.zeros(laPOD.shape[0],dtype=numpy.float64)
 for itr in range(0,len(laPOD)):
 	deltaPOD[itr] = numpy.min(numpy.absolute(laPOD[itr]-laTarget))/numpy.max(numpy.absolute(laTarget))
 	
-print numpy.sort(deltaClassical)
-print numpy.sort(deltaPOD)
+#print numpy.sort(deltaTraditional)
+#print numpy.sort(deltaPOD)
 ####################################################################
 ####################################################################
 '''
@@ -118,31 +118,32 @@ react = plt.Rectangle((x1,y1),abs(x2-x1),abs(y2-y1),color='black',fill=False)
 
 
 plt.plot(laTarget.real, laTarget.imag, 'ko', label='exact')
-plt.plot(laClassical.real, laClassical.imag, 'r+', markersize=10, fillstyle='none', label='traditional')
+plt.plot(laTraditional.real, laTraditional.imag, 'r+', markersize=10, fillstyle='none', label='traditional')
 plt.plot(laPOD.real, laPOD.imag, 'go', markersize=10, fillstyle='none', label='POD')
 plt.legend(loc='upper right', shadow=True)
-brake.save(obj.output_path+'eigsExactClassicalPOD'+str(obj.omegaTest/(2*math.pi)), ext="png", close=False, verbose=True)
+brake.save(obj.output_path+'eigsExactTraditionalPOD'+str(obj.omegaTest/(2*math.pi)), ext="png", close=False, verbose=True)
 plt.show()
 '''
 
-fig = plt.figure()
+fig = plt.figure(figsize=(16.0, 10.0))
 ax = plt.gca()
 minLim = min(deltaPOD)
 maxLim = pow(10,-5)
-hdl = plt.scatter(laTarget.real, laTarget.imag, s=10, c=deltaTarget, marker='o', vmin=minLim, vmax=maxLim, label='exact')
-hdl = plt.scatter(laClassical.real, laClassical.imag, s=100, c=deltaClassical, marker='+', facecolors='none', linewidth='3', vmin=minLim, vmax=maxLim, label='traditional')
-hdl = plt.scatter(laPOD.real, laPOD.imag, s=100, c=deltaPOD, marker='o', facecolors='none', linewidth='3', vmin=minLim, vmax=maxLim, label='POD')
-plt.legend(loc='upper left', shadow=True)
 xWidth = max(laTarget.real)-min(laTarget.real)
 yWidth = max(laTarget.imag)-min(laTarget.imag)
 ax.set_xlim((min(laTarget.real)-0.1*xWidth,max(laTarget.real)+0.1*xWidth))
 ax.set_ylim((min(laTarget.imag)-0.1*yWidth,max(laTarget.imag)+0.1*yWidth))
 plt.axhline(0, color='blue')
 plt.axvline(0, color='blue')
+hdl = plt.scatter(laTarget.real, laTarget.imag, s=10, c=deltaTarget, marker='o', vmin=minLim, vmax=maxLim, label="exact")
+hdl = plt.scatter(laTraditional.real, laTraditional.imag, s=100, c=deltaTraditional, marker='x', facecolors='none', linewidth='3', vmin=minLim, vmax=maxLim, label="traditional")
+hdl = plt.scatter(laPOD.real, laPOD.imag, s=100, c=deltaPOD, marker='o', facecolors='none', linewidth='3', vmin=minLim, vmax=maxLim, label="POD")
+plt.legend(loc='upper left',numpoints=1)
 clevs = [-15, -10, -5]
 cb1 = plt.colorbar(hdl, orientation='vertical')#, ticks=clevs)
 cb1.ax.set_yticklabels(np.arange(-15,-4))# vertically oriented colorbar
-brake.save(obj.output_path+'eigsExactClassicalPOD'+str(obj.omegaTest/(2*math.pi)), ext="png", close=False, verbose=True)
+cb1.set_label('Error Exponent')
+brake.save(obj.output_path+'eigsExactTraditionalPOD'+str(obj.omegaTest/(2*math.pi)), ext="png", close=False, verbose=True)
 plt.show()
 ####################################################################
 ####################################################################

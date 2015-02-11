@@ -4,6 +4,7 @@
 #----------------------------------Standard Library Imports---------------------------------------
 import timeit
 import numpy
+import os
 import logging
 import matplotlib.pylab as plt
 from scipy.sparse.linalg import onenormest, aslinearoperator
@@ -19,6 +20,8 @@ begin_program = timeit.default_timer()
 
 #----------------------------Create Object--------------------------------------------------------
 obj = createBrakeClassObject.returnObject(20)
+
+if not os.path.exists(obj.output_path+'dataAnalysis'): os.makedirs(obj.output_path+'dataAnalysis')
 
 hdlr_i = logging.FileHandler(obj.output_path+'dataAnalysis/dataAnalysisReport.log',mode='w')    
 obj.logger_i.addHandler(hdlr_i)

@@ -89,7 +89,7 @@ def returnObject(logLevel):
   evs_per_shift - number of eigenvalues to be calculated per shift
   desired_area_fraction - area fraction of the target region to be covered
   desiredCount - the minimum count of the eigenvalues to be captured for each frequency
-  omegaTest - test omega for comparison of the classical approach with the POD approach
+  omegaTest - test omega for comparison of the traditional approach with the POD approach
   '''
 
   setattr(obj, 'data_file_list', ['BMLL','BDLL','BYLL','BDIWLL','BHLL','BKLL','BKQLL','BWLL'])
