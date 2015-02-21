@@ -22,7 +22,7 @@ def shift_matrices(obj, m, c, k, tau):
         :param c: Damping Matrix
         :param k: Stiffness Matrix
         :param tau: Shift
-        :return: ``M``, ``C``, ``K`` - Shifted Mass, Damping and Stiffness Matrix respectively
+        :return: M, C, K - Shifted Mass, Damping and Stiffness Matrix respectively
         
         Procedure::
         

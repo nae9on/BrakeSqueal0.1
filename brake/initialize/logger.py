@@ -31,7 +31,7 @@ def return_info_logger(obj):
     r"""
         
     :param obj: object of the class ``BrakeClass``
-    :return: ``logger_i`` python logger object for information logging
+    :return: logger_i - python logger object for information logging
         
     """ 
     
@@ -66,7 +66,7 @@ def return_time_logger(obj):
     r"""
         
     :param obj: object of the class ``BrakeClass``
-    :return: ``logger_t`` python logger object for time logging
+    :return: logger_t - python logger object for time logging
         
     """
     

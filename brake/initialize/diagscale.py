@@ -63,8 +63,8 @@ def norm_rc(Y):
         r"""
          
         :param Y: -- matrix that needs to be normalized across both columns and rows
-        :return: ``DL`` -  ``DL`` = ..... ``Drow3`` * ``Drow2`` * ``Drow1`` * ``I`` 
-        :return: ``DR`` -  ``DR`` = ``I`` * ``Dcol1`` * ``Dcol2`` * ``Dcol3``......
+        :return: ``DL`` = ..... ``Drow3`` * ``Drow2`` * ``Drow1`` * ``I`` 
+        :return: ``DR`` = ``I`` * ``Dcol1`` * ``Dcol2`` * ``Dcol3``......
         
         Procedure::
         
@@ -110,8 +110,8 @@ def diag_scale_matrices(obj, M, C, K):
         :param M: Mass Matrix
         :param C: Damping Matrix
         :param K: Stiffness Matrix
-        :return: ``M``, ``C``, ``K`` - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively             
-        :return: ``DR`` - Matrix that normalize the columns
+        :return: M, C, K - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively             
+        :return: DR - Matrix that normalize the columns
         
         Procedure::
         

@@ -16,7 +16,7 @@ def load_matrices(obj):
         r"""
         
         :param obj: object of the class ``BrakeClass``
-        :return: ``sparse_list`` -- a python list of matrices in Compressed Sparse Column format 
+        :return: sparse_list -- a python list of matrices in Compressed Sparse Column format 
           of type '<type 'numpy.float64'>'
         
         Procedure::

@@ -4,7 +4,7 @@ This module defines the following functions::
   - create_MCK:
   
     Assembles the various component matrices together(for the given angular frequency
-    ``omega``) to form the mass(M), damping(C) and stiffness matrix(K).
+    omega) to form the mass(M), damping(C) and stiffness matrix(K).
    
 """
 
@@ -26,7 +26,7 @@ def create_MCK(obj, sparse_list, omega):
         :param sparse_list: a python list of matrices in Compressed Sparse Column format 
           of type '<type 'numpy.float64'>',
         :param omega: angular frequency
-        :return: ``M`` - Mass Matrix, ``C`` - Damping Matrix, ``K`` - Stiffness Matrix
+        :return: M - Mass Matrix, C - Damping Matrix, K - Stiffness Matrix
         :raises: Assemble_BadInputError, When a matrix in the list is not sparse
         :raises: Assemble_BadInputError, When a matrix in the list is not square
         :raises: Assemble_BadInputError, When the matrix  are not of the same size

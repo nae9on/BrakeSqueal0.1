@@ -20,8 +20,8 @@ def scale_matrices(obj, m , c, k):
         :param m: Mass Matrix
         :param c: Damping Matrix
         :param k: Stiffness Matrix
-        :return: ``M``, ``C``, ``K`` - Shifted Mass, Damping and Stiffness Matrix respectively
-        :return: scaling parameters, - ``gamma`` and ``delta``
+        :return: M, C, K - Scaled Mass, Damping and Stiffness Matrix respectively
+        :return: scaling parameters, - gamma and delta.
 
         Procedure::
         

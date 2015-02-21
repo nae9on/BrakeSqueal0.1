@@ -3,11 +3,11 @@ This module defines the following functions::
 
   - BrakeClass:
   
-    Python Parent Class for the BrakeSqueal Project
+    Python parent class for the BrakeSqueal Project.
     
   - printEigs:
     
-    Prints all the eigenvalues on the terminal (with two floating points).
+    Prints the required eigenvalues in a file/terminal (with two floating points).
     
   - extractEigs:
    
@@ -15,7 +15,7 @@ This module defines the following functions::
     
   - save
     
-    Save a figure from pyplot.
+    Saves a figure from pyplot.
     
 """
 
@@ -44,7 +44,7 @@ __all__ = [
 class BrakeClass:
    r"""
    
-   ``Member Functions of the BrakeClass:``
+   Member Functions of the BrakeClass:
    
    - __init__
    - createInfoLogger
@@ -92,19 +92,19 @@ class BrakeClass:
       for item in attrs.items():
           self.logger_i.info(string.expandtabs(str(item[0])+'\t'+str(item[1]),30))       
 
-def printEigs(obj,arg,which_flag,where_flag):
+def printEigs(obj,eigenValues,which_flag,where_flag):
     r"""
         
     :param obj: object of the class ``BrakeClass``
-    :param arg: eigenvalues
+    :param eigenValues: eigenvalues
     :param which_flag: which eigenvalues are needed('all' or 'target' or 'critical' or 'positive')
     :param where_flag: where to print the eigenvalues('terminal' or 'file')
     :return: prints eigenvalues in the desired format(upto 2 decimal places)
     
     """
     
-    n = arg.shape[0]
-    arg=sorted(arg,reverse=True)
+    n = eigenValues.shape[0]
+    eigenValues=sorted(eigenValues,reverse=True)
     logger_i = obj.logger_i
     
     #create a temporary bool array to indicate required eigenvalues
@@ -120,8 +120,8 @@ def printEigs(obj,arg,which_flag,where_flag):
       
     if which_flag == 'target':
      for i in range(0, n):
-      if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
-          arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3]):
+      if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
+          eigenValues[i].imag >= obj.target[2] and eigenValues[i].imag <= obj.target[3]):
            bool_array[i] = 1
            targetFlag = 1
      if targetFlag == 0:
@@ -133,9 +133,9 @@ def printEigs(obj,arg,which_flag,where_flag):
            
     if which_flag == 'critical':
      for i in range(0, n):
-      if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
-          arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3] and \
-          arg[i].real >= 0):
+      if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
+          eigenValues[i].imag >= obj.target[2] and eigenValues[i].imag <= obj.target[3] and \
+          eigenValues[i].real >= 0):
            bool_array[i] = 1
            criticalFlag = 1
      if criticalFlag == 0:
@@ -146,7 +146,7 @@ def printEigs(obj,arg,which_flag,where_flag):
 
     if which_flag == 'positive':
      for i in range(0, n):
-      if (arg[i].real >= 0):
+      if (eigenValues[i].real >= 0):
            bool_array[i] = 1
            positiveFlag = 1
      if positiveFlag == 0:
@@ -157,33 +157,33 @@ def printEigs(obj,arg,which_flag,where_flag):
 
     for i in range(0, n):
      if bool_array[i] == 1:
-       if arg[i].imag < 0:
+       if eigenValues[i].imag < 0:
           if(where_flag == 'file'):
-            x = "%04.03e" % arg[i].real,  "%04.03e" % arg[i].imag
+            x = "%04.03e" % eigenValues[i].real,  "%04.03e" % eigenValues[i].imag
             logger_i.info(x)
           if(where_flag == 'terminal'):
-            print("%04.03e" % arg[i].real, '-',  "%04.03e" % abs(arg[i].imag), 'I')
+            print("%04.03e" % eigenValues[i].real, '-',  "%04.03e" % abs(eigenValues[i].imag), 'I')
        else:
           if(where_flag == 'file'):
-            x = "%04.03e" % arg[i].real,  "%04.03e" % arg[i].imag
+            x = "%04.03e" % eigenValues[i].real,  "%04.03e" % eigenValues[i].imag
             logger_i.info(x)
           if(where_flag == 'terminal'):
-            print("%04.03e" % arg[i].real, '+',  "%04.03e" % arg[i].imag, 'I')
+            print("%04.03e" % eigenValues[i].real, '+',  "%04.03e" % eigenValues[i].imag, 'I')
 
             
-def extractEigs(obj,arg,arg2,which_flag):
+def extractEigs(obj,eigenValues,eigenVectors,which_flag):
     r"""
         
     :param obj: object of the class ``BrakeClass``
-    :param arg: eigenvalues
-    :param arg2: eigenvectors
+    :param eigenValues: eigenvalues
+    :param eigenVectors: eigenvectors
     :param which_flag: which eigenvalues are needed('all' or 'target' or 'critical' or 'positive')
     :return: ``laExtracted`` - required eigenvalues, ``evecExtracted`` -- corresponding eigenvectors
     
     """
     
-    n = arg.shape[0]
-    #arg=sorted(arg,reverse=True)
+    n = eigenValues.shape[0]
+    #eigenValues=sorted(eigenValues,reverse=True)
     logger_i = obj.logger_i
     
     #create a temporary bool array to indicate required eigenvalues
@@ -199,8 +199,8 @@ def extractEigs(obj,arg,arg2,which_flag):
       
     if which_flag == 'target':
      for i in range(0, n):
-      if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
-          arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3]):
+      if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
+          eigenValues[i].imag >= obj.target[2] and eigenValues[i].imag <= obj.target[3]):
            bool_array[i] = 1
            targetFlag = 1
      if targetFlag == 0:
@@ -212,9 +212,9 @@ def extractEigs(obj,arg,arg2,which_flag):
            
     if which_flag == 'critical':
      for i in range(0, n):
-      if (arg[i].real >= obj.target[0] and arg[i].real <= obj.target[1] and \
-          arg[i].imag >= obj.target[2] and arg[i].imag <= obj.target[3] and \
-          arg[i].real >= 0):
+      if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
+          eigenValues[i].imag >= obj.target[2] and eigenValues[i].imag <= obj.target[3] and \
+          eigenValues[i].real >= 0):
            bool_array[i] = 1
            criticalFlag = 1
      if criticalFlag == 0:
@@ -225,7 +225,7 @@ def extractEigs(obj,arg,arg2,which_flag):
 
     if which_flag == 'positive':
      for i in range(0, n):
-      if (arg[i].real >= 0):
+      if (eigenValues[i].real >= 0):
            bool_array[i] = 1
            positiveFlag = 1
      if positiveFlag == 0:
@@ -236,39 +236,39 @@ def extractEigs(obj,arg,arg2,which_flag):
 
 
     laExtracted = np.zeros(np.count_nonzero(bool_array),dtype=np.complex128)
-    evecExtracted = np.zeros((arg2.shape[0], np.count_nonzero(bool_array)),dtype=np.complex128)
+    evecExtracted = np.zeros((eigenVectors.shape[0], np.count_nonzero(bool_array)),dtype=np.complex128)
 
     j = 0
     for i in range(0, n):
      if bool_array[i] == 1:
-       laExtracted[j] = arg[i]
-       evecExtracted[:,j] = arg2[:,i]
+       laExtracted[j] = eigenValues[i]
+       evecExtracted[:,j] = eigenVectors[:,i]
        j = j+1
 
     return laExtracted, evecExtracted
 
 
 def save(path, ext='png', close=False, verbose=True):
-    r"""Save a figure from pyplot.
-
+    r"""
+    
     Parameters
     ----------
-    path : string
+    :param path: string
         The path (and filename, without the extension) to save the
         figure to.
 
-    ext : string (default='png')
+    :param ext: string (default='png')
         The file extension. This must be supported by the active
         matplotlib backend (see matplotlib.backends module).  Most
         backends support 'png', 'pdf', 'ps', 'eps', and 'svg'.
 
-    close : boolean (default=True)
+    :param close: boolean (default=True)
         Whether to close the figure after saving.  If you want to save
         the figure multiple times (e.g., to multiple formats), you
         should NOT close it in between saves or you will have to
         re-plot it.
 
-    verbose : boolean (default=True)
+    :param verbose: boolean (default=True)
         Whether to print information about when and where the image
         has been saved.
 

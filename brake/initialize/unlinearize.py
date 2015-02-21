@@ -20,7 +20,7 @@ def unlinearize_matrices(evec):
     r"""
         
     :param evec: eigenvectors of the generalized eigenvalue propblem
-    :return: ``evec_prior`` - eigenvectors prior linearization of the QEVP
+    :return: evec_prior - eigenvectors prior linearization of the QEVP
     
     Procedure::
     

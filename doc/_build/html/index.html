@@ -59,24 +59,28 @@
 <h1>brake<a class="headerlink" href="#brake" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="init">
 <h2>__init__<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/__init__.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/__init__.py?at=master">Source</a></p>
 <span class="target" id="module-brake.__init__"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- BrakeClass:
 
-  Python Parent Class for the BrakeSqueal Project
+  Python parent class for the BrakeSqueal Project.
   
-- print_eigs:
+- printEigs:
   
-  Prints all the eigenvalues on the terminal (with two floating points).
+  Prints the required eigenvalues in a file/terminal (with two floating points).
   
 - extractEigs:
  
-  Returns all the required eigenpairs. </pre>
+  Extracts the required eigenpairs.
+  
+- save
+  
+  Saves a figure from pyplot.</pre>
 </div>
 <dl class="class">
 <dt id="brake.__init__.BrakeClass">
 <em class="property">class </em><tt class="descclassname">brake.__init__.</tt><tt class="descname">BrakeClass</tt><big>(</big><em>input_path</em>, <em>output_path</em>, <em>info_log_file</em>, <em>time_log_file</em>, <em>log_level</em><big>)</big><a class="headerlink" href="#brake.__init__.BrakeClass" title="Permalink to this definition">¶</a></dt>
-<dd><p><tt class="docutils literal"><span class="pre">Member</span> <span class="pre">Functions</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">BrakeClass:</span></tt></p>
+<dd><p>Member Functions of the BrakeClass:</p>
 <ul class="simple">
 <li>__init__</li>
 <li>createInfoLogger</li>
@@ -88,15 +92,15 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="brake.__init__.print_eigs">
-<tt class="descclassname">brake.__init__.</tt><tt class="descname">print_eigs</tt><big>(</big><em>obj</em>, <em>arg</em>, <em>which_flag</em>, <em>where_flag</em><big>)</big><a class="headerlink" href="#brake.__init__.print_eigs" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.__init__.printEigs">
+<tt class="descclassname">brake.__init__.</tt><tt class="descname">printEigs</tt><big>(</big><em>obj</em>, <em>eigenValues</em>, <em>which_flag</em>, <em>where_flag</em><big>)</big><a class="headerlink" href="#brake.__init__.printEigs" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
-<li><strong>arg</strong> &#8211; eigenvalues</li>
+<li><strong>eigenValues</strong> &#8211; eigenvalues</li>
 <li><strong>which_flag</strong> &#8211; which eigenvalues are needed(&#8216;all&#8217; or &#8216;target&#8217; or &#8216;critical&#8217; or &#8216;positive&#8217;)</li>
 <li><strong>where_flag</strong> &#8211; where to print the eigenvalues(&#8216;terminal&#8217; or &#8216;file&#8217;)</li>
 </ul>
@@ -111,20 +115,50 @@
 
 <dl class="function">
 <dt id="brake.__init__.extractEigs">
-<tt class="descclassname">brake.__init__.</tt><tt class="descname">extractEigs</tt><big>(</big><em>obj</em>, <em>arg</em>, <em>arg2</em>, <em>which_flag</em><big>)</big><a class="headerlink" href="#brake.__init__.extractEigs" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">brake.__init__.</tt><tt class="descname">extractEigs</tt><big>(</big><em>obj</em>, <em>eigenValues</em>, <em>eigenVectors</em>, <em>which_flag</em><big>)</big><a class="headerlink" href="#brake.__init__.extractEigs" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
-<li><strong>arg</strong> &#8211; eigenvalues</li>
-<li><strong>arg2</strong> &#8211; eigenvectors</li>
+<li><strong>eigenValues</strong> &#8211; eigenvalues</li>
+<li><strong>eigenVectors</strong> &#8211; eigenvectors</li>
 <li><strong>which_flag</strong> &#8211; which eigenvalues are needed(&#8216;all&#8217; or &#8216;target&#8217; or &#8216;critical&#8217; or &#8216;positive&#8217;)</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">laExtracted</span></tt> - required eigenvalues, <tt class="docutils literal"><span class="pre">evecExtracted</span></tt> &#8211; corresponding eigenvectors</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="brake.__init__.save">
+<tt class="descclassname">brake.__init__.</tt><tt class="descname">save</tt><big>(</big><em>path</em>, <em>ext='png'</em>, <em>close=False</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#brake.__init__.save" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> &#8211; string
+The path (and filename, without the extension) to save the
+figure to.</li>
+<li><strong>ext</strong> &#8211; string (default=&#8217;png&#8217;)
+The file extension. This must be supported by the active
+matplotlib backend (see matplotlib.backends module).  Most
+backends support &#8216;png&#8217;, &#8216;pdf&#8217;, &#8216;ps&#8217;, &#8216;eps&#8217;, and &#8216;svg&#8217;.</li>
+<li><strong>close</strong> &#8211; boolean (default=True)
+Whether to close the figure after saving.  If you want to save
+the figure multiple times (e.g., to multiple formats), you
+should NOT close it in between saves or you will have to
+re-plot it.</li>
+<li><strong>verbose</strong> &#8211; boolean (default=True)
+Whether to print information about when and where the image
+has been saved.</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -141,7 +175,7 @@
 <h1>initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="logger">
 <h2>logger<a class="headerlink" href="#logger" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/logger.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/logger.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.logger"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- return_info_logger:
   
@@ -169,7 +203,7 @@ LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">logger_i</span></tt> python logger object for information logging</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">logger_i - python logger object for information logging</td>
 </tr>
 </tbody>
 </table>
@@ -184,7 +218,7 @@ LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">logger_t</span></tt> python logger object for time logging</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">logger_t - python logger object for time logging</td>
 </tr>
 </tbody>
 </table>
@@ -197,7 +231,7 @@ LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
 </div>
 <div class="section" id="load">
 <h2>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/load.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/load.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.load"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- load_matrices:
 
@@ -212,7 +246,7 @@ LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">sparse_list</span></tt> &#8211; a python list of matrices in Compressed Sparse Column format 
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">sparse_list &#8211; a python list of matrices in Compressed Sparse Column format 
 of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</td>
 </tr>
 </tbody>
@@ -231,12 +265,12 @@ a python list sparse_list.</pre>
 </div>
 <div class="section" id="assemble">
 <h2>assemble<a class="headerlink" href="#assemble" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/assemble.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/assemble.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.assemble"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- create_MCK:
 
   Assembles the various component matrices together(for the given angular frequency
-  ``omega``) to form the mass(M), damping(C) and stiffness matrix(K).</pre>
+  omega) to form the mass(M), damping(C) and stiffness matrix(K).</pre>
 </div>
 <dl class="function">
 <dt id="brake.initialize.assemble.create_MCK">
@@ -253,7 +287,7 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">M</span></tt> - Mass Matrix, <tt class="docutils literal"><span class="pre">C</span></tt> - Damping Matrix, <tt class="docutils literal"><span class="pre">K</span></tt> - Stiffness Matrix</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M - Mass Matrix, C - Damping Matrix, K - Stiffness Matrix</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first">Assemble_BadInputError, When a matrix in the list is not sparse</p>
@@ -283,7 +317,7 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </div>
 <div class="section" id="shift">
 <h2>shift<a class="headerlink" href="#shift" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/shift.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/shift.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.shift"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- shift_matrices:
 
@@ -305,7 +339,7 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">M</span></tt>, <tt class="docutils literal"><span class="pre">C</span></tt>, <tt class="docutils literal"><span class="pre">K</span></tt> - Shifted Mass, Damping and Stiffness Matrix respectively</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">M, C, K - Shifted Mass, Damping and Stiffness Matrix respectively</p>
 </td>
 </tr>
 </tbody>
@@ -326,7 +360,7 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </div>
 <div class="section" id="scale">
 <h2>scale<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/scale.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/scale.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.scale"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- scale_matrices:
 
@@ -347,10 +381,10 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">M</span></tt>, <tt class="docutils literal"><span class="pre">C</span></tt>, <tt class="docutils literal"><span class="pre">K</span></tt> - Shifted Mass, Damping and Stiffness Matrix respectively</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, C, K - Scaled Mass, Damping and Stiffness Matrix respectively</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">scaling parameters, - <tt class="docutils literal"><span class="pre">gamma</span></tt> and <tt class="docutils literal"><span class="pre">delta</span></tt></p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">scaling parameters, - gamma and delta.</p>
 </td>
 </tr>
 </tbody>
@@ -379,7 +413,7 @@ approximation</pre>
 </div>
 <div class="section" id="diagscale">
 <h2>diagscale<a class="headerlink" href="#diagscale" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/diagscale.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/diagscale.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.diagscale"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- normalize_cols:
 
@@ -410,10 +444,10 @@ approximation</pre>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">M</span></tt>, <tt class="docutils literal"><span class="pre">C</span></tt>, <tt class="docutils literal"><span class="pre">K</span></tt> - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M, C, K - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">DR</span></tt> - Matrix that normalize the columns</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">DR - Matrix that normalize the columns</p>
 </td>
 </tr>
 </tbody>
@@ -436,9 +470,9 @@ K = DL * K * DR</pre>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Y</strong> &#8211; &#8211; matrix that needs to be normalized across both columns and rows</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">DL</span></tt> -  <tt class="docutils literal"><span class="pre">DL</span></tt> = ..... <tt class="docutils literal"><span class="pre">Drow3</span></tt> * <tt class="docutils literal"><span class="pre">Drow2</span></tt> * <tt class="docutils literal"><span class="pre">Drow1</span></tt> * <tt class="docutils literal"><span class="pre">I</span></tt></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">DL</span></tt> = ..... <tt class="docutils literal"><span class="pre">Drow3</span></tt> * <tt class="docutils literal"><span class="pre">Drow2</span></tt> * <tt class="docutils literal"><span class="pre">Drow1</span></tt> * <tt class="docutils literal"><span class="pre">I</span></tt></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">DR</span></tt> -  <tt class="docutils literal"><span class="pre">DR</span></tt> = <tt class="docutils literal"><span class="pre">I</span></tt> * <tt class="docutils literal"><span class="pre">Dcol1</span></tt> * <tt class="docutils literal"><span class="pre">Dcol2</span></tt> * <tt class="docutils literal"><span class="pre">Dcol3</span></tt>......</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">DR</span></tt> = <tt class="docutils literal"><span class="pre">I</span></tt> * <tt class="docutils literal"><span class="pre">Dcol1</span></tt> * <tt class="docutils literal"><span class="pre">Dcol2</span></tt> * <tt class="docutils literal"><span class="pre">Dcol3</span></tt>......</td>
 </tr>
 </tbody>
 </table>
@@ -486,7 +520,7 @@ set the diagonal elemnts of D as the inverse square root of the column sums</pre
 </div>
 <div class="section" id="unlinearize">
 <h2>unlinearize<a class="headerlink" href="#unlinearize" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/initialize/unlinearize.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/unlinearize.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.unlinearize"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- unlinearize_matrices:
   
@@ -503,7 +537,7 @@ set the diagonal elemnts of D as the inverse square root of the column sums</pre
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>evec</strong> &#8211; eigenvectors of the generalized eigenvalue propblem</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">evec_prior</span></tt> - eigenvectors prior linearization of the QEVP</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">evec_prior - eigenvectors prior linearization of the QEVP</td>
 </tr>
 </tbody>
 </table>
@@ -526,35 +560,64 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <h1>solve<a class="headerlink" href="#solve" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="projection">
 <h2>projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/projection.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/projection.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.projection"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- obtain_projection_matrix:
 
  This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
+ for each base angular frequency.
+ 
+ - obtain_measurment_matrix
+ 
+ This function forms the Measurment Matrix by solving the quadratic eigenvalue problem 
  for each base angular frequency.</pre>
 </div>
 <dl class="function">
-<dt id="brake.solve.projection.obtain_projection_matrix">
-<tt class="descclassname">brake.solve.projection.</tt><tt class="descname">obtain_projection_matrix</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#brake.solve.projection.obtain_projection_matrix" title="Permalink to this definition">¶</a></dt>
+<dt id="brake.solve.projection.obtain_measurment_matrix">
+<tt class="descclassname">brake.solve.projection.</tt><tt class="descname">obtain_measurment_matrix</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#brake.solve.projection.obtain_measurment_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">Q</span></tt> - projection matrix</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><tt class="docutils literal"><span class="pre">X</span></tt> - measurment matrix</td>
+</tr>
+</tbody>
+</table>
+<p>Procedure:</p>
+<div class="highlight-python"><pre>The measurment matrix is obtained as follows:
+
+- Obtain the measurment matrix X = [X_real X_imag], with X_real as a list of 
+  real parts of eigenvectors and X_imag as a list of imaginary parts of 
+  eigenvectors, corresponding to each base angular frequency in omega_basis.</pre>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="brake.solve.projection.obtain_projection_matrix">
+<tt class="descclassname">brake.solve.projection.</tt><tt class="descname">obtain_projection_matrix</tt><big>(</big><em>obj</em>, <em>X</em><big>)</big><a class="headerlink" href="#brake.solve.projection.obtain_projection_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><strong>X</strong> &#8211; measurment matrix</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Q</span></tt> - projection matrix</p>
+</td>
 </tr>
 </tbody>
 </table>
 <p>Procedure:</p>
 <div class="highlight-python"><pre>The projection matrix is obtained as follows:
 
-- Obtain the measurment matrix X = [X_real X_imag], with X_real as a list of 
-  real parts of eigenvectors and X_imag as a list of imaginary parts of 
-  eigenvectors, corresponding to each base angular frequency in omega_basis.
 - Compute the thin svd of the measurment matrix. X = U * s * V
 - Set Q = truncated(U), where the truncation is done to take only the significant 
-  singular values(based on a certain tolerance) into account</pre>
+  singular values(provided by user in obj.projectionDimension) into account</pre>
 </div>
 </dd></dl>
 
@@ -565,7 +628,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </div>
 <div class="section" id="qevp">
 <h2>qevp<a class="headerlink" href="#qevp" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/qevp.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/qevp.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.qevp"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- brake_squeal_qevp:
 
@@ -575,7 +638,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 - Obtain_eigs:
   
   For a particuar base angular frequency and for a particular shift point this 
-  function evaluates the eigenvalues and eigenvectors</pre>
+  function obtains obj.evs_per_shift eigenvalues and the corresponding eigenvectors</pre>
 </div>
 <dl class="function">
 <dt id="brake.solve.qevp.Obtain_eigs">
@@ -644,7 +707,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </div>
 <div class="section" id="solver">
 <h2>solver<a class="headerlink" href="#solver" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/solver.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/solver.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.solver"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- qev_sparse:
 
@@ -807,7 +870,7 @@ Largest Magnitude.    </pre>
 </div>
 <div class="section" id="cover">
 <h2>cover<a class="headerlink" href="#cover" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/solve/cover.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/cover.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.cover"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- next_shift
 
@@ -911,7 +974,7 @@ Largest Magnitude.    </pre>
 <h1>analyze<a class="headerlink" href="#analyze" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="residual">
 <h2>residual<a class="headerlink" href="#residual" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/analyze/residual.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/analyze/residual.py?at=master">Source</a></p>
 <span class="target" id="module-brake.analyze.residual"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- residual_qevp:
 
@@ -974,7 +1037,7 @@ Largest Magnitude.    </pre>
 </div>
 <div class="section" id="visual">
 <h2>visual<a class="headerlink" href="#visual" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/b673c01e844e9230a24c8247e31e4eaf205558d3/brake/analyze/visual.py?at=master">Source</a></p>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/analyze/visual.py?at=master">Source</a></p>
 <span class="target" id="module-brake.analyze.visual"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- plot_eigs_cover:
 
