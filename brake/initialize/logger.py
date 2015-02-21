@@ -57,7 +57,7 @@ def return_info_logger(obj):
         logger_i.setLevel(logging.NOTSET)
 
     if(LOG_LEVEL):
-        logger_i.info('Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)')
+        logger_i.info('Brake Squeal Project: Auto logged Info')
         logger_i.info("\n"+'In Driver file')
     
     return logger_i
@@ -92,8 +92,8 @@ def return_time_logger(obj):
         logger_t.setLevel(logging.NOTSET)
 
     if(LOG_LEVEL):
-        logger_t.info('Auto logged Info for the Quadratic Eigen Value Problem(Brake Squeal Project)')
-        logger_t.info("\n"+'Time = 0')
+        logger_t.info('Brake Squeal Project: Auto logged Info')
+        #logger_t.info("\n"+'Time = 0')
         
     return logger_t
 

@@ -43,16 +43,15 @@ for i in range(0,len(sparse_list)):
 	csrForm = componentMatrix.tocsr()
 	normMatrix = onenormest(csrForm, t=3, itmax=5, compute_v=False, compute_w=False)
 	
-	diffFlag = numpy.allclose(csrForm.data, csrForm.transpose().data)
-        
-	symmFlag = 'symmetric' if diffFlag else 'not symmetric'
+	#diffFlag = numpy.allclose(csrForm.data, csrForm.transpose().data)
+       	#symmFlag = 'symmetric' if diffFlag else 'not symmetric'
 	
 	eps = pow(10,-9)
 	rank = estimate_rank(aslinearoperator(componentMatrix), eps)
 	#print 'Approximate rank with relative error of(', eps, ')for numerical rank definition = ',rank
 	
-	print obj.data_file_list[i],obj.data_file_name[i],componentMatrix.shape,' ',symmFlag,' NonZeros = ',componentMatrix.nnz,' 1-Norm = ',normMatrix,' rank ',rank
-	obj.logger_i.info(obj.data_file_list[i]+' '+obj.data_file_name[i]+str(componentMatrix.shape)+' '+symmFlag+' NonZeros = '+str(componentMatrix.nnz)+' 1-Norm = '+str(normMatrix)+' rank '+str(rank))
+	print obj.data_file_list[i],obj.data_file_name[i],componentMatrix.shape,' NonZeros = ',componentMatrix.nnz,' 1-Norm = ',normMatrix,' rank ',rank
+	obj.logger_i.info(obj.data_file_list[i]+' '+obj.data_file_name[i]+str(componentMatrix.shape)+' NonZeros = '+str(componentMatrix.nnz)+' 1-Norm = '+str(normMatrix)+' rank '+str(rank))
 	
 	#saving the sparsity pattern
 	fig = plt.figure(figsize=(24.0, 15.0))
@@ -66,6 +65,9 @@ end_program = timeit.default_timer()
 print "\n","\n","\n",'Total Run Time = : '+"%.2f" % (end_program-begin_program)+' sec'
 
 if(obj.log_level):
+    obj.logger_i.info('\nNote: The rank obtained using python estimate_rank utility') 
+    obj.logger_i.info('is observed to be lower than the rank obtained using MATLAB')
+    obj.logger_i.info('\nNote: The norm computed is a lower bound of the 1-norm of the sparse matrix.')
     obj.logger_i.info("\n"+"\n"+'Finished Data Analysis')
 
     #----------------Logging Time Complexity-----

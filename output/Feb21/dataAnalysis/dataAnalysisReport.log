@@ -1,0 +1,27 @@
+
+
+Beginning Data Analysis
+------------------------------------------------------------------------
+
+Matrices in CSC format converted to CSR
+
+
+Properties of various component matrices
+
+BMLL M1(4669, 4669) NonZeros = 93207 1-Norm = 8.96133313175e-05 rank 4669
+BDLL D1(4669, 4669) NonZeros = 5683 1-Norm = 10.3582462023 rank 51
+BYLL DG(4669, 4669) NonZeros = 66643 1-Norm = 0.000219139615422 rank 3367
+BDIWLL DR(4669, 4669) NonZeros = 5683 1-Norm = 10.3582462023 rank 51
+BHLL D4(4669, 4669) NonZeros = 23885 1-Norm = 63318.9475846 rank 376
+BKLL K1(4669, 4669) NonZeros = 280845 1-Norm = 107410423.147 rank 4669
+BKQLL KR(4669, 4669) NonZeros = 21646 1-Norm = 357014.129817 rank 103
+BWLL KGeo(4669, 4669) NonZeros = 280871 1-Norm = 0.00383850268545 rank 4667
+
+Note: The rank obtained using python estimate_rank utility
+is observed to be lower than the rank obtained using MATLAB
+
+Note: The norm computed is a lower bound of the 1-norm of the sparse matrix.
+
+
+Finished Data Analysis
+Time Taken for data analysis: 178.96 sec

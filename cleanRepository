@@ -7,7 +7,8 @@ echo -e "\n3. for cleaning log files> "
 echo -e "\n4. for listing last updated> "
 echo -e "\n5. for listing repository information>"
 echo -e "\n6. for cleaning mesh files>"
-echo -e "\n7. for removing empty folders>\n"
+echo -e "\n7. for removing empty folders>"
+echo -e "\n8. for cleaning .pyc files>\n"
 
 read flag
 
@@ -20,7 +21,7 @@ meshFiles=$({ find . -name faces | grep "/polyMesh/faces" ;
               find . -name owner | grep "/polyMesh/owner" ;
               find . -name points | grep "/polyMesh/points" ; })
 emptyFolders=$(find . -type d -empty -not -path "./.git/*")
-
+pycFiles=$(find -type f -iname '*.pyc' -exec ls -S1 {} +)
 boolFlag=1
 
 if [ $flag == 1 ]
@@ -43,6 +44,10 @@ elif [ $flag == 7 ]
 then
  actionFiles=$emptyFolders
  echo -e "\n\tempty Folders ...\n"
+elif [ $flag == 8 ]
+then
+ actionFiles=$pycFiles
+ echo -e "\n\t.pyc Files ...\n"
 else
  echo -e "\n\tNo cleaning\n"
  boolFlag=0
