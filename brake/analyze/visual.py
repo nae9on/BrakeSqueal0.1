@@ -21,7 +21,7 @@ def plot_eigs_cover(obj,la):
         r"""
         :param obj: object of the class ``BrakeClass``
         :param la: eigenavlues
-        :return: ``radius`` - radius of the disc covering all the eigenvalues
+        :return: radius of the disc covering all the eigenvalues
         """
         
         x1 = obj.target[0]
@@ -64,7 +64,7 @@ def plot_eigs_transition(obj,la):
         r"""
         :param obj: object of the class ``BrakeClass``
         :param la: eigenavlues
-        :return: ``radius`` - radius of the disc covering all the eigenvalues
+        :return: radius of the disc covering all the eigenvalues
         """
         
         x1 = obj.target[0]

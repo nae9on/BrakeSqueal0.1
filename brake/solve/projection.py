@@ -3,8 +3,7 @@ This module defines the following functions::
 
   - obtain_projection_matrix:
   
-   This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
-   for each base angular frequency.
+   This function obtains the Projection Matrix from a given measurment matrix.
    
    - obtain_measurment_matrix
    

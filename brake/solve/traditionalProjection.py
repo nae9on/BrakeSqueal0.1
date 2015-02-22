@@ -1,15 +1,11 @@
 r"""
 This module defines the following functions::
 
-  - obtain_projection_matrix:
+  - Obtain_eigs:
+    
+    Determines required number of eigenvalues and associated eigenvectors of the simplified system with
+    symmetric coefficients according to the classical modal transformation approach.
   
-   This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
-   for each base angular frequency.
-   
-   - obtain_measurment_matrix
-   
-   This function forms the Measurment Matrix by solving the quadratic eigenvalue problem 
-   for each base angular frequency.
 """
 
 #----------------------------------Standard Library Imports---------------------------------------
@@ -26,7 +22,23 @@ from brake.solve import solver
 from brake.analyze import residual
 
 def Obtain_eigs(obj,no_of_evs):
-
+    r"""
+        
+    :param obj: object of the class ``BrakeClass``
+    :param no_of_evs: the required number of eigenvalues to be covered close to the center of the target region
+    :return: ``la`` - eigenvalues, ``evec`` - eigenvectors
+    
+    Procedure::
+    
+     The la and evec are obtained as follows:
+       
+     - load the various component matrices.
+     - assemble the various component matrices together to form the mass(M) and stiffness matrix(K)
+       according to the classical modal transformation approach.
+     - because we are interested in inner eigenvalues around a certain shift point, 
+       so we transform the qevp using shift and invert spectral transformations.
+     
+    """
     #object attributes used in the function
     LOG_LEVEL = obj.log_level
     logger_t = obj.logger_t

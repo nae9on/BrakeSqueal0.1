@@ -104,6 +104,15 @@ projection
 
 .. seealso:: `scipy.linalg.svd <http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html>`_
 
+traditional projection
+---------------------------------------
+`Source <https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/traditionalProjection.py?at=master>`__
+
+.. automodule:: brake.solve.traditionalProjection
+    :members:
+
+.. seealso:: `scipy.linalg.svd <http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html>`_
+
 qevp
 ---------------------------------------
 `Source <https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/qevp.py?at=master>`__

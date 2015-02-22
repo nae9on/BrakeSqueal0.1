@@ -3,11 +3,11 @@ This module defines the following functions::
 
   - residual_qevp:
   
-    Calculates the relative residual of the Quadratic Eigenvalue Problem
+    Calculates the relative residual of the Quadratic Eigenvalue Problem (lamda^2 M + lamda C + K) X = 0
   
   - residual_gevp
   
-    Calculates the relative residual of the Generalized Eigenvalue Problem
+    Calculates the relative residual of the Generalized Eigenvalue Problem (A - lamda B) X = 0
 
 """
 
@@ -24,7 +24,7 @@ def residual_qevp(M,C,K,la,evec):
         :param K: Stiffness Matrix
         :param la: eigenvalues
         :param evec: eigenvectors
-        :return: ``res`` - residual
+        :return: res - residual
         """
         
         n = la.shape[0]
@@ -44,11 +44,11 @@ def residual_qevp(M,C,K,la,evec):
 
 def residual_gevp(A,B,la,evec):
         r"""
-        :param A: 
-        :param B: 
+        :param A: left matrix
+        :param B: right matrix 
         :param la: eigenvalues
         :param evec: eigenvectors
-        :return: ``res`` - residual
+        :return: res - residual
         """
         
         n = la.shape[0]

@@ -4,11 +4,11 @@ This module defines the following functions::
   - next_shift
   
     Implementation of the MonteCarlo Algorithm for choosing the next shift point 
-    in the target region
+    in the target region.
   
   - calculate_area_fraction
   
-    Calculates the area fraction covered(of the target rectangle) by the chosen shift points
+    Calculates the area fraction covered(of the target rectangle) by the chosen shift points.
     
   - draw_circles
   

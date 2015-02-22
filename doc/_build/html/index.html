@@ -564,8 +564,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <span class="target" id="module-brake.solve.projection"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- obtain_projection_matrix:
 
- This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
- for each base angular frequency.
+ This function obtains the Projection Matrix from a given measurment matrix.
  
  - obtain_measurment_matrix
  
@@ -618,6 +617,49 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 - Compute the thin svd of the measurment matrix. X = U * s * V
 - Set Q = truncated(U), where the truncation is done to take only the significant 
   singular values(provided by user in obj.projectionDimension) into account</pre>
+</div>
+</dd></dl>
+
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html">scipy.linalg.svd</a></p>
+</div>
+</div>
+<div class="section" id="traditional-projection">
+<h2>traditional projection<a class="headerlink" href="#traditional-projection" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/traditionalProjection.py?at=master">Source</a></p>
+<span class="target" id="module-brake.solve.traditionalProjection"></span><p>This module defines the following functions:</p>
+<div class="highlight-python"><pre>- Obtain_eigs:
+  
+  Determines required number of eigenvalues and associated eigenvectors of the simplified system with
+  symmetric coefficients according to the classical modal transformation approach.</pre>
+</div>
+<dl class="function">
+<dt id="brake.solve.traditionalProjection.Obtain_eigs">
+<tt class="descclassname">brake.solve.traditionalProjection.</tt><tt class="descname">Obtain_eigs</tt><big>(</big><em>obj</em>, <em>no_of_evs</em><big>)</big><a class="headerlink" href="#brake.solve.traditionalProjection.Obtain_eigs" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
+<li><strong>no_of_evs</strong> &#8211; the required number of eigenvalues to be covered close to the center of the target region</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">la</span></tt> - eigenvalues, <tt class="docutils literal"><span class="pre">evec</span></tt> - eigenvectors</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Procedure:</p>
+<div class="highlight-python"><pre>The la and evec are obtained as follows:
+  
+- load the various component matrices.
+- assemble the various component matrices together to form the mass(M) and stiffness matrix(K)
+  according to the classical modal transformation approach.
+- because we are interested in inner eigenvalues around a certain shift point, 
+  so we transform the qevp using shift and invert spectral transformations.</pre>
 </div>
 </dd></dl>
 
@@ -875,11 +917,11 @@ Largest Magnitude.    </pre>
 <div class="highlight-python"><pre>- next_shift
 
   Implementation of the MonteCarlo Algorithm for choosing the next shift point 
-  in the target region
+  in the target region.
 
 - calculate_area_fraction
 
-  Calculates the area fraction covered(of the target rectangle) by the chosen shift points
+  Calculates the area fraction covered(of the target rectangle) by the chosen shift points.
   
 - draw_circles
 
@@ -978,11 +1020,11 @@ Largest Magnitude.    </pre>
 <span class="target" id="module-brake.analyze.residual"></span><p>This module defines the following functions:</p>
 <div class="highlight-python"><pre>- residual_qevp:
 
-  Calculates the relative residual of the Quadratic Eigenvalue Problem
+  Calculates the relative residual of the Quadratic Eigenvalue Problem (lamda^2 M + lamda C + K) X = 0
 
 - residual_gevp
 
-  Calculates the relative residual of the Generalized Eigenvalue Problem</pre>
+  Calculates the relative residual of the Generalized Eigenvalue Problem (A - lamda B) X = 0</pre>
 </div>
 <dl class="function">
 <dt id="brake.analyze.residual.residual_gevp">
@@ -992,14 +1034,14 @@ Largest Magnitude.    </pre>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>A</strong> &#8211; </li>
-<li><strong>B</strong> &#8211; </li>
+<li><strong>A</strong> &#8211; left matrix</li>
+<li><strong>B</strong> &#8211; right matrix</li>
 <li><strong>la</strong> &#8211; eigenvalues</li>
 <li><strong>evec</strong> &#8211; eigenvectors</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">res</span></tt> - residual</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">res - residual</p>
 </td>
 </tr>
 </tbody>
@@ -1022,7 +1064,7 @@ Largest Magnitude.    </pre>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">res</span></tt> - residual</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">res - residual</p>
 </td>
 </tr>
 </tbody>
@@ -1065,7 +1107,7 @@ Largest Magnitude.    </pre>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">radius</span></tt> - radius of the disc covering all the eigenvalues</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">radius of the disc covering all the eigenvalues</p>
 </td>
 </tr>
 </tbody>
@@ -1085,7 +1127,7 @@ Largest Magnitude.    </pre>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">radius</span></tt> - radius of the disc covering all the eigenvalues</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">radius of the disc covering all the eigenvalues</p>
 </td>
 </tr>
 </tbody>
@@ -1137,6 +1179,7 @@ Largest Magnitude.    </pre>
 </li>
 <li><a class="reference internal" href="#solve">solve</a><ul>
 <li><a class="reference internal" href="#projection">projection</a></li>
+<li><a class="reference internal" href="#traditional-projection">traditional projection</a></li>
 <li><a class="reference internal" href="#qevp">qevp</a></li>
 <li><a class="reference internal" href="#solver">solver</a></li>
 <li><a class="reference internal" href="#cover">cover</a></li>
