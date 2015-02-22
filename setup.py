@@ -8,7 +8,7 @@ setup(
     description='Implementation of Parametric Model Reduction in Disc Brake Modelling',
     author='Ali H. Kadar',
     author_email='kadar@math.tu-berlin.de',
-    url='https://bitbucket.org/akadar/brakesqueal',
+    url='https://bitbucket.org/akadar/brakesqueal0.1',
     packages=['brake','brake.initialize','brake.solve','brake.analyze'],
     classifiers=[
         'Intended Audience :: Science/Research',

@@ -13,7 +13,7 @@
 
 
 \title{BrakeSqueal Documentation}
-\date{August 31, 2014}
+\date{February 22, 2015}
 \release{0.1}
 \author{Ali H. Kadar}
 \newcommand{\sphinxlogo}{}
@@ -122,29 +122,32 @@ Contents:
 
 \section{\_\_init\_\_}
 \label{index:init}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/\_\_init\_\_.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/\_\_init\_\_.py?at=master}{Source}
 \phantomsection\label{index:module-brake.__init__}\index{brake.\_\_init\_\_ (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
 - BrakeClass:
 
-  Python Parent Class for the BrakeSqueal Project
+  Python parent class for the BrakeSqueal Project.
   
-- print\_eigs:
+- printEigs:
   
-  Prints all the eigenvalues on the terminal (with two floating points).
+  Prints the required eigenvalues in a file/terminal (with two floating points).
   
-- print\_target\_eigs:
-
-  Prints the eigenvalues in the target region on the terminal (when flag is false)
-  , in the info file (when flag is true).
+- extractEigs:
+ 
+  Extracts the required eigenpairs.
+  
+- save
+  
+  Saves a figure from pyplot.
 \end{Verbatim}
 \index{BrakeClass (class in brake.\_\_init\_\_)}
 
 \begin{fulllineitems}
 \phantomsection\label{index:brake.__init__.BrakeClass}\pysiglinewithargsret{\strong{class }\code{brake.\_\_init\_\_.}\bfcode{BrakeClass}}{\emph{input\_path}, \emph{output\_path}, \emph{info\_log\_file}, \emph{time\_log\_file}, \emph{log\_level}}{}
-\code{Member Functions of the BrakeClass:}
+Member Functions of the BrakeClass:
 \begin{itemize}
 \item {} 
 \_\_init\_\_
@@ -168,38 +171,87 @@ displayParametersLog
 
 \end{fulllineitems}
 
-\index{print\_eigs() (in module brake.\_\_init\_\_)}
+\index{printEigs() (in module brake.\_\_init\_\_)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:brake.__init__.print_eigs}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{print\_eigs}}{\emph{arg}}{}~\begin{quote}\begin{description}
-\item[{Parameters}] \leavevmode
-\textbf{arg} -- eigenvalues
-
-\item[{Returns}] \leavevmode
-prints eigenvalues on the terminal
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
-\index{print\_target\_eigs() (in module brake.\_\_init\_\_)}
-
-\begin{fulllineitems}
-\phantomsection\label{index:brake.__init__.print_target_eigs}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{print\_target\_eigs}}{\emph{obj}, \emph{arg}, \emph{flag}}{}~\begin{quote}\begin{description}
+\phantomsection\label{index:brake.__init__.printEigs}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{printEigs}}{\emph{obj}, \emph{eigenValues}, \emph{which\_flag}, \emph{where\_flag}}{}~\begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
 \textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\textbf{arg} -- eigenvalues
+\textbf{eigenValues} -- eigenvalues
 
 \item {} 
-\textbf{flag} -- 0/1 for output on the terminal/in info file
+\textbf{which\_flag} -- which eigenvalues are needed(`all' or `target' or `critical' or `positive')
+
+\item {} 
+\textbf{where\_flag} -- where to print the eigenvalues(`terminal' or `file')
 
 \end{itemize}
 
 \item[{Returns}] \leavevmode
-prints eigenvalues on the terminal when flag = 0 else prints output in the info file.
+prints eigenvalues in the desired format(upto 2 decimal places)
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{extractEigs() (in module brake.\_\_init\_\_)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.__init__.extractEigs}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{extractEigs}}{\emph{obj}, \emph{eigenValues}, \emph{eigenVectors}, \emph{which\_flag}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{eigenValues} -- eigenvalues
+
+\item {} 
+\textbf{eigenVectors} -- eigenvectors
+
+\item {} 
+\textbf{which\_flag} -- which eigenvalues are needed(`all' or `target' or `critical' or `positive')
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{laExtracted} - required eigenvalues, \code{evecExtracted} -- corresponding eigenvectors
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{save() (in module brake.\_\_init\_\_)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.__init__.save}\pysiglinewithargsret{\code{brake.\_\_init\_\_.}\bfcode{save}}{\emph{path}, \emph{ext='png'}, \emph{close=False}, \emph{verbose=True}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{path} -- string
+The path (and filename, without the extension) to save the
+figure to.
+
+\item {} 
+\textbf{ext} -- string (default='png')
+The file extension. This must be supported by the active
+matplotlib backend (see matplotlib.backends module).  Most
+backends support `png', `pdf', `ps', `eps', and `svg'.
+
+\item {} 
+\textbf{close} -- boolean (default=True)
+Whether to close the figure after saving.  If you want to save
+the figure multiple times (e.g., to multiple formats), you
+should NOT close it in between saves or you will have to
+re-plot it.
+
+\item {} 
+\textbf{verbose} -- boolean (default=True)
+Whether to print information about when and where the image
+has been saved.
+
+\end{itemize}
 
 \end{description}\end{quote}
 
@@ -220,7 +272,7 @@ prints eigenvalues on the terminal when flag = 0 else prints output in the info 
 
 \section{logger}
 \label{index:logger}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/logger.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/logger.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.logger}\index{brake.initialize.logger (module)}
 This module defines the following functions:
 
@@ -253,7 +305,7 @@ LEVELS = \PYGZob{}'notset':logging.NOTSET, \#0 --\textgreater{} numerical value 
 \textbf{obj} -- object of the class \code{BrakeClass}
 
 \item[{Returns}] \leavevmode
-\code{logger\_i} python logger object for information logging
+logger\_i - python logger object for information logging
 
 \end{description}\end{quote}
 
@@ -267,7 +319,7 @@ LEVELS = \PYGZob{}'notset':logging.NOTSET, \#0 --\textgreater{} numerical value 
 \textbf{obj} -- object of the class \code{BrakeClass}
 
 \item[{Returns}] \leavevmode
-\code{logger\_t} python logger object for time logging
+logger\_t - python logger object for time logging
 
 \end{description}\end{quote}
 
@@ -285,7 +337,7 @@ LEVELS = \PYGZob{}'notset':logging.NOTSET, \#0 --\textgreater{} numerical value 
 
 \section{load}
 \label{index:load}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/load.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/load.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.load}\index{brake.initialize.load (module)}
 This module defines the following functions:
 
@@ -302,7 +354,7 @@ This module defines the following functions:
 \textbf{obj} -- object of the class \code{BrakeClass}
 
 \item[{Returns}] \leavevmode
-\code{sparse\_list} -- a python list of matrices in Compressed Sparse Column format 
+sparse\_list -- a python list of matrices in Compressed Sparse Column format 
 of type `\textless{}type `numpy.float64'\textgreater{}'
 
 \end{description}\end{quote}
@@ -329,7 +381,7 @@ a python list sparse\_list.
 
 \section{assemble}
 \label{index:assemble}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/assemble.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/assemble.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.assemble}\index{brake.initialize.assemble (module)}
 This module defines the following functions:
 
@@ -337,7 +389,7 @@ This module defines the following functions:
 - create\_MCK:
 
   Assembles the various component matrices together(for the given angular frequency
-  {}`{}`omega{}`{}`) to form the mass(M), damping(C) and stiffness matrix(K).
+  omega) to form the mass(M), damping(C) and stiffness matrix(K).
 \end{Verbatim}
 \index{create\_MCK() (in module brake.initialize.assemble)}
 
@@ -357,7 +409,7 @@ of type `\textless{}type `numpy.float64'\textgreater{}',
 \end{itemize}
 
 \item[{Returns}] \leavevmode
-\code{M} - Mass Matrix, \code{C} - Damping Matrix, \code{K} - Stiffness Matrix
+M - Mass Matrix, C - Damping Matrix, K - Stiffness Matrix
 
 \item[{Raises }] \leavevmode
 Assemble\_BadInputError, When a matrix in the list is not sparse
@@ -375,9 +427,9 @@ Procedure:
 \begin{Verbatim}[commandchars=\\\{\}]
 The M , C , K are assembled as follows:
 
-- M = m
-- C = c1+c2*(omega/omegaRef)+c3*(omegaRef/omega)
-- K = k1+k2+k3*math.pow((omega/omegaRef),2)
+- M = M1
+- C = D1+DR*(omegaRef/omega)+DG*(omega/omegaRef)
+- K = K1+KR+KGeo*math.pow((omega/omegaRef),2)
 \end{Verbatim}
 
 \end{fulllineitems}
@@ -394,7 +446,7 @@ The M , C , K are assembled as follows:
 
 \section{shift}
 \label{index:shift}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/shift.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/shift.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.shift}\index{brake.initialize.shift (module)}
 This module defines the following functions:
 
@@ -426,7 +478,7 @@ This module defines the following functions:
 \end{itemize}
 
 \item[{Returns}] \leavevmode
-\code{M}, \code{C}, \code{K} - Shifted Mass, Damping and Stiffness Matrix respectively
+M, C, K - Shifted Mass, Damping and Stiffness Matrix respectively
 
 \end{description}\end{quote}
 
@@ -454,7 +506,7 @@ The M , C , K are obtained as follows:
 
 \section{scale}
 \label{index:scale}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/scale.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/scale.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.scale}\index{brake.initialize.scale (module)}
 This module defines the following functions:
 
@@ -483,10 +535,10 @@ This module defines the following functions:
 \end{itemize}
 
 \item[{Returns}] \leavevmode
-\code{M}, \code{C}, \code{K} - Shifted Mass, Damping and Stiffness Matrix respectively
+M, C, K - Scaled Mass, Damping and Stiffness Matrix respectively
 
 \item[{Returns}] \leavevmode
-scaling parameters, - \code{gamma} and \code{delta}
+scaling parameters, - gamma and delta.
 
 \end{description}\end{quote}
 
@@ -525,7 +577,7 @@ approximation
 
 \section{diagscale}
 \label{index:diagscale}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/diagscale.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/diagscale.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.diagscale}\index{brake.initialize.diagscale (module)}
 This module defines the following functions:
 
@@ -564,10 +616,10 @@ This module defines the following functions:
 \end{itemize}
 
 \item[{Returns}] \leavevmode
-\code{M}, \code{C}, \code{K} - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively
+M, C, K - Diagonally Scaled  Mass, Damping and Stiffness Matrix respectively
 
 \item[{Returns}] \leavevmode
-\code{DR} - Matrix that normalize the columns
+DR - Matrix that normalize the columns
 
 \end{description}\end{quote}
 
@@ -591,10 +643,10 @@ K = DL * K * DR
 \textbf{Y} -- -- matrix that needs to be normalized across both columns and rows
 
 \item[{Returns}] \leavevmode
-\code{DL} -  \code{DL} = ..... \code{Drow3} * \code{Drow2} * \code{Drow1} * \code{I}
+\code{DL} = ..... \code{Drow3} * \code{Drow2} * \code{Drow1} * \code{I}
 
 \item[{Returns}] \leavevmode
-\code{DR} -  \code{DR} = \code{I} * \code{Dcol1} * \code{Dcol2} * \code{Dcol3}......
+\code{DR} = \code{I} * \code{Dcol1} * \code{Dcol2} * \code{Dcol3}......
 
 \end{description}\end{quote}
 
@@ -652,7 +704,7 @@ Documentation of the Python eigs command
 
 \section{unlinearize}
 \label{index:unlinearize}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/initialize/unlinearize.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/unlinearize.py?at=master}{Source}
 \phantomsection\label{index:module-brake.initialize.unlinearize}\index{brake.initialize.unlinearize (module)}
 This module defines the following functions:
 
@@ -671,7 +723,7 @@ This module defines the following functions:
 \textbf{evec} -- eigenvectors of the generalized eigenvalue propblem
 
 \item[{Returns}] \leavevmode
-\code{evec\_prior} - eigenvectors prior linearization of the QEVP
+evec\_prior - eigenvectors prior linearization of the QEVP
 
 \end{description}\end{quote}
 
@@ -702,22 +754,56 @@ else set evec\_prior[:,i] = evec[n+1:2*n,i]
 
 \section{projection}
 \label{index:projection}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/projection.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/projection.py?at=master}{Source}
 \phantomsection\label{index:module-brake.solve.projection}\index{brake.solve.projection (module)}
 This module defines the following functions:
 
 \begin{Verbatim}[commandchars=\\\{\}]
 - obtain\_projection\_matrix:
 
- This function forms the Projection Matrix by solving the quadratic eigenvalue problem 
+ This function obtains the Projection Matrix from a given measurment matrix.
+ 
+ - obtain\_measurment\_matrix
+ 
+ This function forms the Measurment Matrix by solving the quadratic eigenvalue problem 
  for each base angular frequency.
 \end{Verbatim}
+\index{obtain\_measurment\_matrix() (in module brake.solve.projection)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.projection.obtain_measurment_matrix}\pysiglinewithargsret{\code{brake.solve.projection.}\bfcode{obtain\_measurment\_matrix}}{\emph{obj}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item[{Returns}] \leavevmode
+\code{X} - measurment matrix
+
+\end{description}\end{quote}
+
+Procedure:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+The measurment matrix is obtained as follows:
+
+- Obtain the measurment matrix X = [X\_real X\_imag], with X\_real as a list of 
+  real parts of eigenvectors and X\_imag as a list of imaginary parts of 
+  eigenvectors, corresponding to each base angular frequency in omega\_basis.
+\end{Verbatim}
+
+\end{fulllineitems}
+
 \index{obtain\_projection\_matrix() (in module brake.solve.projection)}
 
 \begin{fulllineitems}
-\phantomsection\label{index:brake.solve.projection.obtain_projection_matrix}\pysiglinewithargsret{\code{brake.solve.projection.}\bfcode{obtain\_projection\_matrix}}{\emph{obj}}{}~\begin{quote}\begin{description}
-\item[{Parameters}] \leavevmode
+\phantomsection\label{index:brake.solve.projection.obtain_projection_matrix}\pysiglinewithargsret{\code{brake.solve.projection.}\bfcode{obtain\_projection\_matrix}}{\emph{obj}, \emph{X}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
 \textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{X} -- measurment matrix
+
+\end{itemize}
 
 \item[{Returns}] \leavevmode
 \code{Q} - projection matrix
@@ -729,12 +815,63 @@ Procedure:
 \begin{Verbatim}[commandchars=\\\{\}]
 The projection matrix is obtained as follows:
 
-- Obtain the measurment matrix X = [X\_real X\_imag], with X\_real as a list of 
-  real parts of eigenvectors and X\_imag as a list of imaginary parts of 
-  eigenvectors, corresponding to each base angular frequency in omega\_basis.
 - Compute the thin svd of the measurment matrix. X = U * s * V
 - Set Q = truncated(U), where the truncation is done to take only the significant 
-  singular values(based on a certain tolerance) into account
+  singular values(provided by user in obj.projectionDimension) into account
+\end{Verbatim}
+
+\end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html}{scipy.linalg.svd}
+
+
+
+
+\section{traditional projection}
+\label{index:traditional-projection}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/traditionalProjection.py?at=master}{Source}
+\phantomsection\label{index:module-brake.solve.traditionalProjection}\index{brake.solve.traditionalProjection (module)}
+This module defines the following functions:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+- Obtain\_eigs:
+  
+  Determines required number of eigenvalues and associated eigenvectors of the simplified system with
+  symmetric coefficients according to the classical modal transformation approach.
+\end{Verbatim}
+\index{Obtain\_eigs() (in module brake.solve.traditionalProjection)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.solve.traditionalProjection.Obtain_eigs}\pysiglinewithargsret{\code{brake.solve.traditionalProjection.}\bfcode{Obtain\_eigs}}{\emph{obj}, \emph{no\_of\_evs}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{no\_of\_evs} -- the required number of eigenvalues to be covered close to the center of the target region
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+\code{la} - eigenvalues, \code{evec} - eigenvectors
+
+\end{description}\end{quote}
+
+Procedure:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+The la and evec are obtained as follows:
+  
+- load the various component matrices.
+- assemble the various component matrices together to form the mass(M) and stiffness matrix(K)
+  according to the classical modal transformation approach.
+- because we are interested in inner eigenvalues around a certain shift point, 
+  so we transform the qevp using shift and invert spectral transformations.
 \end{Verbatim}
 
 \end{fulllineitems}
@@ -751,7 +888,7 @@ The projection matrix is obtained as follows:
 
 \section{qevp}
 \label{index:qevp}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/qevp.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/qevp.py?at=master}{Source}
 \phantomsection\label{index:module-brake.solve.qevp}\index{brake.solve.qevp (module)}
 This module defines the following functions:
 
@@ -764,7 +901,7 @@ This module defines the following functions:
 - Obtain\_eigs:
   
   For a particuar base angular frequency and for a particular shift point this 
-  function evaluates the eigenvalues and eigenvectors
+  function obtains obj.evs\_per\_shift eigenvalues and the corresponding eigenvectors
 \end{Verbatim}
 \index{Obtain\_eigs() (in module brake.solve.qevp)}
 
@@ -775,7 +912,7 @@ This module defines the following functions:
 \textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\textbf{freq\_i} -- the index of the base angular freq in
+\textbf{freq\_i} -- the index of the base angular freq
 
 \item {} 
 \textbf{qevp\_j} -- the index of the shift point
@@ -817,7 +954,7 @@ The la and evec are obtained as follows:
 \textbf{obj} -- object of the class \code{BrakeClass}
 
 \item {} 
-\textbf{freq\_i} -- the index of the base angular freq in
+\textbf{freq\_i} -- the index of the base angular freq
 
 \item {} 
 \textbf{omega} -- ith base angular freq
@@ -848,7 +985,7 @@ The assembled\_la and assembled\_evec are obtained as follows:
 
 \section{solver}
 \label{index:solver}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/solver.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/solver.py?at=master}{Source}
 \phantomsection\label{index:module-brake.solve.solver}\index{brake.solve.solver (module)}
 This module defines the following functions:
 
@@ -908,7 +1045,7 @@ Largest Magnitude.
 \code{la} - eigenvalues, \code{v} - eigenvectors
 
 \item[{Raises }] \leavevmode
-SOLVER\_BadInputError, When the matrix A, B are not all dense
+\code{SOLVER\_BadInputError}, When the matrix A, B are not all dense
 
 \end{description}\end{quote}
 
@@ -940,7 +1077,7 @@ Example:
 \code{la} - eigenvalues, \code{v} - eigenvectors
 
 \item[{Raises }] \leavevmode
-SOLVER\_BadInputError, When the matrix A, B are not all in sparse format
+\code{SOLVER\_BadInputError}, When the matrix A, B are not all in sparse format
 
 \end{description}\end{quote}
 
@@ -978,7 +1115,7 @@ Example:
 \code{la} - eigenvalues, \code{v} - eigenvectors
 
 \item[{Raises }] \leavevmode
-SOLVER\_BadInputError, When the matrix M,C,K are not all dense
+\code{SOLVER\_BadInputError}, When the matrix M,C,K are not all dense
 
 \end{description}\end{quote}
 
@@ -1013,7 +1150,7 @@ Example:
 \code{la} - eigenvalues, \code{v} - eigenvectors
 
 \item[{Raises }] \leavevmode
-SOLVER\_BadInputError, When the matrix M,C,K are not all in sparse format
+\code{SOLVER\_BadInputError}, When the matrix M,C,K are not all in sparse format
 
 \end{description}\end{quote}
 
@@ -1052,7 +1189,7 @@ Documentation of the Python lu\_solve command
 
 \section{cover}
 \label{index:cover}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/solve/cover.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/cover.py?at=master}{Source}
 \phantomsection\label{index:module-brake.solve.cover}\index{brake.solve.cover (module)}
 This module defines the following functions:
 
@@ -1060,11 +1197,11 @@ This module defines the following functions:
 - next\_shift
 
   Implementation of the MonteCarlo Algorithm for choosing the next shift point 
-  in the target region
+  in the target region.
 
 - calculate\_area\_fraction
 
-  Calculates the area fraction covered(of the target rectangle) by the chosen shift points
+  Calculates the area fraction covered(of the target rectangle) by the chosen shift points.
   
 - draw\_circles
 
@@ -1171,22 +1308,153 @@ Documentation of the Python random number generator module
 
 \section{residual}
 \label{index:residual}
-\href{https://bitbucket.org/akadar/brakesqueal0.1/src/10fdbd0824e88ebbee4f44cefa781c01e586db41/brake/analyze/residual.py?at=master}{Source}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/analyze/residual.py?at=master}{Source}
 \phantomsection\label{index:module-brake.analyze.residual}\index{brake.analyze.residual (module)}
-Function definitions for obtaining the residual
+This module defines the following functions:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+- residual\_qevp:
+
+  Calculates the relative residual of the Quadratic Eigenvalue Problem (lamda\textasciicircum{}2 M + lamda C + K) X = 0
+
+- residual\_gevp
+
+  Calculates the relative residual of the Generalized Eigenvalue Problem (A - lamda B) X = 0
+\end{Verbatim}
+\index{residual\_gevp() (in module brake.analyze.residual)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.analyze.residual.residual_gevp}\pysiglinewithargsret{\code{brake.analyze.residual.}\bfcode{residual\_gevp}}{\emph{A}, \emph{B}, \emph{la}, \emph{evec}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{A} -- left matrix
+
+\item {} 
+\textbf{B} -- right matrix
+
+\item {} 
+\textbf{la} -- eigenvalues
+
+\item {} 
+\textbf{evec} -- eigenvectors
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+res - residual
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{residual\_qevp() (in module brake.analyze.residual)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.analyze.residual.residual_qevp}\pysiglinewithargsret{\code{brake.analyze.residual.}\bfcode{residual\_qevp}}{\emph{M}, \emph{C}, \emph{K}, \emph{la}, \emph{evec}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{M} -- Mass Matrix
+
+\item {} 
+\textbf{C} -- Damping Matrix
+
+\item {} 
+\textbf{K} -- Stiffness Matrix
+
+\item {} 
+\textbf{la} -- eigenvalues
+
+\item {} 
+\textbf{evec} -- eigenvectors
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+res - residual
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\strong{See Also:}
+
+
+\href{http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html}{scipy.sparse.linalg.onenormest}
+
+\href{http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html}{numpy.linalg.norm}
+
+
+
+
+\section{visual}
+\label{index:visual}
+\href{https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/analyze/visual.py?at=master}{Source}
+\phantomsection\label{index:module-brake.analyze.visual}\index{brake.analyze.visual (module)}
+This module defines the following functions:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+- plot\_eigs\_cover:
+
+  plots all the eigenvalues (critical in red and normal in green) and the disc covering all the 
+  eigenvalues. The output is generated as 'plotcover.png' in the output directory(with path 
+  provided as input in the variable output\_path).
+
+- plot\_eigs\_transition
+
+  plots the eigenvalues very close to the imaginary axis, thus showing the transition of the 
+  eigenvalues from the stable to the critical region of the target rectangle. The output is 
+  generated as 'plottransition.png' in the output directory(with path provided as input in the 
+  variable output\_path).
+\end{Verbatim}
+\index{plot\_eigs\_cover() (in module brake.analyze.visual)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.analyze.visual.plot_eigs_cover}\pysiglinewithargsret{\code{brake.analyze.visual.}\bfcode{plot\_eigs\_cover}}{\emph{obj}, \emph{la}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{la} -- eigenavlues
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+radius of the disc covering all the eigenvalues
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{plot\_eigs\_transition() (in module brake.analyze.visual)}
+
+\begin{fulllineitems}
+\phantomsection\label{index:brake.analyze.visual.plot_eigs_transition}\pysiglinewithargsret{\code{brake.analyze.visual.}\bfcode{plot\_eigs\_transition}}{\emph{obj}, \emph{la}}{}~\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\textbf{obj} -- object of the class \code{BrakeClass}
+
+\item {} 
+\textbf{la} -- eigenavlues
+
+\end{itemize}
+
+\item[{Returns}] \leavevmode
+radius of the disc covering all the eigenvalues
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
 
 
 \strong{See Also:}
 
 \begin{description}
-\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.eigs.html}{scipy.sparse.linalg.eigs}}] \leavevmode
-Documentation of the Python eigs command
-
-\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.spilu.html}{scipy.sparse.linalg.spilu}}] \leavevmode
-Documentation of the Python spilu command
-
-\item[{\href{http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.splu.html}{scipy.sparse.linalg.splu}}] \leavevmode
-Documentation of the Python splu command
+\item[{\href{http://matplotlib.org/api/pyplot\_api.html}{matplotlib.pyplot}}] \leavevmode
+Documentation of the Python Matplotlib library
 
 \end{description}
 
@@ -1213,6 +1481,7 @@ Documentation of the Python splu command
 \bigletter{b}
 \item {\texttt{brake.\_\_init\_\_}}, \pageref{index:module-brake.__init__}
 \item {\texttt{brake.analyze.residual}}, \pageref{index:module-brake.analyze.residual}
+\item {\texttt{brake.analyze.visual}}, \pageref{index:module-brake.analyze.visual}
 \item {\texttt{brake.initialize.assemble}}, \pageref{index:module-brake.initialize.assemble}
 \item {\texttt{brake.initialize.diagscale}}, \pageref{index:module-brake.initialize.diagscale}
 \item {\texttt{brake.initialize.load}}, \pageref{index:module-brake.initialize.load}
@@ -1224,6 +1493,7 @@ Documentation of the Python splu command
 \item {\texttt{brake.solve.projection}}, \pageref{index:module-brake.solve.projection}
 \item {\texttt{brake.solve.qevp}}, \pageref{index:module-brake.solve.qevp}
 \item {\texttt{brake.solve.solver}}, \pageref{index:module-brake.solve.solver}
+\item {\texttt{brake.solve.traditionalProjection}}, \pageref{index:module-brake.solve.traditionalProjection}
 \end{theindex}
 
 \renewcommand{\indexname}{Index}

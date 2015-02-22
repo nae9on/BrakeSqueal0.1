@@ -10,11 +10,13 @@
 \BOOKMARK [1][-]{section.2.7}{unlinearize}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{solve}{}
 \BOOKMARK [1][-]{section.3.1}{projection}{chapter.3}
-\BOOKMARK [1][-]{section.3.2}{qevp}{chapter.3}
-\BOOKMARK [1][-]{section.3.3}{solver}{chapter.3}
-\BOOKMARK [1][-]{section.3.4}{cover}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{traditional projection}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{qevp}{chapter.3}
+\BOOKMARK [1][-]{section.3.4}{solver}{chapter.3}
+\BOOKMARK [1][-]{section.3.5}{cover}{chapter.3}
 \BOOKMARK [0][-]{chapter.4}{analyze}{}
 \BOOKMARK [1][-]{section.4.1}{residual}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{visual}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{Indices and tables}{}
-\BOOKMARK [0][-]{section*.39}{Python Module Index}{}
-\BOOKMARK [0][-]{section*.40}{Index}{}
+\BOOKMARK [0][-]{section*.48}{Python Module Index}{}
+\BOOKMARK [0][-]{section*.49}{Index}{}

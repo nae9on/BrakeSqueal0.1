@@ -1,5 +1,54 @@
-The current level of logging is 0
-To enable detailed logging set log level to non zero during object creation:
-Set log level = 10(debug mode), log level = 20(info mode)
-The Info Data is logged in the file : ./output/Feb22/info_Feb22.log
-The Time Data is logged in the file : ./output/Feb22/time_Feb22.log
+Brake Squeal Project: Auto logged Info
+
+In Driver file
+
+BrakeClass Attributes and there values
+logger_i                      <logging.Logger object at 0x2f90d10>
+omega_basis                   [   6.28318531  125.66370614]
+desired_area_fraction         0.99
+log_level                     20
+target                        [  -10  1000   -50 12000]
+projectionDimension           100
+omegaTest                     100.530964915
+data_file_list                ['BMLL', 'BDLL', 'BYLL', 'BDIWLL', 'BHLL', 'BKLL', 'BKQLL', 'BWLL']
+data_file_name                ['M1', 'D1', 'DG', 'DR', 'D4', 'K1', 'KR', 'KGeo']
+time_log_file                 ./output/Feb22/time_Feb22.log
+fRef                          1600
+desiredCount                  0
+omega_range                   [   6.28318531   12.56637061   18.84955592   25.13274123   31.41592654
+   37.69911184   43.98229715   50.26548246   56.54866776   62.83185307
+   69.11503838   75.39822369   81.68140899   87.9645943    94.24777961
+  100.53096491  106.81415022  113.09733553  119.38052084  125.66370614]
+evs_per_shift                 30
+output_path                   ./output/Feb22/
+info_log_file                 ./output/Feb22/info_Feb22.log
+input_path                    ./data/5koref1/
+logger_t                      <logging.Logger object at 0x2f90e10>
+omegaRef                      1
+
+
+Beginning Data Analysis
+------------------------------------------------------------------------
+
+Matrices in CSC format converted to CSR
+
+
+Properties of various component matrices
+
+BMLL M1(4669, 4669) NonZeros = 93207 1-Norm = 8.96133313175e-05 rank 4669
+BDLL D1(4669, 4669) NonZeros = 5683 1-Norm = 10.3582462023 rank 51
+BYLL DG(4669, 4669) NonZeros = 66643 1-Norm = 0.000219139615422 rank 3367
+BDIWLL DR(4669, 4669) NonZeros = 5683 1-Norm = 10.3582462023 rank 51
+BHLL D4(4669, 4669) NonZeros = 23885 1-Norm = 63318.9475846 rank 376
+BKLL K1(4669, 4669) NonZeros = 280845 1-Norm = 107410423.147 rank 4669
+BKQLL KR(4669, 4669) NonZeros = 21646 1-Norm = 357014.129817 rank 103
+BWLL KGeo(4669, 4669) NonZeros = 280871 1-Norm = 0.00383683636659 rank 4667
+
+Note: The rank obtained using python estimate_rank utility
+is observed to be lower than the rank obtained using MATLAB
+
+Note: The norm computed is a lower bound of the 1-norm of the sparse matrix.
+
+
+Finished Data Analysis
+Time Taken for data analysis: 604.34 sec

@@ -1,69 +1,87 @@
 \begin{theindex}
 \def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
 
-  \bigletter {Symbols}
-  \item \_\_init\_\_ (module), \hyperpage{3}
-
-  \indexspace
-  \bigletter A
-  \item assemble (module), \hyperpage{6}
-
-  \indexspace
   \bigletter B
-  \item brake\_squeal\_qevp() (in module qevp), \hyperpage{12}
+  \item brake.\_\_init\_\_ (module), \hyperpage{3}
+  \item brake.analyze.residual (module), \hyperpage{17}
+  \item brake.analyze.visual (module), \hyperpage{18}
+  \item brake.initialize.assemble (module), \hyperpage{6}
+  \item brake.initialize.diagscale (module), \hyperpage{8}
+  \item brake.initialize.load (module), \hyperpage{5}
+  \item brake.initialize.logger (module), \hyperpage{5}
+  \item brake.initialize.scale (module), \hyperpage{7}
+  \item brake.initialize.shift (module), \hyperpage{7}
+  \item brake.initialize.unlinearize (module), \hyperpage{9}
+  \item brake.solve.cover (module), \hyperpage{15}
+  \item brake.solve.projection (module), \hyperpage{11}
+  \item brake.solve.qevp (module), \hyperpage{12}
+  \item brake.solve.solver (module), \hyperpage{13}
+  \item brake.solve.traditionalProjection (module), \hyperpage{12}
+  \item brake\_squeal\_qevp() (in module brake.solve.qevp), \hyperpage{13}
+  \item BrakeClass (class in brake.\_\_init\_\_), \hyperpage{3}
 
   \indexspace
   \bigletter C
-  \item cover (module), \hyperpage{13}
-  \item create\_MCK() (in module assemble), \hyperpage{6}
+  \item calculate\_area\_fraction() (in module brake.solve.cover), \hyperpage{15}
+  \item create\_MCK() (in module brake.initialize.assemble), \hyperpage{6}
 
   \indexspace
   \bigletter D
-  \item diag\_scale\_matrices() (in module diagscale), \hyperpage{8}
-  \item diagscale (module), \hyperpage{7}
+  \item diag\_scale\_matrices() (in module brake.initialize.diagscale), \hyperpage{8}
+  \item draw\_circles() (in module brake.solve.cover), \hyperpage{16}
+
+  \indexspace
+  \bigletter E
+  \item extractEigs() (in module brake.\_\_init\_\_), \hyperpage{4}
+
+  \indexspace
+  \bigletter G
+  \item gev\_dense() (in module brake.solve.solver), \hyperpage{14}
+  \item gev\_sparse() (in module brake.solve.solver), \hyperpage{14}
 
   \indexspace
   \bigletter L
-  \item load (module), \hyperpage{5}
-  \item load\_matrices() (in module load), \hyperpage{5}
-  \item logger (module), \hyperpage{5}
+  \item load\_matrices() (in module brake.initialize.load), \hyperpage{6}
 
   \indexspace
   \bigletter N
-  \item next\_shift() (in module cover), \hyperpage{13}
-  \item norm\_rc() (in module diagscale), \hyperpage{8}
-  \item normalize\_cols() (in module diagscale), \hyperpage{9}
+  \item next\_shift() (in module brake.solve.cover), \hyperpage{16}
+  \item norm\_rc() (in module brake.initialize.diagscale), \hyperpage{8}
+  \item normalize\_cols() (in module brake.initialize.diagscale), \hyperpage{9}
 
   \indexspace
   \bigletter O
-  \item Obtain\_eigs() (in module qevp), \hyperpage{11}
-  \item obtain\_projection\_matrix() (in module projection), \hyperpage{11}
+  \item Obtain\_eigs() (in module brake.solve.qevp), \hyperpage{12}
+  \item Obtain\_eigs() (in module brake.solve.traditionalProjection), \hyperpage{12}
+  \item obtain\_measurment\_matrix() (in module brake.solve.projection), \hyperpage{11}
+  \item obtain\_projection\_matrix() (in module brake.solve.projection), \hyperpage{11}
 
   \indexspace
   \bigletter P
-  \item projection (module), \hyperpage{11}
+  \item plot\_eigs\_cover() (in module brake.analyze.visual), \hyperpage{18}
+  \item plot\_eigs\_transition() (in module brake.analyze.visual), \hyperpage{18}
+  \item printEigs() (in module brake.\_\_init\_\_), \hyperpage{3}
 
   \indexspace
   \bigletter Q
-  \item qevp (module), \hyperpage{11}
+  \item qev\_dense() (in module brake.solve.solver), \hyperpage{14}
+  \item qev\_sparse() (in module brake.solve.solver), \hyperpage{15}
 
   \indexspace
   \bigletter R
-  \item residual (module), \hyperpage{15}
-  \item return\_info\_logger() (in module logger), \hyperpage{5}
-  \item return\_time\_logger() (in module logger), \hyperpage{5}
+  \item residual\_gevp() (in module brake.analyze.residual), \hyperpage{17}
+  \item residual\_qevp() (in module brake.analyze.residual), \hyperpage{17}
+  \item return\_info\_logger() (in module brake.initialize.logger), \hyperpage{5}
+  \item return\_time\_logger() (in module brake.initialize.logger), \hyperpage{5}
 
   \indexspace
   \bigletter S
-  \item scale (module), \hyperpage{7}
-  \item scale\_matrices() (in module scale), \hyperpage{7}
-  \item shift (module), \hyperpage{6}
-  \item shift\_matrices() (in module shift), \hyperpage{6}
-  \item solver (module), \hyperpage{12}
+  \item save() (in module brake.\_\_init\_\_), \hyperpage{4}
+  \item scale\_matrices() (in module brake.initialize.scale), \hyperpage{7}
+  \item shift\_matrices() (in module brake.initialize.shift), \hyperpage{7}
 
   \indexspace
   \bigletter U
-  \item unlinearize (module), \hyperpage{9}
-  \item unlinearize\_matrices() (in module unlinearize), \hyperpage{9}
+  \item unlinearize\_matrices() (in module brake.initialize.unlinearize), \hyperpage{9}
 
 \end{theindex}

@@ -1,7 +1,8 @@
 \indexentry{brake.\_\_init\_\_ (module)|hyperpage}{3}
 \indexentry{BrakeClass (class in brake.\_\_init\_\_)|hyperpage}{3}
-\indexentry{print\_eigs() (in module brake.\_\_init\_\_)|hyperpage}{3}
-\indexentry{print\_target\_eigs() (in module brake.\_\_init\_\_)|hyperpage}{3}
+\indexentry{printEigs() (in module brake.\_\_init\_\_)|hyperpage}{3}
+\indexentry{extractEigs() (in module brake.\_\_init\_\_)|hyperpage}{4}
+\indexentry{save() (in module brake.\_\_init\_\_)|hyperpage}{4}
 \indexentry{brake.initialize.logger (module)|hyperpage}{5}
 \indexentry{return\_info\_logger() (in module brake.initialize.logger)|hyperpage}{5}
 \indexentry{return\_time\_logger() (in module brake.initialize.logger)|hyperpage}{5}
@@ -20,17 +21,25 @@
 \indexentry{brake.initialize.unlinearize (module)|hyperpage}{9}
 \indexentry{unlinearize\_matrices() (in module brake.initialize.unlinearize)|hyperpage}{9}
 \indexentry{brake.solve.projection (module)|hyperpage}{11}
+\indexentry{obtain\_measurment\_matrix() (in module brake.solve.projection)|hyperpage}{11}
 \indexentry{obtain\_projection\_matrix() (in module brake.solve.projection)|hyperpage}{11}
-\indexentry{brake.solve.qevp (module)|hyperpage}{11}
+\indexentry{brake.solve.traditionalProjection (module)|hyperpage}{12}
+\indexentry{Obtain\_eigs() (in module brake.solve.traditionalProjection)|hyperpage}{12}
+\indexentry{brake.solve.qevp (module)|hyperpage}{12}
 \indexentry{Obtain\_eigs() (in module brake.solve.qevp)|hyperpage}{12}
-\indexentry{brake\_squeal\_qevp() (in module brake.solve.qevp)|hyperpage}{12}
-\indexentry{brake.solve.solver (module)|hyperpage}{12}
-\indexentry{gev\_dense() (in module brake.solve.solver)|hyperpage}{13}
-\indexentry{gev\_sparse() (in module brake.solve.solver)|hyperpage}{13}
-\indexentry{qev\_dense() (in module brake.solve.solver)|hyperpage}{13}
-\indexentry{qev\_sparse() (in module brake.solve.solver)|hyperpage}{14}
-\indexentry{brake.solve.cover (module)|hyperpage}{14}
+\indexentry{brake\_squeal\_qevp() (in module brake.solve.qevp)|hyperpage}{13}
+\indexentry{brake.solve.solver (module)|hyperpage}{13}
+\indexentry{gev\_dense() (in module brake.solve.solver)|hyperpage}{14}
+\indexentry{gev\_sparse() (in module brake.solve.solver)|hyperpage}{14}
+\indexentry{qev\_dense() (in module brake.solve.solver)|hyperpage}{14}
+\indexentry{qev\_sparse() (in module brake.solve.solver)|hyperpage}{15}
+\indexentry{brake.solve.cover (module)|hyperpage}{15}
 \indexentry{calculate\_area\_fraction() (in module brake.solve.cover)|hyperpage}{15}
-\indexentry{draw\_circles() (in module brake.solve.cover)|hyperpage}{15}
-\indexentry{next\_shift() (in module brake.solve.cover)|hyperpage}{15}
+\indexentry{draw\_circles() (in module brake.solve.cover)|hyperpage}{16}
+\indexentry{next\_shift() (in module brake.solve.cover)|hyperpage}{16}
 \indexentry{brake.analyze.residual (module)|hyperpage}{17}
+\indexentry{residual\_gevp() (in module brake.analyze.residual)|hyperpage}{17}
+\indexentry{residual\_qevp() (in module brake.analyze.residual)|hyperpage}{17}
+\indexentry{brake.analyze.visual (module)|hyperpage}{18}
+\indexentry{plot\_eigs\_cover() (in module brake.analyze.visual)|hyperpage}{18}
+\indexentry{plot\_eigs\_transition() (in module brake.analyze.visual)|hyperpage}{18}
