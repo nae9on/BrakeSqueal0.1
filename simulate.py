@@ -1,4 +1,8 @@
-# Driver file for the brakesqueal project
+'''
+Simulates the transition of eigenvalues from the left half plane into the
+target rectangular region. The plots are obtained in plotEigsCover.png 
+and plotEigsTransition.png which gets updated on fly thus showing the transition.
+'''
 
 #----------------------------------Standard Library Imports---------------------------------------
 import math

@@ -1,5 +1,5 @@
 # This file reads the component matrices and displays there sparsity pattern
-# and other properties
+# no of non-zeros, 1-norm and matrix rank.
 
 #----------------------------------Standard Library Imports---------------------------------------
 import timeit
