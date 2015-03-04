@@ -11,12 +11,14 @@ import datetime
 #----------------------------Application Specific Imports-----------------------------------------
 import brake
 
-def returnObject(logLevel):
+def returnObject(logLevel,omegaRef):
 
   begin_program = timeit.default_timer()
 
   #Initializing Parameters
-  #################################################        
+  #################################################   
+  
+  
 
   #Set Input/Output Path
   #Get the host system name to define the path
@@ -25,6 +27,7 @@ def returnObject(logLevel):
 
   if host == 'laplace':
       input_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
+      output_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
   elif host == 'aif-server':
       input_path = 'd:/eigenwerte/ProblemData/Matrix/800kOmegaRef%(row)d/' % {'row': omegaRef}
   elif host == 'frenet':
@@ -94,20 +97,20 @@ def returnObject(logLevel):
 
   setattr(obj, 'data_file_list', ['BMLL','BDLL','BYLL','BDIWLL','BHLL','BKLL','BKQLL','BWLL'])
   setattr(obj, 'data_file_name', ['M1','D1','DG','DR','D4','K1','KR','KGeo'])
-  setattr(obj, 'omegaRef', 1)
+  setattr(obj, 'omegaRef', omegaRef)
   setattr(obj, 'fRef', 1600)
   
-  setattr(obj, 'omega_basis', numpy.array([1,20])*2*math.pi)
+  setattr(obj, 'omega_basis', numpy.array([1,4])*2*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,5,10,15,20])*2*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi)
 
-  setattr(obj, 'omega_range', numpy.linspace(1, 20, num=20)*2*math.pi)
+  setattr(obj, 'omega_range', numpy.linspace(1, 4, num=3)*2*math.pi)
   setattr(obj, 'target', numpy.array([-10,1000,-50,12000]))
   setattr(obj, 'projectionDimension', 100)
-  setattr(obj, 'evs_per_shift', 30)
+  setattr(obj, 'evs_per_shift', 50)
   setattr(obj, 'desired_area_fraction', 0.99)
   setattr(obj, 'desiredCount', 0)
-  setattr(obj, 'omegaTest', 16*2*math.pi)
+  setattr(obj, 'omegaTest', 2*2*math.pi)
 
   #Log all the BrakeClass attribute values in the info log file
   if(obj.log_level):
