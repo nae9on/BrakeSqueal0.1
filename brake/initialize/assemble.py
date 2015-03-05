@@ -2,14 +2,14 @@ r"""
 This module defines the following functions::
 
   - create_MCK:
-  
+
     Assembles the various component matrices together(for the given angular frequency
     omega) to form the mass(M), damping(C) and stiffness matrix(K).
-   
+
 """
 
 #----------------------------------Standard Library Imports---------------------------------------
-# Please ensure that the following libraries are installed on the system prior 
+# Please ensure that the following libraries are installed on the system prior
 # running the program.
 import math
 import scipy.sparse
@@ -21,33 +21,33 @@ class Assemble_BadInputError(AssembleError): pass
 
 def create_MCK(obj, sparse_list, omega):
         r"""
-         
+
         :param obj: object of the class ``BrakeClass``
-        :param sparse_list: a python list of matrices in Compressed Sparse Column format 
+        :param sparse_list: a python list of matrices in Compressed Sparse Column format
           of type '<type 'numpy.float64'>',
         :param omega: angular frequency
         :return: M - Mass Matrix, C - Damping Matrix, K - Stiffness Matrix
         :raises: Assemble_BadInputError, When a matrix in the list is not sparse
         :raises: Assemble_BadInputError, When a matrix in the list is not square
         :raises: Assemble_BadInputError, When the matrix  are not of the same size
-        
+
         Procedure::
-         
+
          The M , C , K are assembled as follows:
-        
+
          - M = M1
          - C = D1+DR*(omegaRef/omega)+DG*(omega/omegaRef)
          - K = K1+KR+KGeo*math.pow((omega/omegaRef),2)
 
         """
-        
+
         #object attributes used in the function
         LOG_LEVEL = obj.log_level
         logger_t = obj.logger_t
         logger_i = obj.logger_i
         omegaRef = obj.omegaRef
         fRef = obj.fRef
-        
+
         #unittesting
         if len(sparse_list) != 8:
          raise Assemble_BadInputError('The sparse list is not of length 8')
@@ -62,7 +62,7 @@ def create_MCK(obj, sparse_list, omega):
 
         if(LOG_LEVEL==10): #Debug Mode
                 logger_i.debug("\n"+"\n"+"\n"+'In assemble matrices (assemble.py)')
-                logger_i.debug('----------------------------------------------------------------') 
+                logger_i.debug('----------------------------------------------------------------')
 
         #converting csc to csr format
         M1 = sparse_list[0].tocsr()
@@ -75,9 +75,9 @@ def create_MCK(obj, sparse_list, omega):
         KGeo = sparse_list[7].tocsr()
 
         if(LOG_LEVEL==10): #Debug Mode
-	  
+
           logger_i.debug('Matrices in CSC format converted to CSR')
-	  
+
 	  for i in range(0,len(sparse_list)):
 		componentMatrix = sparse_list[i]
 		normMatrix = norm.onenormest(componentMatrix.tocsr(), t=3, itmax=5, compute_v=False, compute_w=False)
@@ -92,8 +92,8 @@ def create_MCK(obj, sparse_list, omega):
         '''
 
         M = M1
-        C = D1+DR*(omegaRef/omega)+DG*(omega/omegaRef)
-        K = K1+KR+KGeo*math.pow((omega/omegaRef),2)
+        C = D1+DG*((omega/omegaRef))+DR*((omegaRef/omega)-1)+D4/(2.0*math.pi*fRef)
+        K = K1+KR+KGeo*(math.pow((omega/omegaRef),2)-1)
 
         if(LOG_LEVEL==10): #Debug Mode
           m_norm = norm.onenormest(M, t=3, itmax=5, compute_v=False, compute_w=False)

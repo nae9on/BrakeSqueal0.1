@@ -16,9 +16,9 @@ def returnObject(logLevel,omegaRef):
   begin_program = timeit.default_timer()
 
   #Initializing Parameters
-  #################################################   
-  
-  
+  #################################################
+
+
 
   #Set Input/Output Path
   #Get the host system name to define the path
@@ -35,7 +35,7 @@ def returnObject(logLevel,omegaRef):
       output_path = '/homes/extern/kadar/Desktop/BrakeSqueal0.1/output/'
   elif host == 'ali-Inspiron-1525':
       input_path = './data/5koref1/'
-      output_path = './output/'  
+      output_path = './output/'
   else:
       input_path = './data/5koref1/'
       output_path = './output/'
@@ -61,7 +61,7 @@ def returnObject(logLevel,omegaRef):
     os.makedirs(output_path)
 
   '''
-  This would create the first object of BrakeClass with certain limited attributes. 
+  This would create the first object of BrakeClass with certain limited attributes.
   More attributes can be added anywhere in the program using the setattr command.
   These attributes can then be referred later in a module.
   '''
@@ -85,8 +85,8 @@ def returnObject(logLevel,omegaRef):
   target - target rectangular region.
 
 
-  projectionDimension(dimension of the projection matrix) - The number of significant 
-  singular values to be taken into consideration while creating the projection matrix 
+  projectionDimension(dimension of the projection matrix) - The number of significant
+  singular values to be taken into consideration while creating the projection matrix
   from the measurment matrix.
 
   evs_per_shift - number of eigenvalues to be calculated per shift
@@ -98,19 +98,19 @@ def returnObject(logLevel,omegaRef):
   setattr(obj, 'data_file_list', ['BMLL','BDLL','BYLL','BDIWLL','BHLL','BKLL','BKQLL','BWLL'])
   setattr(obj, 'data_file_name', ['M1','D1','DG','DR','D4','K1','KR','KGeo'])
   setattr(obj, 'omegaRef', omegaRef)
-  setattr(obj, 'fRef', 1600)
-  
-  setattr(obj, 'omega_basis', numpy.array([1,4])*2*math.pi)
+  setattr(obj, 'fRef', 1600.0)
+
+  setattr(obj, 'omega_basis', numpy.array([1,4])*2.0*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,5,10,15,20])*2*math.pi)
   #setattr(obj, 'omega_basis', numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi)
 
-  setattr(obj, 'omega_range', numpy.linspace(1, 4, num=3)*2*math.pi)
+  setattr(obj, 'omega_range', numpy.linspace(1, 4, num=3)*2.0*math.pi)
   setattr(obj, 'target', numpy.array([-10,1000,-50,12000]))
   setattr(obj, 'projectionDimension', 100)
   setattr(obj, 'evs_per_shift', 50)
   setattr(obj, 'desired_area_fraction', 0.99)
   setattr(obj, 'desiredCount', 0)
-  setattr(obj, 'omegaTest', 2*2*math.pi)
+  setattr(obj, 'omegaTest', 2*2.0*math.pi)
 
   #Log all the BrakeClass attribute values in the info log file
   if(obj.log_level):
