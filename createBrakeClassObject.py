@@ -105,7 +105,7 @@ def returnObject(logLevel,omegaRef):
   #setattr(obj, 'omega_basis', numpy.array([1,2.5,5,7.5,10,12.5,15,17.5,20])*2*math.pi)
 
   setattr(obj, 'omega_range', numpy.linspace(1, 4, num=3)*2.0*math.pi)
-  setattr(obj, 'target', numpy.array([-10,1000,-50,12000]))
+  setattr(obj, 'target', numpy.array([-10,1000,-50,42000]))
   setattr(obj, 'projectionDimension', 100)
   setattr(obj, 'evs_per_shift', 50)
   setattr(obj, 'desired_area_fraction', 0.99)
