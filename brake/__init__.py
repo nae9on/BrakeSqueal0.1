@@ -2,25 +2,25 @@ r"""
 This module defines the following functions::
 
   - BrakeClass:
-  
+
     Python parent class for the BrakeSqueal Project.
-    
+
   - printEigs:
-    
+
     Prints the required eigenvalues in a file/terminal (with two floating points).
-    
+
   - extractEigs:
-   
+
     Extracts the required eigenpairs.
-    
+
   - save
-    
+
     Saves a figure from pyplot.
-    
+
 """
 
 #----------------------------------Standard Library Imports---------------------------------------
-# Please ensure that the following libraries are installed on the system prior 
+# Please ensure that the following libraries are installed on the system prior
 # running the program.
 import os
 import string
@@ -30,7 +30,7 @@ from numpy.linalg import norm
 import matplotlib.pyplot as plt
 
 
-#----------------------------Application Specific Imports----------------------------------------- 
+#----------------------------Application Specific Imports-----------------------------------------
 from initialize import logger
 
 
@@ -43,40 +43,40 @@ __all__ = [
 
 class BrakeClass:
    r"""
-   
+
    Member Functions of the BrakeClass:
-   
+
    - __init__
    - createInfoLogger
    - createTimeLogger
    - displayCount
    - displayParametersConsole
    - displayParametersLog
-   
+
    """
-   
+
    objCount = 0
 
    def __init__(self, input_path, output_path, info_log_file, time_log_file,
                       log_level):
-                      
+
       self.input_path = input_path
       self.output_path = output_path
       self.info_log_file = info_log_file
       self.time_log_file = time_log_file
       self.log_level = log_level
-      
+
       BrakeClass.createInfoLogger(self)
       BrakeClass.createTimeLogger(self)
-     
+
       BrakeClass.objCount += 1
-      
+
    def createInfoLogger(self):
      self.logger_i = logger.return_info_logger(self)
-     
+
    def createTimeLogger(self):
-     self.logger_t = logger.return_time_logger(self) 
-     
+     self.logger_t = logger.return_time_logger(self)
+
    def displayCount(self):
      print("Total Object count %d" % BrakeClass.objCount)
 
@@ -85,39 +85,39 @@ class BrakeClass:
       print('\nBrakeClass Attributes and there values\n')
       for item in attrs.items():
           print string.expandtabs(str(item[0])+'\t'+str(item[1]),30)
-          
+
    def displayParametersLog(self):
       attrs = vars(self)
       self.logger_i.info("\n"+'BrakeClass Attributes and there values')
       for item in attrs.items():
-          self.logger_i.info(string.expandtabs(str(item[0])+'\t'+str(item[1]),30))       
+          self.logger_i.info(string.expandtabs(str(item[0])+'\t'+str(item[1]),30))
 
 def printEigs(obj,eigenValues,which_flag,where_flag):
     r"""
-        
+
     :param obj: object of the class ``BrakeClass``
     :param eigenValues: eigenvalues
     :param which_flag: which eigenvalues are needed('all' or 'target' or 'critical' or 'positive')
     :param where_flag: where to print the eigenvalues('terminal' or 'file')
     :return: prints eigenvalues in the desired format(upto 2 decimal places)
-    
+
     """
-    
+
     n = eigenValues.shape[0]
     eigenValues=sorted(eigenValues,reverse=True)
     logger_i = obj.logger_i
-    
+
     #create a temporary bool array to indicate required eigenvalues
     bool_array = np.zeros(n)
-    
+
     targetFlag = 0;
     criticalFlag = 0;
     positiveFlag = 0;
-    
-    
+
+
     if which_flag == 'all': #no condition
       bool_array = np.ones(n)
-      
+
     if which_flag == 'target':
      for i in range(0, n):
       if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
@@ -129,8 +129,8 @@ def printEigs(obj,eigenValues,which_flag,where_flag):
             logger_i.info('No eigenvalues is the target region found')
       if(where_flag == 'terminal'):
             print('No eigenvalues is the target region found')
-     
-           
+
+
     if which_flag == 'critical':
      for i in range(0, n):
       if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
@@ -142,7 +142,7 @@ def printEigs(obj,eigenValues,which_flag,where_flag):
       if(where_flag == 'file'):
             logger_i.info('No positive eigenvalues in the target region found')
       if(where_flag == 'terminal'):
-            print('No positive eigenvalues in the target region found')      
+            print('No positive eigenvalues in the target region found')
 
     if which_flag == 'positive':
      for i in range(0, n):
@@ -153,7 +153,7 @@ def printEigs(obj,eigenValues,which_flag,where_flag):
       if(where_flag == 'file'):
             logger_i.info('No positive eigenvalues found')
       if(where_flag == 'terminal'):
-            print('No positive eigenvalues found')      
+            print('No positive eigenvalues found')
 
     for i in range(0, n):
      if bool_array[i] == 1:
@@ -170,33 +170,33 @@ def printEigs(obj,eigenValues,which_flag,where_flag):
           if(where_flag == 'terminal'):
             print("%04.03e" % eigenValues[i].real, '+',  "%04.03e" % eigenValues[i].imag, 'I')
 
-            
+
 def extractEigs(obj,eigenValues,eigenVectors,which_flag):
     r"""
-        
+
     :param obj: object of the class ``BrakeClass``
     :param eigenValues: eigenvalues
     :param eigenVectors: eigenvectors
     :param which_flag: which eigenvalues are needed('all' or 'target' or 'critical' or 'positive')
     :return: ``laExtracted`` - required eigenvalues, ``evecExtracted`` -- corresponding eigenvectors
-    
+
     """
-    
+    where_flag='terminal'
     n = eigenValues.shape[0]
     #eigenValues=sorted(eigenValues,reverse=True)
     logger_i = obj.logger_i
-    
+
     #create a temporary bool array to indicate required eigenvalues
     bool_array = np.zeros(n)
-    
+
     targetFlag = 0;
     criticalFlag = 0;
     positiveFlag = 0;
-    
-    
+
+
     if which_flag == 'all': #no condition
       bool_array = np.ones(n)
-      
+
     if which_flag == 'target':
      for i in range(0, n):
       if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
@@ -208,8 +208,8 @@ def extractEigs(obj,eigenValues,eigenVectors,which_flag):
             logger_i.info('No eigenvalues is the target region found')
       if(where_flag == 'terminal'):
             print('No eigenvalues is the target region found')
-     
-           
+
+
     if which_flag == 'critical':
      for i in range(0, n):
       if (eigenValues[i].real >= obj.target[0] and eigenValues[i].real <= obj.target[1] and \
@@ -221,7 +221,7 @@ def extractEigs(obj,eigenValues,eigenVectors,which_flag):
       if(where_flag == 'file'):
             logger_i.info('No positive eigenvalues in the target region found')
       if(where_flag == 'terminal'):
-            print('No positive eigenvalues in the target region found')      
+            print('No positive eigenvalues in the target region found')
 
     if which_flag == 'positive':
      for i in range(0, n):
@@ -232,7 +232,7 @@ def extractEigs(obj,eigenValues,eigenVectors,which_flag):
       if(where_flag == 'file'):
             logger_i.info('No positive eigenvalues found')
       if(where_flag == 'terminal'):
-            print('No positive eigenvalues found')      
+            print('No positive eigenvalues found')
 
 
     laExtracted = np.zeros(np.count_nonzero(bool_array),dtype=np.complex128)
@@ -250,7 +250,7 @@ def extractEigs(obj,eigenValues,eigenVectors,which_flag):
 
 def save(path, ext='png', close=False, verbose=True):
     r"""
-    
+
     Parameters
     ----------
     :param path: string
@@ -273,7 +273,7 @@ def save(path, ext='png', close=False, verbose=True):
         has been saved.
 
     """
-    
+
     # Extract the directory and filename from the given path
     directory = os.path.split(path)[0]
     filename = "%s.%s" % (os.path.split(path)[1], ext)
@@ -292,7 +292,7 @@ def save(path, ext='png', close=False, verbose=True):
 
     # Actually save the figure
     plt.savefig(savepath)
-    
+
     # Close it
     if close:
         plt.close()

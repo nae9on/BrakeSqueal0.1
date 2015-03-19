@@ -21,7 +21,7 @@ import cmath
 import numpy
 import timeit
 import scipy.io
-import matplotlib.pyplot
+import matplotlib.pyplot as plt
 
 #----------------------------Application Specific Imports-----------------------------------------
 import brake
@@ -82,6 +82,9 @@ def brake_squeal_qevp(obj, freq_i, omega):
 
            begin = timeit.default_timer()
            la, evec = Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift)
+           extract_la,extract_vec = brake.extractEigs(obj,la,evec,'target')
+
+           ploteigs(extract_la,next_shift)
            end = timeit.default_timer()
 
            if(LOG_LEVEL):
@@ -117,8 +120,6 @@ def brake_squeal_qevp(obj, freq_i, omega):
            cover.draw_circles(obj, next_shift, next_radius)
            qevp_j = qevp_j + 1
 
-    ax = matplotlib.pyplot.gca()
-    ax.cla()
     return assembled_la, assembled_evec
 
 
@@ -265,4 +266,11 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
         logger_t.info('------------------------------------')
 
     return la, evec
+
+def ploteigs(la,shift):
+        # plot eigenvalues and shift points
+        fig,axes=plt.subplots()
+        axes.scatter(la.real,la.imag,marker='o')
+        axes.scatter(shift.real,shift.imag,marker='+')
+        plt.show()
 
