@@ -2,21 +2,21 @@ r"""
 This module defines the following functions::
 
   - next_shift
-  
-    Implementation of the MonteCarlo Algorithm for choosing the next shift point 
+
+    Implementation of the MonteCarlo Algorithm for choosing the next shift point
     in the target region.
-  
+
   - calculate_area_fraction
-  
+
     Calculates the area fraction covered(of the target rectangle) by the chosen shift points.
-    
+
   - draw_circles
-  
+
     plots a circle corresponding to the next shift point and appends it to the existing plot.
     Thus creates a simulation showing how the target region is covered by the various shift points
     chosen on fly.
-  
-     
+
+
 """
 
 import math
@@ -37,11 +37,11 @@ def next_shift(obj, previous_shifts = [], previous_radius = []):
         :param previous_radius: corresponding radius of the previous shift points
         :return: ``next_shift`` - next shift point in the target region
         :raises: ``Cover_BadInputError``, When the provided input is not as expected
-        
+
         """
-        
+
         target = obj.target
-        
+
         # Exceptions
         #------------------------------------------------------------
         if len(target) == 0:
@@ -50,21 +50,21 @@ def next_shift(obj, previous_shifts = [], previous_radius = []):
          raise Cover_BadInputError('target region does not define a reactangle')
         elif target[1] <= target[0] or target[3] <= target[2]:
          raise Cover_BadInputError('the target reactangle is not defined')
-          
+
         if (len(previous_shifts)==0) and  (len(previous_radius)==0):
                 first_shift = complex((target[0]+target[1])/2,(target[2]+target[3])/2)
                 next_shift = first_shift
-                
+
         else:
-                
+
                 x1 = target[0]
                 x2 = target[1]
                 y1 = target[2]
                 y2 = target[3]
-                
+
                 if len(previous_shifts) != len(previous_radius):
                     raise Cover_BadInputError('The shift and radius vector are not of the same length')
-                
+
                 #check if previous shifts lie in the target region
                 for i in range(0,len(previous_shifts)):
                   if previous_shifts[i].real < x1 \
@@ -72,11 +72,11 @@ def next_shift(obj, previous_shifts = [], previous_radius = []):
                         or previous_shifts[i].imag < y1 \
                         or previous_shifts[i].imag > y2:
                     raise Cover_BadInputError('shift point not in target region')
-                          
+
                 if np.amin(previous_radius) <= 0:
                  raise Cover_BadInputError('The radius is nonpositive')
-        
-                #generate 1000 random sampling points and radius in the target region               
+
+                #generate 1000 random sampling points and radius in the target region
                 sampling_points = []
                 sampling_radius = []
                 for i in range(1000):
@@ -87,17 +87,17 @@ def next_shift(obj, previous_shifts = [], previous_radius = []):
 
                 mean_radius = np.mean(sampling_radius)
                 mean_previous_radius = np.mean(previous_radius)
-                sampling_radius[:] = [x*mean_previous_radius/mean_radius for x in sampling_radius]  
+                sampling_radius[:] = [x*mean_previous_radius/mean_radius for x in sampling_radius]
 
                 #scanning for the best shift
                 area_increment = 0
                 for i in range(0,len(sampling_points)):
                   increment = 10000000
                   for j in range(0,len(previous_shifts)):
-                      delta = cmath.polar(sampling_points[i]-previous_shifts[j])[0] - previous_radius[j]                
+                      delta = cmath.polar(sampling_points[i]-previous_shifts[j])[0] - previous_radius[j]
                       if delta < 0:
-                        # Point i is inside Circle j   
-                        increment = 0                   
+                        # Point i is inside Circle j
+                        increment = 0
                         break
                       else:
                         if delta < increment:
@@ -107,11 +107,11 @@ def next_shift(obj, previous_shifts = [], previous_radius = []):
                   max_increment.append(np.fabs(sampling_points[i].real-x2))
                   max_increment.append(np.fabs(sampling_points[i].imag-y1))
                   max_increment.append(np.fabs(sampling_points[i].imag-y2))
-                  increment = min(max_increment)        
+                  increment = min(max_increment)
                   if(increment > area_increment):
                      area_increment = increment
                      next_shift = sampling_points[i]
-                
+
         return next_shift
 
 def calculate_area_fraction(obj, previous_shifts, previous_radius):
@@ -121,11 +121,11 @@ def calculate_area_fraction(obj, previous_shifts, previous_radius):
         :param previous_radius: corresponding radius of the previous shift points
         :return: ``area_fraction_covered`` - the total area fraction covered with the chosen shift points
         :raises: ``Cover_BadInputError``, When the provided input is not as expected
-                
+
         """
-        
+
         target = obj.target
-        
+
         # Exceptions
         #------------------------------------------------------------
         if len(target)==0:
@@ -137,10 +137,10 @@ def calculate_area_fraction(obj, previous_shifts, previous_radius):
 
         if len(previous_shifts)==0:
          raise Cover_BadInputError('The previous_shifts is not specified')
-        
+
         if len(previous_radius)==0:
          raise Cover_BadInputError('The previous_radius is not specified')
-        
+
         if len(previous_shifts) != len(previous_radius):
             raise Cover_BadInputError('The shift and radius vector are not of the same length')
 
@@ -148,7 +148,7 @@ def calculate_area_fraction(obj, previous_shifts, previous_radius):
         x2 = target[1]
         y1 = target[2]
         y2 = target[3]
-                
+
         #check if previous shifts lie in the target region
         for i in range(0,len(previous_shifts)):
           if previous_shifts[i].real < x1 \
@@ -156,11 +156,11 @@ def calculate_area_fraction(obj, previous_shifts, previous_radius):
                 or previous_shifts[i].imag < y1 \
                 or previous_shifts[i].imag > y2:
             raise Cover_BadInputError('shift point not in target region')
-                          
+
         if np.amin(previous_radius) <= 0:
           raise Cover_BadInputError('The radius is nonpositive')
         #------------------------------------------------------------
-                  
+
         inn = 0.0
         pool = 10000
         for i in range(0,pool):
@@ -172,7 +172,7 @@ def calculate_area_fraction(obj, previous_shifts, previous_radius):
                       inn = inn+1
                       break
         area_fraction_covered = inn/pool
-        return area_fraction_covered                       
+        return area_fraction_covered
 
 def draw_circles(obj, next_shift, next_radius):
         r"""
@@ -182,7 +182,7 @@ def draw_circles(obj, next_shift, next_radius):
         :return: plots a circle corresponding to the next shift point and appends it to the existing plot.
         :raises: ``Cover_BadInputError``, When the provided input is not as expected
         """
-        
+
         target = obj.target
         # Exceptions
         #------------------------------------------------------------
@@ -192,12 +192,12 @@ def draw_circles(obj, next_shift, next_radius):
          raise Cover_BadInputError('target region does not define a reactangle')
         elif target[1] <= target[0] or target[3] <= target[2]:
          raise Cover_BadInputError('the target reactangle is not defined')
-        
+
         if not next_radius:
          raise Cover_BadInputError('The previous_radius is not specified')
         elif next_radius <= 0:
          raise Cover_BadInputError('The radius is nonpositive')
-                                                                                
+
         x1 = target[0]
         x2 = target[1]
         y1 = target[2]
@@ -228,5 +228,7 @@ def draw_circles(obj, next_shift, next_radius):
         plt.axvline(0, color='blue')
         fig.gca().add_artist(circle)
         fig.gca().add_artist(react)
+        #plt.show()
+        #plt.draw()
         brake.save(obj.output_path+'drawCircles', ext="png", close=True, verbose=False)
         return

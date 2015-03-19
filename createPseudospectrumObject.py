@@ -1,4 +1,4 @@
-# Creates and returns the BrakeClass Object
+# Creates and returns the Pseudospectrum Object
 
 #----------------------------------Standard Library Imports---------------------------------------
 import os
@@ -11,37 +11,10 @@ import datetime
 #----------------------------Application Specific Imports-----------------------------------------
 import brake
 
-def returnObject(logLevel,omegaRef):
+def returnObject(logLevel):
 
-  begin_program = timeit.default_timer()
+    begin_program = timeit.default_timer()
 
-  #Initializing Parameters
-  #################################################
-
-
-
-  #Set Input/Output Path
-  #Get the host system name to define the path
-  host=socket.gethostname()
-  print "Working on :", host, "computer"
-
-  if host == 'laplace':
-      input_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
-      output_path = '/homes/numerik/quraishi/work/paperprojects/brake_squeel_project/ProblemData/Matrix/5kOmegaRef%(row)d/' % {'row': omegaRef}
-  elif host == 'aif-server':
-      input_path = 'd:/eigenwerte/ProblemData/Matrix/800kOmegaRef%(row)d/' % {'row': omegaRef}
-  elif host == 'frenet':
-      input_path = '/homes/extern/kadar/Desktop/project/python_source/data/5koref1/'
-      output_path = '/homes/extern/kadar/Desktop/BrakeSqueal0.1/output/'
-  elif host == 'ali-Inspiron-1525':
-      input_path = './data/5koref1/'
-      output_path = './output/'
-  else:
-      input_path = './data/5koref1/'
-      output_path = './output/'
-
-  print '\n Input Path: '+input_path
-  print '\n Output Path: '+output_path
 
   #Logging Parameters
   '''
@@ -52,9 +25,6 @@ def returnObject(logLevel,omegaRef):
 
   log_level = logLevel
   dt = datetime.date.today()
-  output_path = output_path+dt.strftime("%b%d")+'/'
-  info_log_file = output_path+'info_'+dt.strftime("%b%d")+'.log' #example info_Aug02.log
-  time_log_file = output_path+'time_'+dt.strftime("%b%d")+'.log' #example time_Aug02.log
 
   #Create output directory if it does not exist
   if not os.path.exists(output_path):
