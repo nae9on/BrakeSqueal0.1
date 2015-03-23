@@ -31,11 +31,10 @@ from brake.analyze import residual
 
 
 
-def brake_squeal_qevp(obj, freq_i, omega):
+def brake_squeal_qevp(obj, omega):
     r"""
 
     :param obj: object of the class ``BrakeClass``
-    :param freq_i: the index of the base angular freq
     :param omega: ith base angular freq
     :return: ``assembled_la`` - assembled eigenvalues, ``assembled_evec`` -- assembled eigenvectors
 
@@ -59,6 +58,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
     target = obj.target
     desired_area_fraction = obj.desired_area_fraction
     desiredCount = obj.desiredCount
+    freq_i=obj.fRef
 
     if(LOG_LEVEL):
         logger_i.info("\n"+"\n"+'-----------------------------------------------------------------')
@@ -81,7 +81,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
            next_shift = cover.next_shift(obj, previous_shifts, previous_radius)
 
            begin = timeit.default_timer()
-           la, evec = Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift)
+           la, evec = Obtain_eigs(obj, qevp_j, omega, next_shift)
            extract_la,extract_vec = brake.extractEigs(obj,la,evec,'target')
 
            ploteigs(extract_la,next_shift)
@@ -123,7 +123,7 @@ def brake_squeal_qevp(obj, freq_i, omega):
     return assembled_la, assembled_evec
 
 
-def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
+def Obtain_eigs(obj, qevp_j, omega, next_shift):
     r"""
 
     :param obj: object of the class ``BrakeClass``
@@ -233,9 +233,9 @@ def Obtain_eigs(obj, freq_i, qevp_j, omega, next_shift):
     #def_list.my_print(la)
     '''
 
-    print('Eigenvalues for shift',qevp_j,'=',next_shift,\
-                ' and frequency',freq_i,'=',"%.2f" % omega,'are')
+    print('Eigenvalues for shift',qevp_j,'=',next_shift,'are')
     brake.printEigs(obj,la,'target','terminal')
+
 
     if(LOG_LEVEL):
         logger_i.info('Eigenvalues : ')
