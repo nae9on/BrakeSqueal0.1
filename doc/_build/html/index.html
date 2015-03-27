@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +13,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -61,21 +59,22 @@
 <h2>__init__<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/__init__.py?at=master">Source</a></p>
 <span class="target" id="module-brake.__init__"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- BrakeClass:
+<div class="highlight-python"><div class="highlight"><pre>- BrakeClass:
 
   Python parent class for the BrakeSqueal Project.
-  
+
 - printEigs:
-  
+
   Prints the required eigenvalues in a file/terminal (with two floating points).
-  
+
 - extractEigs:
- 
+
   Extracts the required eigenpairs.
-  
+
 - save
-  
-  Saves a figure from pyplot.</pre>
+
+  Saves a figure from pyplot.
+</pre></div>
 </div>
 <dl class="class">
 <dt id="brake.__init__.BrakeClass">
@@ -165,7 +164,7 @@ has been saved.</li>
 </table>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="#logger">logger</a>  brake.initialize.logger</p>
 </div>
@@ -177,22 +176,24 @@ has been saved.</li>
 <h2>logger<a class="headerlink" href="#logger" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/logger.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.logger"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- return_info_logger:
+<div class="highlight-python"><div class="highlight"><pre>- return_info_logger:
   
   Creates and returns a python logger object for information logging
   
 - return_time_logger:
   
-  Creates and returns a python logger object for time logging </pre>
+  Creates and returns a python logger object for time logging 
+</pre></div>
 </div>
 <p>Note:</p>
-<div class="highlight-python"><pre>various logging levels
-LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
-         'debug': logging.DEBUG, #10 (to capture detailed debug information)
-         'info': logging.INFO, #20 (to capture essential information)
-         'warning': logging.WARNING, #30
-         'error': logging.ERROR, #40
-         'critical': logging.CRITICAL} #50</pre>
+<div class="highlight-python"><div class="highlight"><pre>various logging levels
+LEVELS = {&#39;notset&#39;:logging.NOTSET, #0 --&gt; numerical value (for no logging)
+         &#39;debug&#39;: logging.DEBUG, #10 (to capture detailed debug information)
+         &#39;info&#39;: logging.INFO, #20 (to capture essential information)
+         &#39;warning&#39;: logging.WARNING, #30
+         &#39;error&#39;: logging.ERROR, #40
+         &#39;critical&#39;: logging.CRITICAL} #50
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.logger.return_info_logger">
@@ -224,7 +225,7 @@ LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
 </table>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="https://docs.python.org/2/library/logging.html">Python Logging</a></p>
 </div>
@@ -233,9 +234,10 @@ LEVELS = {'notset':logging.NOTSET, #0 --&gt; numerical value (for no logging)
 <h2>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/load.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.load"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- load_matrices:
+<div class="highlight-python"><div class="highlight"><pre>- load_matrices:
 
-  This function loads the sparse data matrices in .mat format and adds them to a python list</pre>
+  This function loads the sparse data matrices in .mat format and adds them to a python list
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.load.load_matrices">
@@ -252,13 +254,14 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;</td>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The sparse_list is obtained by loading the vaious .mat files present in the
+<div class="highlight-python"><div class="highlight"><pre>The sparse_list is obtained by loading the vaious .mat files present in the
 data_file_list attribute of the BrakeClass and then appending them into
-a python list sparse_list.</pre>
+a python list sparse_list.
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.loadmat.html">scipy.io.loadmat</a></p>
 </div>
@@ -267,10 +270,11 @@ a python list sparse_list.</pre>
 <h2>assemble<a class="headerlink" href="#assemble" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/assemble.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.assemble"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- create_MCK:
+<div class="highlight-python"><div class="highlight"><pre>- create_MCK:
 
   Assembles the various component matrices together(for the given angular frequency
-  omega) to form the mass(M), damping(C) and stiffness matrix(K).</pre>
+  omega) to form the mass(M), damping(C) and stiffness matrix(K).
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.assemble.create_MCK">
@@ -281,7 +285,7 @@ a python list sparse_list.</pre>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
-<li><strong>sparse_list</strong> &#8211; a python list of matrices in Compressed Sparse Column format 
+<li><strong>sparse_list</strong> &#8211; a python list of matrices in Compressed Sparse Column format
 of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 <li><strong>omega</strong> &#8211; angular frequency</li>
 </ul>
@@ -290,27 +294,37 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">M - Mass Matrix, C - Damping Matrix, K - Stiffness Matrix</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first">Assemble_BadInputError, When a matrix in the list is not sparse</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first">Assemble_BadInputError, When a matrix in the list is not sparse</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises :</th><td class="field-body"><p class="first">Assemble_BadInputError, When a matrix in the list is not square</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first">Assemble_BadInputError, When a matrix in the list is not square</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last">Assemble_BadInputError, When the matrix  are not of the same size</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Assemble_BadInputError, When the matrix  are not of the same size</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The M , C , K are assembled as follows:
+<div class="highlight-python"><div class="highlight"><pre>The M , C , K are assembled as follows:
 
 - M = M1
 - C = D1+DR*(omegaRef/omega)+DG*(omega/omegaRef)
-- K = K1+KR+KGeo*math.pow((omega/omegaRef),2)</pre>
+- K = K1+KR+KGeo*math.pow((omega/omegaRef),2)
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<dl class="function">
+<dt id="brake.initialize.assemble.create_MCK_usr">
+<tt class="descclassname">brake.initialize.assemble.</tt><tt class="descname">create_MCK_usr</tt><big>(</big><em>obj</em>, <em>sparse_list</em>, <em>omega</em><big>)</big><a class="headerlink" href="#brake.initialize.assemble.create_MCK_usr" title="Permalink to this definition">¶</a></dt>
+<dd><p>IN: obj
+sparse_list: list of matrices
+omega: value of parameter for which matrices are realized</p>
+<p>OUT: assembled matrices</p>
+</dd></dl>
+
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html">scipy.sparse.linalg.onenormest</a></p>
 </div>
@@ -319,9 +333,10 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 <h2>shift<a class="headerlink" href="#shift" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/shift.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.shift"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- shift_matrices:
+<div class="highlight-python"><div class="highlight"><pre>- shift_matrices:
 
-  Transform the qevp using shift and invert spectral transformations.</pre>
+  Transform the qevp using shift and invert spectral transformations.
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.shift.shift_matrices">
@@ -345,15 +360,16 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The M , C , K are obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The M , C , K are obtained as follows:
 
  M = m
  C = 2 * tau * m + c
- K = tau_squared * m + tau * c + k</pre>
+ K = tau_squared * m + tau * c + k
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html">scipy.sparse.linalg.onenormest</a></p>
 </div>
@@ -362,9 +378,10 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 <h2>scale<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/scale.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.scale"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- scale_matrices:
+<div class="highlight-python"><div class="highlight"><pre>- scale_matrices:
 
-  Scales the M, C, K matrices using 2-scalers before linearization.</pre>
+  Scales the M, C, K matrices using 2-scalers before linearization.
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.scale.scale_matrices">
@@ -390,23 +407,25 @@ of type &#8216;&lt;type &#8216;numpy.float64&#8217;&gt;&#8217;,</li>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The M , C , K, gamma, delta  are obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The M , C , K, gamma, delta  are obtained as follows:
 
 M = gamma*gamma*delta*m;
 C = gamma*delta*c;
 K = delta*k;
 gamma = math.sqrt(k_norm/m_norm);
-delta = 2/(k_norm+c_norm*gamma);   </pre>
+delta = 2/(k_norm+c_norm*gamma);   
+</pre></div>
 </div>
 <p>Note:</p>
-<div class="highlight-python"><pre>scipy.sparse.linalg.onenormest - Computes a lower bound of the 1-norm of a sparse matrix.
+<div class="highlight-python"><div class="highlight"><pre>scipy.sparse.linalg.onenormest - Computes a lower bound of the 1-norm of a sparse matrix.
 In the disk brake modelling theory spectral norm has been used but since I could not
 find a better(less computational cost) way to obtain this in python, I have used 1-norm
-approximation</pre>
+approximation
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html">scipy.sparse.linalg.onenormest</a></p>
 </div>
@@ -415,7 +434,7 @@ approximation</pre>
 <h2>diagscale<a class="headerlink" href="#diagscale" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/diagscale.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.diagscale"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- normalize_cols:
+<div class="highlight-python"><div class="highlight"><pre>- normalize_cols:
 
   Returns a diagonal matrix D such that every column of A*D has eucledian norm = 1. 
   
@@ -427,7 +446,8 @@ approximation</pre>
 - diag_scale_matrices:
 
   Diagonally scales the shifted scalar-scaled matrices using DL, DR to improve the
-  condition number.</pre>
+  condition number.
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.diagscale.diag_scale_matrices">
@@ -453,11 +473,12 @@ approximation</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The M , C , K, DR  are obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The M , C , K, DR  are obtained as follows:
 
 M = DL * M * DR
 C = DL * C * DR
-K = DL * K * DR</pre>
+K = DL * K * DR
+</pre></div>
 </div>
 </dd></dl>
 
@@ -477,7 +498,7 @@ K = DL * K * DR</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The DL and DR are obtained as a converging sequence :
+<div class="highlight-python"><div class="highlight"><pre>The DL and DR are obtained as a converging sequence :
 
 set Dcol = normalize columns(Y)
 set DR = DR * Dcol
@@ -486,7 +507,8 @@ set Drow = normalize rows(Y) = normalize columns(Y.T)
 set DL = Drow * DL
 set Y = Drow * Y
 when Dcol and Drow are sufficiently close to I or max no of iterations reached
-STOP and return, else continue with step 1.</pre>
+STOP and return, else continue with step 1.
+</pre></div>
 </div>
 </dd></dl>
 
@@ -504,13 +526,14 @@ STOP and return, else continue with step 1.</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>D is obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>D is obtained as follows:
 square the elements of A and sum each column
-set the diagonal elemnts of D as the inverse square root of the column sums</pre>
+set the diagonal elemnts of D as the inverse square root of the column sums
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
 <dt><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.eigs.html">scipy.sparse.linalg.eigs</a></dt>
@@ -522,11 +545,12 @@ set the diagonal elemnts of D as the inverse square root of the column sums</pre
 <h2>unlinearize<a class="headerlink" href="#unlinearize" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/initialize/unlinearize.py?at=master">Source</a></p>
 <span class="target" id="module-brake.initialize.unlinearize"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- unlinearize_matrices:
+<div class="highlight-python"><div class="highlight"><pre>- unlinearize_matrices:
   
   To obtain the eigenvectors prior linearization of the QEVP from the 
   resulting eigenvectors (after classical companion linearization of the QEVP
-  to obtain the generalized eigenvalue propblem).</pre>
+  to obtain the generalized eigenvalue propblem).
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.initialize.unlinearize.unlinearize_matrices">
@@ -542,15 +566,16 @@ set the diagonal elemnts of D as the inverse square root of the column sums</pre
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The evec_prior are obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The evec_prior are obtained as follows:
 
 check for every vector i of the GEVP(evec) (consider MATLAB convention)
 if norm(evec[1:n,i]) &gt; norm(evec[n+1:2*n,i]) set evec_prior[:,i] = evec[1:n,i]
-else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
+else set evec_prior[:,i] = evec[n+1:2*n,i]
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference internal" href="#diagscale">diagscale</a>  brake.initialize.diagscale</p>
 </div>
@@ -562,14 +587,15 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <h2>projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/projection.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.projection"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- obtain_projection_matrix:
+<div class="highlight-python"><div class="highlight"><pre>- obtain_projection_matrix:
 
  This function obtains the Projection Matrix from a given measurment matrix.
  
  - obtain_measurment_matrix
  
  This function forms the Measurment Matrix by solving the quadratic eigenvalue problem 
- for each base angular frequency.</pre>
+ for each base angular frequency.
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.solve.projection.obtain_measurment_matrix">
@@ -585,11 +611,12 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The measurment matrix is obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The measurment matrix is obtained as follows:
 
 - Obtain the measurment matrix X = [X_real X_imag], with X_real as a list of 
   real parts of eigenvectors and X_imag as a list of imaginary parts of 
-  eigenvectors, corresponding to each base angular frequency in omega_basis.</pre>
+  eigenvectors, corresponding to each base angular frequency in omega_basis.
+</pre></div>
 </div>
 </dd></dl>
 
@@ -612,15 +639,16 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The projection matrix is obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The projection matrix is obtained as follows:
 
 - Compute the thin svd of the measurment matrix. X = U * s * V
 - Set Q = truncated(U), where the truncation is done to take only the significant 
-  singular values(provided by user in obj.projectionDimension) into account</pre>
+  singular values(provided by user in obj.projectionDimension) into account
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html">scipy.linalg.svd</a></p>
 </div>
@@ -629,10 +657,11 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <h2>traditional projection<a class="headerlink" href="#traditional-projection" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/traditionalProjection.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.traditionalProjection"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- Obtain_eigs:
+<div class="highlight-python"><div class="highlight"><pre>- Obtain_eigs:
   
   Determines required number of eigenvalues and associated eigenvectors of the simplified system with
-  symmetric coefficients according to the classical modal transformation approach.</pre>
+  symmetric coefficients according to the classical modal transformation approach.
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.solve.traditionalProjection.Obtain_eigs">
@@ -653,17 +682,18 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The la and evec are obtained as follows:
+<div class="highlight-python"><div class="highlight"><pre>The la and evec are obtained as follows:
   
 - load the various component matrices.
 - assemble the various component matrices together to form the mass(M) and stiffness matrix(K)
   according to the classical modal transformation approach.
 - because we are interested in inner eigenvalues around a certain shift point, 
-  so we transform the qevp using shift and invert spectral transformations.</pre>
+  so we transform the qevp using shift and invert spectral transformations.
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.linalg.svd.html">scipy.linalg.svd</a></p>
 </div>
@@ -672,19 +702,20 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <h2>qevp<a class="headerlink" href="#qevp" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/qevp.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.qevp"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- brake_squeal_qevp:
+<div class="highlight-python"><div class="highlight"><pre>- brake_squeal_qevp:
 
   For a particuar base angular frequency this function assembles the eigenvalues
   and eigenvectors for different shift points in the target region.
-  
+
 - Obtain_eigs:
-  
-  For a particuar base angular frequency and for a particular shift point this 
-  function obtains obj.evs_per_shift eigenvalues and the corresponding eigenvectors</pre>
+
+  For a particuar base angular frequency and for a particular shift point this
+  function obtains obj.evs_per_shift eigenvalues and the corresponding eigenvectors
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.solve.qevp.Obtain_eigs">
-<tt class="descclassname">brake.solve.qevp.</tt><tt class="descname">Obtain_eigs</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>qevp_j</em>, <em>omega</em>, <em>next_shift</em><big>)</big><a class="headerlink" href="#brake.solve.qevp.Obtain_eigs" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">brake.solve.qevp.</tt><tt class="descname">Obtain_eigs</tt><big>(</big><em>obj</em>, <em>qevp_j</em>, <em>omega</em>, <em>next_shift</em><big>)</big><a class="headerlink" href="#brake.solve.qevp.Obtain_eigs" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -704,27 +735,27 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The la and evec are obtained as follows:
-  
+<div class="highlight-python"><div class="highlight"><pre>The la and evec are obtained as follows:
+
 - load the various component matrices
 - assemble the various component matrices together(for the given angular frequency
   omega) to form the mass(M), damping(C) and stiffness matrix(K).
 - because we are interested in inner eigenvalues around certain shift points
   next_shift, so we transform the qevp using shift and invert spectral
-  transformations.</pre>
+  transformations.
+</pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="brake.solve.qevp.brake_squeal_qevp">
-<tt class="descclassname">brake.solve.qevp.</tt><tt class="descname">brake_squeal_qevp</tt><big>(</big><em>obj</em>, <em>freq_i</em>, <em>omega</em><big>)</big><a class="headerlink" href="#brake.solve.qevp.brake_squeal_qevp" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">brake.solve.qevp.</tt><tt class="descname">brake_squeal_qevp</tt><big>(</big><em>obj</em>, <em>omega</em><big>)</big><a class="headerlink" href="#brake.solve.qevp.brake_squeal_qevp" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>obj</strong> &#8211; object of the class <tt class="docutils literal"><span class="pre">BrakeClass</span></tt></li>
-<li><strong>freq_i</strong> &#8211; the index of the base angular freq</li>
 <li><strong>omega</strong> &#8211; ith base angular freq</li>
 </ul>
 </td>
@@ -735,14 +766,15 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 </tbody>
 </table>
 <p>Procedure:</p>
-<div class="highlight-python"><pre>The assembled_la and assembled_evec are obtained as follows:
-  
+<div class="highlight-python"><div class="highlight"><pre>The assembled_la and assembled_evec are obtained as follows:
+
 - calculate the next shift point in the target region
 - obtain eigenvalues and eigenvectors for that particular shift point
 - add the eigenvalues and eigenvectors to assembled_la and assembled_evec respectively
 - check if the required area fraction of the target region has been covered. If yes return
   assembled_la and assembled_evec else calculate the next shift point in the target
-  region and repeat</pre>
+  region and repeat
+</pre></div>
 </div>
 </dd></dl>
 
@@ -751,7 +783,7 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 <h2>solver<a class="headerlink" href="#solver" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/solver.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.solver"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- qev_sparse:
+<div class="highlight-python"><div class="highlight"><pre>- qev_sparse:
 
   Obtains the eigenvalues(smallest in magnitude) and corresponding eigenvectors 
   for the given Quadratic Eigenvalue Problem(QEVP) with sparse M, C, K matrices.
@@ -769,19 +801,21 @@ else set evec_prior[:,i] = evec[n+1:2*n,i]</pre>
 - gev_dense
 
   Obtains the eigenvalues(smallest in magnitude) and corresponding eigenvectors 
-  for the Generalized Eigenvalue Problem(GEVP) with dense A, B matrices.</pre>
+  for the Generalized Eigenvalue Problem(GEVP) with dense A, B matrices.
+</pre></div>
 </div>
 <p>Note:</p>
-<div class="highlight-python"><pre>The eigs function of PYTHON can calculate the eigenvalues of the generalized eigenvalue
+<div class="highlight-python"><div class="highlight"><pre>The eigs function of PYTHON can calculate the eigenvalues of the generalized eigenvalue
 problem A*x=lamda*M*x with the following conditions.
 M must represent a real, symmetric matrix if A is real, and must represent a complex, 
 hermitian matrix if A is complex.
 If sigma is None, M has to be positive definite 
 If sigma is specified, M has to be positive semi-definite
 
-When sigma is specified 'ex 0' then eigs function will calculate the eigenvalues nearest to sigma. 
-The 'LM' clause along with sigma = 0 can be used to calculate the reciprocal eigenvalues of 
-Largest Magnitude.    </pre>
+When sigma is specified &#39;ex 0&#39; then eigs function will calculate the eigenvalues nearest to sigma. 
+The &#39;LM&#39; clause along with sigma = 0 can be used to calculate the reciprocal eigenvalues of 
+Largest Magnitude.    
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.solve.solver.gev_dense">
@@ -800,13 +834,14 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">la</span></tt> - eigenvalues, <tt class="docutils literal"><span class="pre">v</span></tt> - eigenvectors</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix A, B are not all dense</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix A, B are not all dense</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><pre>.</pre>
+<div class="highlight-python"><div class="highlight"><pre>.
+</pre></div>
 </div>
 </dd></dl>
 
@@ -827,13 +862,14 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">la</span></tt> - eigenvalues, <tt class="docutils literal"><span class="pre">v</span></tt> - eigenvectors</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix A, B are not all in sparse format</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix A, B are not all in sparse format</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><pre>.</pre>
+<div class="highlight-python"><div class="highlight"><pre>.
+</pre></div>
 </div>
 </dd></dl>
 
@@ -856,13 +892,14 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">la</span></tt> - eigenvalues, <tt class="docutils literal"><span class="pre">v</span></tt> - eigenvectors</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix M,C,K are not all dense</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix M,C,K are not all dense</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><pre>. </pre>
+<div class="highlight-python"><div class="highlight"><pre>. 
+</pre></div>
 </div>
 </dd></dl>
 
@@ -884,17 +921,18 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">la</span></tt> - eigenvalues, <tt class="docutils literal"><span class="pre">v</span></tt> - eigenvectors</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix M,C,K are not all in sparse format</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">SOLVER_BadInputError</span></tt>, When the matrix M,C,K are not all in sparse format</p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-python"><pre>.</pre>
+<div class="highlight-python"><div class="highlight"><pre>.
+</pre></div>
 </div>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
 <dt><a class="reference external" href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.linalg.eigs.html">scipy.sparse.linalg.eigs</a></dt>
@@ -914,20 +952,21 @@ Largest Magnitude.    </pre>
 <h2>cover<a class="headerlink" href="#cover" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/solve/cover.py?at=master">Source</a></p>
 <span class="target" id="module-brake.solve.cover"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- next_shift
+<div class="highlight-python"><div class="highlight"><pre>- next_shift
 
-  Implementation of the MonteCarlo Algorithm for choosing the next shift point 
+  Implementation of the MonteCarlo Algorithm for choosing the next shift point
   in the target region.
 
 - calculate_area_fraction
 
   Calculates the area fraction covered(of the target rectangle) by the chosen shift points.
-  
+
 - draw_circles
 
   plots a circle corresponding to the next shift point and appends it to the existing plot.
   Thus creates a simulation showing how the target region is covered by the various shift points
-  chosen on fly.</pre>
+  chosen on fly.
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.solve.cover.calculate_area_fraction">
@@ -946,7 +985,7 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">area_fraction_covered</span></tt> - the total area fraction covered with the chosen shift points</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Cover_BadInputError</span></tt>, When the provided input is not as expected</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Cover_BadInputError</span></tt>, When the provided input is not as expected</p>
 </td>
 </tr>
 </tbody>
@@ -970,7 +1009,7 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">plots a circle corresponding to the next shift point and appends it to the existing plot.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Cover_BadInputError</span></tt>, When the provided input is not as expected</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Cover_BadInputError</span></tt>, When the provided input is not as expected</p>
 </td>
 </tr>
 </tbody>
@@ -979,7 +1018,7 @@ Largest Magnitude.    </pre>
 
 <dl class="function">
 <dt id="brake.solve.cover.next_shift">
-<tt class="descclassname">brake.solve.cover.</tt><tt class="descname">next_shift</tt><big>(</big><em>obj</em>, <em>previous_shifts=</em><span class="optional">[</span><span class="optional">]</span>, <em>previous_radius=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#brake.solve.cover.next_shift" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">brake.solve.cover.</tt><tt class="descname">next_shift</tt><big>(</big><em>obj</em>, <em>previous_shifts=</em>, <span class="optional">[</span><span class="optional">]</span><em>previous_radius=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#brake.solve.cover.next_shift" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -994,14 +1033,14 @@ Largest Magnitude.    </pre>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="docutils literal"><span class="pre">next_shift</span></tt> - next shift point in the target region</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises :</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Cover_BadInputError</span></tt>, When the provided input is not as expected</p>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><tt class="docutils literal"><span class="pre">Cover_BadInputError</span></tt>, When the provided input is not as expected</p>
 </td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
 <dt><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html">matplotlib.pyplot</a></dt>
@@ -1018,13 +1057,14 @@ Largest Magnitude.    </pre>
 <h2>residual<a class="headerlink" href="#residual" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/analyze/residual.py?at=master">Source</a></p>
 <span class="target" id="module-brake.analyze.residual"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- residual_qevp:
+<div class="highlight-python"><div class="highlight"><pre>- residual_qevp:
 
   Calculates the relative residual of the Quadratic Eigenvalue Problem (lamda^2 M + lamda C + K) X = 0
 
 - residual_gevp
 
-  Calculates the relative residual of the Generalized Eigenvalue Problem (A - lamda B) X = 0</pre>
+  Calculates the relative residual of the Generalized Eigenvalue Problem (A - lamda B) X = 0
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.analyze.residual.residual_gevp">
@@ -1071,7 +1111,7 @@ Largest Magnitude.    </pre>
 </table>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p><a class="reference external" href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.sparse.linalg.onenormest.html">scipy.sparse.linalg.onenormest</a></p>
 <p class="last"><a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.norm.html">numpy.linalg.norm</a></p>
@@ -1081,18 +1121,19 @@ Largest Magnitude.    </pre>
 <h2>visual<a class="headerlink" href="#visual" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://bitbucket.org/akadar/brakesqueal0.1/src/master/brake/analyze/visual.py?at=master">Source</a></p>
 <span class="target" id="module-brake.analyze.visual"></span><p>This module defines the following functions:</p>
-<div class="highlight-python"><pre>- plot_eigs_cover:
+<div class="highlight-python"><div class="highlight"><pre>- plot_eigs_cover:
 
   plots all the eigenvalues (critical in red and normal in green) and the disc covering all the 
-  eigenvalues. The output is generated as 'plotcover.png' in the output directory(with path 
+  eigenvalues. The output is generated as &#39;plotcover.png&#39; in the output directory(with path 
   provided as input in the variable output_path).
 
 - plot_eigs_transition
 
   plots the eigenvalues very close to the imaginary axis, thus showing the transition of the 
   eigenvalues from the stable to the critical region of the target rectangle. The output is 
-  generated as 'plottransition.png' in the output directory(with path provided as input in the 
-  variable output_path).</pre>
+  generated as &#39;plottransition.png&#39; in the output directory(with path provided as input in the 
+  variable output_path).
+</pre></div>
 </div>
 <dl class="function">
 <dt id="brake.analyze.visual.plot_eigs_cover">
@@ -1134,7 +1175,7 @@ Largest Magnitude.    </pre>
 </table>
 </dd></dl>
 
-<div class="admonition-see-also admonition seealso">
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <dl class="last docutils">
 <dt><a class="reference external" href="http://matplotlib.org/api/pyplot_api.html">matplotlib.pyplot</a></dt>
@@ -1160,9 +1201,7 @@ Largest Magnitude.    </pre>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to BrakeSqueal&#8217;s documentation!</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Welcome to BrakeSqueal&#8217;s documentation!</a></li>
 <li><a class="reference internal" href="#brake">brake</a><ul>
 <li><a class="reference internal" href="#init">__init__</a></li>
 </ul>
@@ -1229,7 +1268,7 @@ Largest Magnitude.    </pre>
     </div>
     <div class="footer">
         &copy; Copyright 2014, Ali H. Kadar.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>
