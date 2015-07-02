@@ -11,7 +11,7 @@ texlive-full (for latex documentation generation using sphinx)
 
 Getting Started
 ---------------
-./infoPackages (for information related to python packages installed).
+./infoPackages (for information related to python packages installed, plots generated in ./output/<date/>).
 
 specify all the problem parameters in createBrakeClassObject.py including the logging level, input/output path.
 Don't forget to pass logging level and reference omega when it is called example createBrakeClassObject.returnObject(20,1)
