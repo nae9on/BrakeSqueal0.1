@@ -11,11 +11,18 @@ texlive-full (for latex documentation generation using sphinx)
 
 Getting Started
 ---------------
-specify all the problem parameters in createBrakeClassObject.py including the logging level, input/output path. 
+./infoPackages (for information related to python packages installed).
+
+specify all the problem parameters in createBrakeClassObject.py including the logging level, input/output path.
+ 
 python analyseData.py (for data analysis)
+
 python compareTraditionalPOD.py (for relative error plots comparing traditional approach and POD approach)
+
 python plotEigsExactClassicalPOD.py (for eigenvalue plots comparing traditional approach and POD approach)
-./infoPackages (for information related to python packages installed)
+
+
+
 ./cleanRepository (for cleaning(.pyc, *~) the current repository before pushing changes to bitbucket)
 
 
