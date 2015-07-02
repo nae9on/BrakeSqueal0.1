@@ -24,7 +24,7 @@ python plotEigsExactClassicalPOD.py (for eigenvalue plots comparing traditional 
 
 
 
-./cleanRepository (for cleaning(.pyc, *~) the current repository before pushing changes to bitbucket)
+./cleanRepository (example for cleaning(.pyc, *~) from the current repository before pushing changes to bitbucket)
 
 
 Installation
