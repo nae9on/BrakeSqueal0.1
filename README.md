@@ -14,6 +14,7 @@ Getting Started
 ./infoPackages (for information related to python packages installed).
 
 specify all the problem parameters in createBrakeClassObject.py including the logging level, input/output path.
+Don't forget to pass logging level and reference omega when it is called example createBrakeClassObject.returnObject(20,1)
  
 python analyseData.py (for data analysis)
 
