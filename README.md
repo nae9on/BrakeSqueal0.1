@@ -6,6 +6,7 @@ Introduction
 ------------
 The dynamical modelling of disc brake via finite element method using commercial packages usually results in a large scale quadratic eigen value problem (QEVP) with parameter dependent, non-symmetric coefficients. The parametric study of brake squeal requires the solution of QEVP for several choices of the parameters. The task was to implement a new parameter dependent subspace projection approach, where the subspaces are determined from non-symmetric problems evaluated at many different parameter values, where the dominant modes are calculated by performing a proper orthogonal decomposition (POD). The implementation was done in Python using interfaces to ATLAS LAPACK and BLAS libraries for LU factorization/solve and ARPACK for sparse eigen value problems. 
 
+Useful link with references to different linear algebra libraries: http://www.netlib.org/utk/people/JackDongarra/la-sw.html
 
 Requirements
 ------------
